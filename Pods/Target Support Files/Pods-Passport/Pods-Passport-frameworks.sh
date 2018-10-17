@@ -146,29 +146,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework"
   install_dsym "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Solar/Solar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Turf/Turf.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework"
   install_dsym "${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/MapboxSpeech/MapboxSpeech.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Solar/Solar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Turf/Turf.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
