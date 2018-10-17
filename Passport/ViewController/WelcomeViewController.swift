@@ -24,7 +24,7 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func startScan(_ sender: Any) {
         
-        
+        PhotoScanProcessor.getAuthorized(view: self.view)
         
     }
 }
