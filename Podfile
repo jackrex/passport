@@ -8,7 +8,9 @@ target 'Passport' do
   # Pods for Passport
   pod 'Alamofire', '~> 4.7'
   pod 'Toast-Swift', '~> 4.0.0'
-
+  pod 'MapboxNavigation', '~> 0.21.0'
+  pod 'Mapbox-iOS-SDK', '~> 4.5.0'
+  
   target 'PassportTests' do
     inherit! :search_paths
     # Pods for testing

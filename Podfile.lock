@@ -1,20 +1,57 @@
 PODS:
   - Alamofire (4.7.3)
+  - Mapbox-iOS-SDK (4.5.0)
+  - MapboxCoreNavigation (0.21.0):
+    - MapboxDirections.swift (~> 0.23.0)
+    - MapboxMobileEvents (~> 0.5)
+    - Turf (~> 0.2)
+  - MapboxDirections.swift (0.23.0):
+    - Polyline (~> 4.2)
+  - MapboxMobileEvents (0.6.0)
+  - MapboxNavigation (0.21.0):
+    - Mapbox-iOS-SDK (~> 4.3)
+    - MapboxCoreNavigation (= 0.21.0)
+    - MapboxSpeech (~> 0.0.1)
+    - Solar (~> 2.1)
+  - MapboxSpeech (0.0.2)
+  - Polyline (4.2.0)
+  - Solar (2.1.0)
   - Toast-Swift (4.0.0)
+  - Turf (0.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Mapbox-iOS-SDK (~> 4.5.0)
+  - MapboxNavigation (~> 0.21.0)
   - Toast-Swift (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Mapbox-iOS-SDK
+    - MapboxCoreNavigation
+    - MapboxDirections.swift
+    - MapboxMobileEvents
+    - MapboxNavigation
+    - MapboxSpeech
+    - Polyline
+    - Solar
     - Toast-Swift
+    - Turf
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Mapbox-iOS-SDK: fb9dde66106a8f10d351f9697ac198049c8e5511
+  MapboxCoreNavigation: 7ebea41962bb400346c98ac3b239bf970cbb86a5
+  MapboxDirections.swift: 1c8eb3fd29b7548d9ce53edc99e2e2aabfa767fa
+  MapboxMobileEvents: 0218869f556a7fdac9f869e2f9c10e8c6dd7eed5
+  MapboxNavigation: f85d34ec385c7f4a7a9f4b8893cf1fa71047f8e5
+  MapboxSpeech: 9d46bca4d7e96318ec8d6ce93a1153ebaef319ba
+  Polyline: 3d69f75bb136357e27291d439d0436c6ebda57a4
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   Toast-Swift: 594b5c5e5129f15438e410207e43287f027b3c00
+  Turf: 9763a5a2d7da05dfdd5ed56aeb0414b291b0fee1
 
-PODFILE CHECKSUM: 101dcee89eb2a7ad37d8ab6b95c9ab41b98d5fb7
+PODFILE CHECKSUM: 7890b14608227dc6f5faa2ca6774a5bfa5c84729
 
 COCOAPODS: 1.5.3
