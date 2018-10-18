@@ -14,8 +14,8 @@
 
 + (void)fetchStatsInfoWithCallback:(void (^)(BOOL success, NSDictionary *dic))callback {
     KEPRequest *request = [[KEPRequest alloc] init];
-    request.requestMethod = KEPRequestMethodGET;
-    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/stats/v1/home";
+    request.requestMethod = KEPRequestMethodPOST;
+    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/box/hackday/stats";
     [request startWithBlock:^(__kindof KEPRequest * _Nonnull request) {
         NSDictionary *data = [request.responseDictionary objectForKey:kResultData];
         StatsModel *stats = [[StatsModel alloc] initWithDictionary:data error:nil];

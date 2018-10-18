@@ -84,10 +84,14 @@ class PrepareViewController: UIViewController {
     func mergeHashData() -> [String] {
         var countries: [String] = []
         for hash in hashList {
-            let cityData = hashCityList[hash]!
-            if !countries.contains(cityData.iso2) {
-                countries.append(cityData.iso2)
+            if let cityData = hashCityList[hash] {
+                if !countries.contains(cityData.iso2) {
+                    countries.append(cityData.iso2)
+                }
+            }else {
+                continue
             }
+            
         }
         return countries
         
