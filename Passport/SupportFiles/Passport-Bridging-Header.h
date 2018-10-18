@@ -4,3 +4,4 @@
 
 #import "Dummy.h"
 #import "PHPersonHandler.h"
+#import "KEPWelcomeVideoView.h"

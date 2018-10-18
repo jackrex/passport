@@ -9,13 +9,31 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    
+    let videoView = KEPWelcomeVideoView.init(frame: UIScreen.main.bounds)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.addSubview(videoView)
+        self.navigationController?.navigationBar.isHidden = true
+        let loginView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "LoginViewController").view
+        self.view.addSubview(loginView!)
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     @IBAction func connectKeep(_ sender: Any) {
         PHPersonHandler.sharedInstance()

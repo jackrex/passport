@@ -15,7 +15,13 @@
 		D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2B21777984002D1D99 /* PhotoHashData.swift */; };
 		D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2D2177832E002D1D99 /* DateUtil.swift */; };
 		D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF2F21781875002D1D99 /* Earth.mp4 */; };
-		D8DE7DEA2176DBCD004F1A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */; };
+		D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */; };
+		D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */; };
+		D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF3A217821B2002D1D99 /* LoginView.storyboard */; };
+		D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3C217824E1002D1D99 /* LoginViewController.swift */; };
+		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
+		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
+		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
 		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
 		D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */; };
@@ -68,8 +74,15 @@
 		D87DDF2B21777984002D1D99 /* PhotoHashData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHashData.swift; sourceTree = "<group>"; };
 		D87DDF2D2177832E002D1D99 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		D87DDF2F21781875002D1D99 /* Earth.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Earth.mp4; sourceTree = "<group>"; };
+		D87DDF3121781C63002D1D99 /* KEPWelcomeVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPWelcomeVideoView.h; sourceTree = "<group>"; };
+		D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPWelcomeVideoView.m; sourceTree = "<group>"; };
+		D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenUtil.swift; sourceTree = "<group>"; };
+		D87DDF3A217821B2002D1D99 /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		D87DDF3C217824E1002D1D99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUtil.swift; sourceTree = "<group>"; };
+		D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPicViewController.swift; sourceTree = "<group>"; };
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppDelegate.swift; sourceTree = "<group>"; };
 		D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		D8DE7DF02176DBCD004F1A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -154,6 +167,67 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D87DDF3421781C8B002D1D99 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D8DE7E262177386D004F1A95 /* PhotoMeta.swift */,
+				D87DDF2B21777984002D1D99 /* PhotoHashData.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		D87DDF3521781CA7002D1D99 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
+				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
+				D8DE7E1D2176DD29004F1A95 /* Dummy.h */,
+				D8DE7E1E2176DD29004F1A95 /* Dummy.m */,
+				D8DE7E1C2176DD29004F1A95 /* Passport-Bridging-Header.h */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		D87DDF3621781D55002D1D99 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D8DE7E242176E014004F1A95 /* PhotoScanProcessor.swift */,
+				D87DDF2921777004002D1D99 /* Geohash.swift */,
+				D87DDF282177687F002D1D99 /* PHPerson.h */,
+				D87DDF2521776809002D1D99 /* PHPersonHandler.h */,
+				D87DDF2621776809002D1D99 /* PHPersonHandler.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D87DDF3721781D66002D1D99 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D87DDF3121781C63002D1D99 /* KEPWelcomeVideoView.h */,
+				D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D87DDF402178253D002D1D99 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */,
+				D87DDF2D2177832E002D1D99 /* DateUtil.swift */,
+				D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D87DDF43217825CE002D1D99 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D87DDF3C217824E1002D1D99 /* LoginViewController.swift */,
+				D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		D8DE7DDD2176DBCD004F1A95 = {
 			isa = PBXGroup;
 			children = (
@@ -179,24 +253,16 @@
 		D8DE7DE82176DBCD004F1A95 /* Passport */ = {
 			isa = PBXGroup;
 			children = (
-				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
+				D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */,
 				D8DE7E1B2176DD0F004F1A95 /* ViewController */,
+				D87DDF3521781CA7002D1D99 /* SupportFiles */,
+				D87DDF3421781C8B002D1D99 /* Entity */,
+				D87DDF3621781D55002D1D99 /* Core */,
+				D87DDF402178253D002D1D99 /* Util */,
+				D87DDF3A217821B2002D1D99 /* LoginView.storyboard */,
 				D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */,
 				D8DE7DF22176DBCF004F1A95 /* Assets.xcassets */,
-				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
 				D8DE7DF72176DBCF004F1A95 /* Info.plist */,
-				D8DE7E1D2176DD29004F1A95 /* Dummy.h */,
-				D8DE7E1E2176DD29004F1A95 /* Dummy.m */,
-				D8DE7E1C2176DD29004F1A95 /* Passport-Bridging-Header.h */,
-				D8DE7E242176E014004F1A95 /* PhotoScanProcessor.swift */,
-				D8DE7E262177386D004F1A95 /* PhotoMeta.swift */,
-				D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */,
-				D87DDF2921777004002D1D99 /* Geohash.swift */,
-				D87DDF282177687F002D1D99 /* PHPerson.h */,
-				D87DDF2521776809002D1D99 /* PHPersonHandler.h */,
-				D87DDF2621776809002D1D99 /* PHPersonHandler.m */,
-				D87DDF2B21777984002D1D99 /* PhotoHashData.swift */,
-				D87DDF2D2177832E002D1D99 /* DateUtil.swift */,
 			);
 			path = Passport;
 			sourceTree = "<group>";
@@ -222,6 +288,8 @@
 		D8DE7E1B2176DD0F004F1A95 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D87DDF3721781D66002D1D99 /* Views */,
+				D87DDF43217825CE002D1D99 /* Login */,
 				D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */,
 				D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */,
 				D8DE7E192176DD08004F1A95 /* GroupsTableViewController.swift */,
@@ -345,6 +413,7 @@
 				D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */,
 				D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
+				D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,12 +526,17 @@
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
-				D8DE7DEA2176DBCD004F1A95 /* AppDelegate.swift in Sources */,
+				D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */,
+				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
+				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
+				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
+				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
+				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,7 +724,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keep.Passport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Passport/Passport-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Passport/SupportFiles/Passport-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,7 +747,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keep.Passport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Passport/Passport-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Passport/SupportFiles/Passport-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

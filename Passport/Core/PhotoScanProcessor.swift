@@ -103,7 +103,7 @@ class PhotoScanProcessor {
         for photo in photos {
             let hash = Geohash.encode(latitude: (photo.location?.coordinate.latitude)!, longitude: (photo.location?.coordinate.longitude)!, precision: Geohash.Precision.twentyKilometers)
 
-           // print("\(DateUtil.date2Str(date: photo.time!)),\(hash)")
+            print("\(DateUtil.date2Str(date: photo.time!)),\(hash)")
             
             if hashDict[hash] == nil {
                 let photoHashData = PhotoHashData()
@@ -124,9 +124,9 @@ class PhotoScanProcessor {
         
         //TODO print data
         //geolist totalcount daystotalcount randomPicPos
-        for dict in hashDict {
-            print(dict.value.toString())
-        }
+//        for dict in hashDict {
+//            print(dict.value.toString())
+//        }
 
         return geoHashList
     }
