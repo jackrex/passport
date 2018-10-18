@@ -14,7 +14,7 @@ struct LoginData: Decodable {
     var username: String
     var avatar: String
     var birthday: CLongLong
-    var cityCode: String
+    var cityCode: String?
     var gender: String
 }
 

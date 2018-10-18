@@ -5,6 +5,7 @@
 #import "Dummy.h"
 #import "PHPersonHandler.h"
 #import "KEPWelcomeVideoView.h"
+#import "KPESchduleConfirmProgressView.h"
 #import "TripDetailViewController.h"
 #import "TripDetailViewModel.h"
 

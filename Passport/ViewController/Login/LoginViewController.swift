@@ -44,6 +44,8 @@ class LoginViewController: UIViewController {
         
         let phone = phoneTextField.text
         let pwd = passwordField.text
+        self.delegate.loginFinish()
+        return
         HttpApi.login(phone!, pwd!) { (data) in
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)
@@ -52,6 +54,7 @@ class LoginViewController: UIViewController {
             }catch {
                 let nsError = error as NSError
                 print(nsError.debugDescription)
+                SVProgressHUD.showInfo(withStatus: "数据解析错误")
             }
 
         }

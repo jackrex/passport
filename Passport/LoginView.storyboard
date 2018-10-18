@@ -247,7 +247,7 @@
                                     <constraint firstAttribute="height" constant="156" id="Kxd-JY-Xze"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWa-n4-0Ym" customClass="KCircleView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWa-n4-0Ym">
                                 <rect key="frame" x="123.5" y="256" width="128" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -279,7 +279,7 @@
                         <outlet property="bottomBtn" destination="UG0-tJ-bmi" id="Lg1-YP-ZMl"/>
                         <outlet property="countryListView" destination="tV5-iK-pwB" id="XWL-44-wuX"/>
                         <outlet property="percentMemoryLabel" destination="FME-Oi-bjy" id="l6p-JX-SKv"/>
-                        <outlet property="progressView" destination="FWa-n4-0Ym" id="QpV-I9-Xhe"/>
+                        <outlet property="progressContainerView" destination="FWa-n4-0Ym" id="FK1-Zx-72y"/>
                         <outlet property="timeReverseLabel" destination="wnr-43-N2C" id="ng4-Yz-77M"/>
                         <outlet property="topMottoLabel" destination="2Ke-Vy-5zt" id="42f-fI-kY1"/>
                     </connections>

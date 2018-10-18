@@ -59,7 +59,6 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
             }) { (finished) in
             }
         }
-       
  
     }
     

@@ -29,7 +29,7 @@ class HttpApi: NSObject {
                 break
             case .failure(let error):
                 print(error)
-                SVProgressHUD.showInfo(withStatus: "登录出错")
+                SVProgressHUD.showInfo(withStatus: "登录出错,检查密码")
                 break
                 
             }
