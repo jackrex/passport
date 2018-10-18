@@ -17,9 +17,13 @@
 #import <SDWebImage/SDWebImageDownloader.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <KEPIntlCommonUI/KCircleView.h>
+#import <KEPSVProgressHUD/SVProgressHUD.h>
 
 // Stats
 #import "StatsModel.h"
 #import "StatsRequester.h"
-#import <KEPIntlCommonUI/KCircleView.h>
-#import <KEPSVProgressHUD/SVProgressHUD.h>
+
+// Trips
+#import "TripsModel.h"
+#import "TripsRequester.h"
