@@ -23,13 +23,13 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        
-    }
+
+
+//    @IBAction func connectKeep(_ sender: Any) {
+//        let viewModel = TripDetailViewModel()
+//        let vc = TripDetailViewController.init(viewModel: viewModel)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     override var prefersStatusBarHidden: Bool {
         return true

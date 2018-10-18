@@ -91,6 +91,18 @@ EOM
       ;;
   esac
 }
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/DateTools/DateTools/Assets/DateTools.bundle"
+  install_resource "${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPGradientNavigationView/KEPGradientNavigationView.xib"
+  install_resource "${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI.bundle"
+  install_resource "${PODS_ROOT}/KEPSVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/DateTools/DateTools/Assets/DateTools.bundle"
+  install_resource "${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPGradientNavigationView/KEPGradientNavigationView.xib"
+  install_resource "${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI.bundle"
+  install_resource "${PODS_ROOT}/KEPSVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

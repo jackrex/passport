@@ -1,4 +1,6 @@
-# Uncomment the next line to define a global platform for your project
+source 'ssh://git@phab.gotokeep.com/source/keep_internaionalization.git'
+source 'ssh://git@phab.gotokeep.com/source/iOS_third_framework.git'
+source 'https://github.com/CocoaPods/Specs.git'
 # platform :ios, '9.0'
 
 target 'Passport' do
@@ -9,6 +11,15 @@ target 'Passport' do
   pod 'Alamofire', '~> 4.7'
   pod 'Toast-Swift', '~> 4.0.0'
   pod 'Mapbox-iOS-SDK', '~> 4.5.0'
+  pod 'KEPIntlCommon', '0.0.45.1'
+  pod 'ReactiveObjC','3.0.0.1'
+  pod 'KEPIntlJSONModel', '1.7.0-rc.1.2.1'
+  pod 'BlocksKit', '2.3.3.1'
+  pod 'iCarousel', '1.8.3'
+  pod 'Masonry','1.1.0.1'
+  pod 'KEPSVProgressHUD', '0.0.4.1'
+  pod 'KEPIntlCommonUI', '0.0.66.1'
+  pod 'GZIP', '0.0.3.1'
   
   target 'PassportTests' do
     inherit! :search_paths

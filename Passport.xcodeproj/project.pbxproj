@@ -22,6 +22,20 @@
 		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
 		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
+		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
+		B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */; };
+		B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */; };
+		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
+		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
+		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
+		B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */; };
+		B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB0217764E700C47258 /* TripDetailCarouseView.m */; };
+		B6DFCEB42177652000C47258 /* TripDetailCarouseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB32177652000C47258 /* TripDetailCarouseViewModel.m */; };
+		B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB62177656F00C47258 /* TripDetailModel.m */; };
+		B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB9217765BF00C47258 /* TripPenetrateBaseViewModel.m */; };
+		B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBC2177677200C47258 /* TripDetailTableView.m */; };
+		B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */; };
+		B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */; };
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
 		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
 		D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */; };
@@ -65,6 +79,35 @@
 		826302745DFFF33B46F72147 /* Pods-PassportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A11E486CA3E7D15668A710F /* Pods-PassportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA47B98829EE2FB5FB7FEB14 /* Pods_Passport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60D3A41217823D40099547D /* TripDetailTableViewBaseDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewBaseDataSource.h; sourceTree = "<group>"; };
+		B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewBaseDataSource.m; sourceTree = "<group>"; };
+		B60D3A44217824B60099547D /* TripDetailTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewDataSource.h; sourceTree = "<group>"; };
+		B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewDataSource.m; sourceTree = "<group>"; };
+		B60D3A4721782BFD0099547D /* KEPRTActivityToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPRTActivityToggle.h; sourceTree = "<group>"; };
+		B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPRTActivityToggle.m; sourceTree = "<group>"; };
+		B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
+		B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
+		B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewModel.h; sourceTree = "<group>"; };
+		B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewModel.m; sourceTree = "<group>"; };
+		B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPOutdoorActivitySummaryMGLMapView.m; sourceTree = "<group>"; };
+		B6DFCEAA217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPOutdoorActivitySummaryMGLMapView.h; sourceTree = "<group>"; };
+		B6DFCEAC217762C400C47258 /* TripDetailMapViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailMapViewModel.h; sourceTree = "<group>"; };
+		B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailMapViewModel.m; sourceTree = "<group>"; };
+		B6DFCEAF217764E700C47258 /* TripDetailCarouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailCarouseView.h; sourceTree = "<group>"; };
+		B6DFCEB0217764E700C47258 /* TripDetailCarouseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailCarouseView.m; sourceTree = "<group>"; };
+		B6DFCEB22177652000C47258 /* TripDetailCarouseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailCarouseViewModel.h; sourceTree = "<group>"; };
+		B6DFCEB32177652000C47258 /* TripDetailCarouseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailCarouseViewModel.m; sourceTree = "<group>"; };
+		B6DFCEB52177656F00C47258 /* TripDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailModel.h; sourceTree = "<group>"; };
+		B6DFCEB62177656F00C47258 /* TripDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailModel.m; sourceTree = "<group>"; };
+		B6DFCEB8217765BF00C47258 /* TripPenetrateBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripPenetrateBaseViewModel.h; sourceTree = "<group>"; };
+		B6DFCEB9217765BF00C47258 /* TripPenetrateBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripPenetrateBaseViewModel.m; sourceTree = "<group>"; };
+		B6DFCEBB2177677200C47258 /* TripDetailTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailTableView.h; sourceTree = "<group>"; };
+		B6DFCEBC2177677200C47258 /* TripDetailTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableView.m; sourceTree = "<group>"; };
+		B6DFCEBE217767A300C47258 /* TripDetailTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewModel.h; sourceTree = "<group>"; };
+		B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewModel.m; sourceTree = "<group>"; };
+		B6DFCEC12177757500C47258 /* TripDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailHeader.h; sourceTree = "<group>"; };
+		B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KEP_OutdoorActivity.m"; sourceTree = "<group>"; };
+		B6DFCEC3217776DE00C47258 /* UIView+KEP_OutdoorActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KEP_OutdoorActivity.h"; sourceTree = "<group>"; };
 		D81ED50558BD9F19085B2840 /* Pods-Passport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.release.xcconfig"; sourceTree = "<group>"; };
 		D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewController.swift; sourceTree = "<group>"; };
 		D87DDF2521776809002D1D99 /* PHPersonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonHandler.h; sourceTree = "<group>"; };
@@ -152,6 +195,42 @@
 				30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6DFCEA221775E0C00C47258 /* TripDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A4721782BFD0099547D /* KEPRTActivityToggle.h */,
+				B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */,
+				B6DFCEAA217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.h */,
+				B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */,
+				B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */,
+				B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */,
+				B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */,
+				B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */,
+				B6DFCEAC217762C400C47258 /* TripDetailMapViewModel.h */,
+				B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */,
+				B6DFCEAF217764E700C47258 /* TripDetailCarouseView.h */,
+				B6DFCEB0217764E700C47258 /* TripDetailCarouseView.m */,
+				B6DFCEB22177652000C47258 /* TripDetailCarouseViewModel.h */,
+				B6DFCEB32177652000C47258 /* TripDetailCarouseViewModel.m */,
+				B6DFCEB8217765BF00C47258 /* TripPenetrateBaseViewModel.h */,
+				B6DFCEB9217765BF00C47258 /* TripPenetrateBaseViewModel.m */,
+				B6DFCEBB2177677200C47258 /* TripDetailTableView.h */,
+				B6DFCEBC2177677200C47258 /* TripDetailTableView.m */,
+				B6DFCEBE217767A300C47258 /* TripDetailTableViewModel.h */,
+				B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */,
+				B6DFCEB52177656F00C47258 /* TripDetailModel.h */,
+				B6DFCEB62177656F00C47258 /* TripDetailModel.m */,
+				B6DFCEC12177757500C47258 /* TripDetailHeader.h */,
+				B6DFCEC3217776DE00C47258 /* UIView+KEP_OutdoorActivity.h */,
+				B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */,
+				B60D3A41217823D40099547D /* TripDetailTableViewBaseDataSource.h */,
+				B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */,
+				B60D3A44217824B60099547D /* TripDetailTableViewDataSource.h */,
+				B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */,
+			);
+			path = TripDetail;
 			sourceTree = "<group>";
 		};
 		C30204E7D9B71FD2EA94FEFF /* Pods */ = {
@@ -290,6 +369,7 @@
 			children = (
 				D87DDF3721781D66002D1D99 /* Views */,
 				D87DDF43217825CE002D1D99 /* Login */,
+				B6DFCEA221775E0C00C47258 /* TripDetail */,
 				D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */,
 				D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */,
 				D8DE7E192176DD08004F1A95 /* GroupsTableViewController.swift */,
@@ -312,6 +392,7 @@
 				D8DE7DE32176DBCD004F1A95 /* Frameworks */,
 				D8DE7DE42176DBCD004F1A95 /* Resources */,
 				AA0EE8049D741079D14FF1D7 /* [CP] Embed Pods Frameworks */,
+				580204F8E89DB208EED4A6C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,6 +533,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		580204F8E89DB208EED4A6C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-resources.sh",
+				"${PODS_ROOT}/DateTools/DateTools/Assets/DateTools.bundle",
+				"${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPGradientNavigationView/KEPGradientNavigationView.xib",
+				"${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI.bundle",
+				"${PODS_ROOT}/KEPSVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KEPGradientNavigationView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KEPIntlCommonUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		76B6B78491D5C5A9329DE188 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +586,7 @@
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -488,6 +594,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -520,16 +627,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
+				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
+				B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */,
 				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
 				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
+				B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */,
+				B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */,
+				B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */,
+				B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */,
+				B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
 				D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */,
 				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
+				B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */,
+				B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */,
+				B6DFCEB42177652000C47258 /* TripDetailCarouseViewModel.m in Sources */,
+				B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */,
+				B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */,
+				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
+				B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
 				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
@@ -538,6 +659,7 @@
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
+				B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
