@@ -29,12 +29,31 @@
 	<true/>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>需要访问你的地理位置,请点击允许</string>
+	<string>需要访问您的位置，请点击允许</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>需要访问你的地理位置,请点击允许</string>
+	<string>需要访问您的位置，请点击允许</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要访问您的相册，请点击允许</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Keep_font.ttf</string>
+		<string>TradeGothicLTStd.otf</string>
+		<string>ArchivoNarrow-Regular.otf</string>
+		<string>ArchivoNarrow-Bold.otf</string>
+		<string>Padaloma-Italic.ttf</string>
+		<string>SF-Pro-Text-Semibold.otf</string>
+		<string>SF-Pro-Text-Regular.otf</string>
+		<string>SF-Pro-Text-Bold.otf</string>
+		<string>SF-Pro-Display-Semibold.otf</string>
+		<string>SF-Pro-Display-Regular.otf</string>
+		<string>SF-Pro-Display-Bold.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -68,30 +87,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
-	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>aa</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>bb</string>
-	<key>LSApplicationCategoryType</key>
-	<dict>
-		<key>Allow Arbitrary Loads</key>
-		<true/>
-	</dict>
-    <key>UIAppFonts</key>
-    <array>
-        <string>Keep_font.ttf</string>
-        <string>TradeGothicLTStd.otf</string>
-        <string>ArchivoNarrow-Regular.otf</string>
-        <string>ArchivoNarrow-Bold.otf</string>
-        <string>Padaloma-Italic.ttf</string>
-        <string>SF-Pro-Text-Semibold.otf</string>
-        <string>SF-Pro-Text-Regular.otf</string>
-        <string>SF-Pro-Text-Bold.otf</string>
-        <string>SF-Pro-Display-Semibold.otf</string>
-        <string>SF-Pro-Display-Regular.otf</string>
-        <string>SF-Pro-Display-Bold.otf</string>
-    </array>
 </dict>
 </plist>

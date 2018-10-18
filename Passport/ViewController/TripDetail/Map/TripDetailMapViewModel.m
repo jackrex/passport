@@ -43,14 +43,20 @@
     self.mapView.logoView.hidden = YES;
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
-    self.mapView.userTrackingMode = MGLUserTrackingModeFollow;
-//    self.mapView.minimumZoomLevel = TripDetailDefaultMinLevel;
-    [self _kep_setupDefaultZoomLevel:NO];
+    self.mapView.showsUserLocation = NO;
+    [self.mapView setUserTrackingMode:MGLUserTrackingModeNone];
+    if (self.fromType == KEPAthleticFieldFromTypeTrip) {
+        self.mapView.minimumZoomLevel = 8;
+        [self _kep_setupDefaultZoomLevel:NO];
+    } else {
+        self.mapView.minimumZoomLevel = TripDetailDefaultMinLevel;
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.9087, 116.3975) animated:YES];
+    }
 }
 
 
 - (void)_kep_setupDefaultZoomLevel:(BOOL)animation {
-//    [self.mapView setZoomLevel:TripDetailDefaultLevel animated:animation];
+    [self.mapView setZoomLevel:TripDetailDefaultLevel animated:animation];
 }
 
 @end

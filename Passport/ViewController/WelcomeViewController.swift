@@ -37,6 +37,13 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
             
         }
         
+
+        
+        
+        let vm = TripDetailViewModel()
+        vm.fromType = .group
+        let vc = TripDetailViewController.init(viewModel: vm)
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     func loginFinish() {

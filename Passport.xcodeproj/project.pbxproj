@@ -44,6 +44,7 @@
 		B60D3A7221783F410099547D /* KEPBaseEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6821783F410099547D /* KEPBaseEntryCell.m */; };
 		B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */; };
 		B60D3A752178529C0099547D /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A742178529C0099547D /* FlexiblePageControl.swift */; };
+		B60D3A812178BE590099547D /* TripDetailRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A802178BE590099547D /* TripDetailRequester.m */; };
 		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
 		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
 		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
@@ -172,6 +173,8 @@
 		B60D3A6821783F410099547D /* KEPBaseEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPBaseEntryCell.m; sourceTree = "<group>"; };
 		B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KEPBaseEntryCell+Helper.m"; sourceTree = "<group>"; };
 		B60D3A742178529C0099547D /* FlexiblePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
+		B60D3A7F2178BE590099547D /* TripDetailRequester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailRequester.h; sourceTree = "<group>"; };
+		B60D3A802178BE590099547D /* TripDetailRequester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailRequester.m; sourceTree = "<group>"; };
 		B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
 		B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
 		B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewModel.h; sourceTree = "<group>"; };
@@ -421,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				B60D3A5421783F410099547D /* Cell */,
-				B60D3A4D217838C10099547D /* Cells */,
 				B6DFCEBB2177677200C47258 /* TripDetailTableView.h */,
 				B6DFCEBC2177677200C47258 /* TripDetailTableView.m */,
 				B6DFCEBE217767A300C47258 /* TripDetailTableViewModel.h */,
@@ -432,13 +434,6 @@
 				B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */,
 			);
 			path = TableView;
-			sourceTree = "<group>";
-		};
-		B60D3A4D217838C10099547D /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		B60D3A5421783F410099547D /* Cell */ = {
@@ -477,9 +472,19 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		B60D3A7E2178BE380099547D /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A7F2178BE590099547D /* TripDetailRequester.h */,
+				B60D3A802178BE590099547D /* TripDetailRequester.m */,
+			);
+			path = Requester;
+			sourceTree = "<group>";
+		};
 		B6DFCEA221775E0C00C47258 /* TripDetail */ = {
 			isa = PBXGroup;
 			children = (
+				B60D3A7E2178BE380099547D /* Requester */,
 				B60D3A4B217837820099547D /* Map */,
 				B60D3A4A2178375A0099547D /* Carouse */,
 				B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */,
@@ -921,6 +926,7 @@
 				D84DC9612178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m in Sources */,
 				D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */,
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
+				B60D3A812178BE590099547D /* TripDetailRequester.m in Sources */,
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
 				3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */,
 				3E2FD4A821783AF000B7365B /* StatsPoetryDistanceCell.swift in Sources */,

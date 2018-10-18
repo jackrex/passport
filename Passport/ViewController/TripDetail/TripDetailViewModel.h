@@ -15,9 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TripDetailViewModel : NSObject
 
-@property (nonatomic, assign) KEPAthleticFieldSceneType sceneType;
+@property(nonatomic, assign) KEPAthleticFieldSceneType sceneType;
+@property(nonatomic, assign) KEPAthleticFieldFromType fromType;
+@property(nonatomic, copy) NSString *requetId;
 
-@property (nonatomic, strong, nullable) NSMutableArray<TripDetailModel *> *tripModels;
+@property (nonatomic, strong, nullable) NSArray <TripDetailModel *> *tripModels;
 
 @property (nonatomic, assign) BOOL scrollingDetailPage;
 @property (nonatomic, assign) BOOL willOutOfBounds;

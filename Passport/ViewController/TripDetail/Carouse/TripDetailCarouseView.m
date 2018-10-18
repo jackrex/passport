@@ -227,6 +227,7 @@ static CGFloat const CardScreenMargin = 24;
 - (TripDetailTableView *)_kep_createTableView {
     TripDetailTableViewModel *viewModel = [[TripDetailTableViewModel alloc] init];
     viewModel.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds) - 2 * CardScreenMargin, CGRectGetHeight(self.bounds));
+    viewModel.fromType = self.viewModel.fromType;
     @weakify(self);
     viewModel.scrollViewDidScrollBlock = ^(UIScrollView *_Nonnull scrollView) {
         @strongify(self);

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TripDetailMapViewModel : NSObject
 
 @property (nonatomic, assign) KEPAthleticFieldSceneType sceneType;
+@property(nonatomic, assign) KEPAthleticFieldFromType fromType;
 
 - (void)configureMapView:(nonnull __kindof UIView *)mapView;
 

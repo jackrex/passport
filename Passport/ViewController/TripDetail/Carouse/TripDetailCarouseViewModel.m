@@ -17,7 +17,7 @@
 
 @implementation TripDetailCarouseViewModel
 
-- (void)setTripModels:(NSMutableArray<TripDetailModel *> *)tripModels {
+- (void)setTripModels:(NSArray<TripDetailModel *> *)tripModels {
     _tripModels = tripModels;
     self.wrap = tripModels.count > 2;
 }

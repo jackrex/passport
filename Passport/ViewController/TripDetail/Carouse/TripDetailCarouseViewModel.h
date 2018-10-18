@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TripDetailCarouseViewModel : TripPenetrateBaseViewModel
 
-@property (nonatomic, strong, nullable) NSMutableArray<TripDetailModel *> *tripModels;
+@property (nonatomic, strong, nullable) NSArray <TripDetailModel *> *tripModels;
 @property (nonatomic, strong, nullable) TripDetailModel *currentTripModel;
 @property (nonatomic, assign, readonly) BOOL wrap;
 

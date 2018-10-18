@@ -5,21 +5,34 @@
 //  Created by Wenbo Cao on 2018/10/17.
 //  Copyright © 2018 Passport. All rights reserved.
 //
-
+#import <DateTools/DateTools.h>
 #import "TripDetailModel.h"
 
 @implementation TripDetailModel
 
-+ (NSArray *)testModels {
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSInteger i = 0; i < 5; i++) {
-        TripDetailModel *model = [[TripDetailModel alloc] init];
-        model.dayIndex = i;
-        model.cityName = [NSString stringWithFormat:@"city%ld", i];
-        model.dateText = @"adasdads";
-        model.text = @"aaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfa";
-        [array addObject:model];
+- (NSString *)dateText {
+    if (!_dateText) {
+        _dateText = [[NSDate dateWithTimeIntervalSince1970:self.date] formattedDateWithFormat:@"yyyy.MM.dd"];;
     }
-    return [array copy];
+    return _dateText;
 }
+
+@end
+
+@implementation TripMetaData
+
+- (TripMetaDataType)dataType {
+    if ([self.type isEqualToString:@"running"]) {
+        return TripMetaDataTypeRunning;
+    } else if ([self.type isEqualToString:@"cycling"]) {
+        return TripMetaDataTypeCycling;
+    }
+    return TripMetaDataTypeStep;
+}
+@end
+
+
+@implementation TripPointModel
+
+
 @end

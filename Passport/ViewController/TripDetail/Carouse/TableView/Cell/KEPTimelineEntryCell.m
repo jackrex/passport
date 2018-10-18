@@ -52,16 +52,26 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
 
 @interface KEPTimelineEntryCell ()
 
+@property(nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) KEPEntryHeaderView *headerView;
 @property (nonatomic, strong) KEPEntryTextView *textView;
 @property (nonatomic, strong) KEPEntryPhotoAndVideoView *photoVideoView;
 @property (nonatomic, strong) KEPEntryMultiPhotosView *photosView;
 @property (nonatomic, strong) KEPEntryMetaAndCardView *metaAndCardView;
-@property (nonatomic, strong) UIView *contentBackgroundView;
 @property (nonatomic) CGFloat cellHeight;
 @end
 
 @implementation KEPTimelineEntryCell
+
+- (void)adjustTableViewContent {
+    [super adjustTableViewContent];
+    self.containerView.layer.masksToBounds = NO;
+}
+
+- (void)addRoundCorner {
+    [super addRoundCorner];
+    self.containerView.layer.masksToBounds = YES;
+}
 
 - (void)updateData:(TripDetailModel *)model
 {
@@ -73,10 +83,22 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
     self.contentView.frame = CGRectMake(0, 0, ScreenSize.width, 0);
     CGFloat originY = 0;
     BOOL bottomSpacing = NO; // 组件是否顶部自带空白
+    
+     {
+         if (self.containerView.superview == nil) {
+             self.containerView = [[UIView alloc] init];
+             self.containerView.layer.masksToBounds = YES;
+             [self.contentView addSubview:self.containerView];
+             [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
+                 make.edges.mas_equalTo(self.contentView);
+             }];
+         }
+    }
+    
     // Header view
     {
         if (self.headerView.superview == nil) {
-            [self.contentView addSubview:self.headerView];
+            [self.containerView addSubview:self.headerView];
         }
         if (self.updateHeightOnly == NO) {
             [self.headerView updateData:model];
@@ -85,9 +107,10 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         bottomSpacing = NO;
     }
     
+    
     if ([KEPEntryPhotoAndVideoView shouldDisplayForData:model]) {
         if (self.photoVideoView.superview == nil) {
-            [self.contentView addSubview:self.photoVideoView];
+            [self.containerView addSubview:self.photoVideoView];
         }
         if (self.updateHeightOnly == NO) {
             [self.photoVideoView updateData:model];
@@ -102,7 +125,7 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         bottomSpacing = YES;
     } else if ([KEPEntryMultiPhotosView shouldDisplayForData:model]) {
         if (self.photosView.superview == nil) {
-            [self.contentView addSubview:self.photosView];
+            [self.containerView addSubview:self.photosView];
         }
         if (self.updateHeightOnly == NO) {
             [self.photosView updateData:model];
@@ -113,7 +136,7 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
     
     if (model.text.length > 0) {
         if (self.textView.superview == nil) {
-            [self.contentView addSubview:self.textView];
+            [self.containerView addSubview:self.textView];
         }
         [self.textView updateData:model];
         SetViewFrame(self.textView, bottomSpacing ? 12 : 0, 0);
@@ -123,7 +146,7 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
     
     if ([KEPEntryMetaAndCardView shouldDisplayForData:model]) {
         if (self.metaAndCardView.superview == nil) {
-            [self.contentView addSubview:self.metaAndCardView];
+            [self.containerView addSubview:self.metaAndCardView];
         }
         if (self.updateHeightOnly == NO) {
             [self.metaAndCardView updateData:model];
@@ -132,14 +155,6 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         bottomSpacing = YES;
     }
 
-    if (self.updateHeightOnly == NO) {
-        if (self.contentBackgroundView.superview == nil) {
-            [self.contentView insertSubview:self.contentBackgroundView atIndex:0];
-        }
-        [self.contentBackgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(self);
-        }];
-    }
 
     CGFloat bottomSpaceViewHeight = 12;
     self.cellHeight = originY + bottomSpaceViewHeight;
@@ -198,11 +213,7 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
 
 - (void)createViewsIfNeededByModel:(TripDetailModel *)model
 {
-    if (self.contentBackgroundView == nil && self.updateHeightOnly == NO) {
-        self.contentBackgroundView = [[UIView alloc] init];
-        self.contentBackgroundView.backgroundColor = [UIColor whiteColor];
-        self.contentView.backgroundColor = [KColorManager tableViewBackgroundColor];
-    }
+
     if (self.headerView == nil) {
         self.headerView = [[KEPEntryHeaderView alloc] init];
         [self observeHeaderView];

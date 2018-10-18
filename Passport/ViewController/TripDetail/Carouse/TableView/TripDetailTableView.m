@@ -29,6 +29,8 @@
         return nil;
     }
     self.viewModel = viewModel;
+    self.delegate = self.tripDataSource;
+    self.dataSource = self.tripDataSource;
     [self _kep_configure];
     [self _kep_setupKVO];
     return self;
@@ -85,8 +87,6 @@
     [[RACObserve(self.viewModel, tripModel) skip:1] subscribeNext:^(TripDetailModel * _Nullable newROI) {
         @strongify(self);
 //        KEPAthleticFieldROI *poi = (KEPAthleticFieldROI *)newROI;
-        self.delegate = self.tripDataSource;
-        self.dataSource = self.tripDataSource;
         self.tripDataSource.sceneType = self.viewModel.sceneType;
         self.tripDataSource.tripModel = self.viewModel.tripModel;
         [self reloadData];

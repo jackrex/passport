@@ -7,6 +7,7 @@
 //
 
 #import "KEPOutdoorActivitySummaryMGLMapView.h"
+#import "TripDetailHeader.h"
 
 @interface KEPOutdoorActivitySummaryMGLMapView ()
 @property (nonatomic, strong) UITapGestureRecognizer *mapTapGestureRecognizer;
@@ -15,7 +16,11 @@
 @implementation KEPOutdoorActivitySummaryMGLMapView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame styleURL:[NSURL URLWithString:@"mapbox://styles/keepintl/cjl4lpr8uasrw2sqnayhda480"]];
+    return [self initWithFrame:frame styleURL:[NSURL URLWithString:kDetaultStyle]];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame styleURL:(NSURL *)styleURL {
+    self = [super initWithFrame:frame styleURL:styleURL];
     if (self) {
         [self addTap];
     }

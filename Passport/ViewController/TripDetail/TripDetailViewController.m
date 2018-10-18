@@ -22,6 +22,7 @@
 #import "TripDetailMapViewModel.h"
 #import "TripDetailModel.h"
 #import "TripDetailCarouseView.h"
+#import "TripDetailRequester.h"
 
 static CGSize const ToggleSize = {36, 36};
 static CGSize const IconSize = {24, 24};
@@ -75,33 +76,21 @@ static CGSize const IconSize = {24, 24};
     [self _kep_setupSubviews];
     [self _kep_bindViewModelToMap];
     [self _kep_setupKVO];
+    [self _kep_fetchTripModels];
     
 
 }
 
 
-- (void)text {
-    KEPMethodLockReturn()
-    self.viewModel.tripModels = [TripDetailModel testModels];
-    self.carouselView.viewModel.tripModels = self.viewModel.tripModels;
-    [self _kep_scrollTableViewVisible];
-}
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self text];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 - (__kindof MGLMapView *)mapView {
     if (!_mapView) {
-        _mapView = [[KEPOutdoorActivitySummaryMGLMapView alloc] initWithFrame:self.view.bounds];
+        _mapView = [[KEPOutdoorActivitySummaryMGLMapView alloc] initWithFrame:self.view.bounds
+                                                                     styleURL:[NSURL URLWithString:self.viewModel.fromType == KEPAthleticFieldFromTypeGroup ? kHeatMapStyle : kDetaultStyle]];
 //        @weakify(self);
 //        ((KEPOutdoorActivitySummaryMGLMapView *)_mapView).didClickMapViewBlock = ^(CGPoint point) {
 //            @strongify(self);
@@ -134,6 +123,7 @@ static CGSize const IconSize = {24, 24};
 - (TripDetailMapViewModel *)mapViewModel {
     if (!_mapViewModel) {
         _mapViewModel = [[TripDetailMapViewModel alloc] init];
+        _mapViewModel.fromType = self.viewModel.fromType;
     }
     return _mapViewModel;
 }
@@ -144,6 +134,7 @@ static CGSize const IconSize = {24, 24};
         viewModel.frame = self.view.bounds;
         viewModel.tableViewMaxOriginY = self.viewModel.tableViewMaxOriginY;
         viewModel.tableViewTopMargin = self.viewModel.tableViewTopMargin;
+        viewModel.fromType = self.viewModel.fromType;
         viewModel.sceneType = self.viewModel.sceneType;
         @weakify(self);
         viewModel.scrollViewDidScrollBlock = ^(UIScrollView *scrollView) {
@@ -272,6 +263,27 @@ static CGSize const IconSize = {24, 24};
 - (void)_kep_bindViewModelToMap {
     [self.mapViewModel configureMapView:self.mapView];
 }
+
+- (void)_kep_fetchTripModels {
+    if (self.viewModel.fromType == KEPAthleticFieldFromTypeTrip) {
+        [SVProgressHUD show];
+        @weakify(self);
+        [TripDetailRequester fetchTripDetailWithId:self.viewModel.requetId callback:^(BOOL success, NSDictionary * _Nonnull dic) {
+            @strongify(self);
+            if (success) {
+                [SVProgressHUD dismiss];
+                NSArray <TripDetailModel *> *datas = dic[kResultData];
+                self.viewModel.tripModels = datas;
+                self.carouselView.viewModel.tripModels = datas;
+                [self _kep_scrollTableViewVisible];
+            } else {
+                [SVProgressHUD showWithStatus:dic[kResultData]];
+            }
+        }];
+    }
+    
+}
+
 
 - (void)_kep_setupKVO {
     @weakify(self);

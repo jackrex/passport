@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat tableViewTopMargin;
 @property (nonatomic, assign) CGFloat tableViewMaxOriginY;
+@property(nonatomic, assign) KEPAthleticFieldFromType fromType;
 @property (nonatomic, assign) KEPAthleticFieldSceneType sceneType;
 
 @property (nonatomic, copy, nullable) void (^scrollViewDidScrollBlock)(UIScrollView *scrollView);
