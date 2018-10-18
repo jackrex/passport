@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2FD4A421783AF000B7365B /* StatsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD49921783AF000B7365B /* StatsRequester.m */; };
+		3E2FD4A521783AF000B7365B /* StatsGazeWorldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD49C21783AF000B7365B /* StatsGazeWorldCell.swift */; };
+		3E2FD4A621783AF000B7365B /* StatsProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD49D21783AF000B7365B /* StatsProfileHeaderView.swift */; };
+		3E2FD4A721783AF000B7365B /* StatsTomorrowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD49E21783AF000B7365B /* StatsTomorrowCell.swift */; };
+		3E2FD4A821783AF000B7365B /* StatsPoetryDistanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD49F21783AF000B7365B /* StatsPoetryDistanceCell.swift */; };
+		3E2FD4A921783AF000B7365B /* StatsDataInsightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD4A021783AF000B7365B /* StatsDataInsightCell.swift */; };
+		3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2FD4A321783AF000B7365B /* StatsModel.m */; };
+		3E2FD4C7217877C300B7365B /* TradeGothicLTStd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4BB217877C300B7365B /* TradeGothicLTStd.otf */; };
+		3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4BC217877C300B7365B /* SF-Pro-Display-Regular.otf */; };
+		3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4BD217877C300B7365B /* SF-Pro-Display-Bold.otf */; };
+		3E2FD4CA217877C300B7365B /* ArchivoNarrow-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4BE217877C300B7365B /* ArchivoNarrow-Regular.otf */; };
+		3E2FD4CB217877C300B7365B /* Padaloma-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4BF217877C300B7365B /* Padaloma-Italic.ttf */; };
+		3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C0217877C300B7365B /* SF-Pro-Display-Semibold.otf */; };
+		3E2FD4CD217877C300B7365B /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C1217877C300B7365B /* SF-Pro-Text-Regular.otf */; };
+		3E2FD4CE217877C300B7365B /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C2217877C300B7365B /* SF-Pro-Text-Bold.otf */; };
+		3E2FD4CF217877C300B7365B /* Keep_font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C3217877C300B7365B /* Keep_font.ttf */; };
+		3E2FD4D0217877C300B7365B /* Keeprun_font_mac.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */; };
+		3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */; };
+		3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */; };
 		73EE3E59A9F784FAAA1F37E8 /* Pods_PassportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4DFCF347104123E39DD01E /* Pods_PassportTests.framework */; };
 		7D2FCC4564F224EE972E5C9D /* Pods_PassportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */; };
 		D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */; };
@@ -102,6 +121,27 @@
 /* Begin PBXFileReference section */
 		2A4DFCF347104123E39DD01E /* Pods_PassportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PassportUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E2FD49921783AF000B7365B /* StatsRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsRequester.m; sourceTree = "<group>"; };
+		3E2FD49A21783AF000B7365B /* StatsRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsRequester.h; sourceTree = "<group>"; };
+		3E2FD49C21783AF000B7365B /* StatsGazeWorldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsGazeWorldCell.swift; sourceTree = "<group>"; };
+		3E2FD49D21783AF000B7365B /* StatsProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsProfileHeaderView.swift; sourceTree = "<group>"; };
+		3E2FD49E21783AF000B7365B /* StatsTomorrowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTomorrowCell.swift; sourceTree = "<group>"; };
+		3E2FD49F21783AF000B7365B /* StatsPoetryDistanceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsPoetryDistanceCell.swift; sourceTree = "<group>"; };
+		3E2FD4A021783AF000B7365B /* StatsDataInsightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDataInsightCell.swift; sourceTree = "<group>"; };
+		3E2FD4A221783AF000B7365B /* StatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsModel.h; sourceTree = "<group>"; };
+		3E2FD4A321783AF000B7365B /* StatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsModel.m; sourceTree = "<group>"; };
+		3E2FD4BB217877C300B7365B /* TradeGothicLTStd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TradeGothicLTStd.otf; sourceTree = "<group>"; };
+		3E2FD4BC217877C300B7365B /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		3E2FD4BD217877C300B7365B /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		3E2FD4BE217877C300B7365B /* ArchivoNarrow-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoNarrow-Regular.otf"; sourceTree = "<group>"; };
+		3E2FD4BF217877C300B7365B /* Padaloma-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Padaloma-Italic.ttf"; sourceTree = "<group>"; };
+		3E2FD4C0217877C300B7365B /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		3E2FD4C1217877C300B7365B /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		3E2FD4C2217877C300B7365B /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		3E2FD4C3217877C300B7365B /* Keep_font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Keep_font.ttf; sourceTree = "<group>"; };
+		3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Keeprun_font_mac.ttf; sourceTree = "<group>"; };
+		3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoNarrow-Bold.otf"; sourceTree = "<group>"; };
 		40BB27FCD85F73018474EBAC /* Pods-PassportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassportTests/Pods-PassportTests.release.xcconfig"; sourceTree = "<group>"; };
 		826302745DFFF33B46F72147 /* Pods-PassportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A11E486CA3E7D15668A710F /* Pods-PassportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,6 +275,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2FD49721783AF000B7365B /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD49821783AF000B7365B /* Requester */,
+				3E2FD49B21783AF000B7365B /* Subviews */,
+				3E2FD4A121783AF000B7365B /* Model */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		3E2FD49821783AF000B7365B /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD49921783AF000B7365B /* StatsRequester.m */,
+				3E2FD49A21783AF000B7365B /* StatsRequester.h */,
+			);
+			path = Requester;
+			sourceTree = "<group>";
+		};
+		3E2FD49B21783AF000B7365B /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD4A021783AF000B7365B /* StatsDataInsightCell.swift */,
+				3E2FD49C21783AF000B7365B /* StatsGazeWorldCell.swift */,
+				3E2FD49F21783AF000B7365B /* StatsPoetryDistanceCell.swift */,
+				3E2FD49D21783AF000B7365B /* StatsProfileHeaderView.swift */,
+				3E2FD49E21783AF000B7365B /* StatsTomorrowCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		3E2FD4A121783AF000B7365B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD4A221783AF000B7365B /* StatsModel.h */,
+				3E2FD4A321783AF000B7365B /* StatsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E2FD4B9217877C300B7365B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD4BA217877C300B7365B /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3E2FD4BA217877C300B7365B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3E2FD4BB217877C300B7365B /* TradeGothicLTStd.otf */,
+				3E2FD4BC217877C300B7365B /* SF-Pro-Display-Regular.otf */,
+				3E2FD4BD217877C300B7365B /* SF-Pro-Display-Bold.otf */,
+				3E2FD4BE217877C300B7365B /* ArchivoNarrow-Regular.otf */,
+				3E2FD4BF217877C300B7365B /* Padaloma-Italic.ttf */,
+				3E2FD4C0217877C300B7365B /* SF-Pro-Display-Semibold.otf */,
+				3E2FD4C1217877C300B7365B /* SF-Pro-Text-Regular.otf */,
+				3E2FD4C2217877C300B7365B /* SF-Pro-Text-Bold.otf */,
+				3E2FD4C3217877C300B7365B /* Keep_font.ttf */,
+				3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */,
+				3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */,
+				3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		A5602E467ABF972675DCF90A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +562,7 @@
 		D8DE7DE82176DBCD004F1A95 /* Passport */ = {
 			isa = PBXGroup;
 			children = (
+				3E2FD4B9217877C300B7365B /* Resources */,
 				D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */,
 				D8DE7E1B2176DD0F004F1A95 /* ViewController */,
 				D87DDF3521781CA7002D1D99 /* SupportFiles */,
@@ -490,6 +598,7 @@
 		D8DE7E1B2176DD0F004F1A95 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3E2FD49721783AF000B7365B /* Stats */,
 				D87DDF3721781D66002D1D99 /* Views */,
 				D87DDF43217825CE002D1D99 /* Login */,
 				B6DFCEA221775E0C00C47258 /* TripDetail */,
@@ -613,11 +722,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2FD4CF217877C300B7365B /* Keep_font.ttf in Resources */,
+				3E2FD4C7217877C300B7365B /* TradeGothicLTStd.otf in Resources */,
 				D8DE7DF62176DBCF004F1A95 /* LaunchScreen.storyboard in Resources */,
+				3E2FD4CA217877C300B7365B /* ArchivoNarrow-Regular.otf in Resources */,
+				3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */,
 				D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */,
+				3E2FD4D0217877C300B7365B /* Keeprun_font_mac.ttf in Resources */,
 				D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */,
+				3E2FD4CB217877C300B7365B /* Padaloma-Italic.ttf in Resources */,
+				3E2FD4CD217877C300B7365B /* SF-Pro-Text-Regular.otf in Resources */,
+				3E2FD4CE217877C300B7365B /* SF-Pro-Text-Bold.otf in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
+				3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */,
+				3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */,
+				3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */,
 				D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */,
+				3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +829,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
 			);
@@ -716,6 +839,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
 			);
@@ -750,12 +875,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */,
+				3E2FD4A721783AF000B7365B /* StatsTomorrowCell.swift in Sources */,
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
+				3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */,
+				3E2FD4A821783AF000B7365B /* StatsPoetryDistanceCell.swift in Sources */,
 				B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */,
 				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
 				B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
+				3E2FD4A521783AF000B7365B /* StatsGazeWorldCell.swift in Sources */,
 				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
 				B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */,
@@ -778,6 +907,7 @@
 				B6DFCEB42177652000C47258 /* TripDetailCarouseViewModel.m in Sources */,
 				B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */,
 				B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */,
+				3E2FD4A421783AF000B7365B /* StatsRequester.m in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
 				B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
@@ -786,10 +916,12 @@
 				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
 				D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */,
 				B60D3A7121783F410099547D /* KEPEntryHeaderView.m in Sources */,
+				3E2FD4A621783AF000B7365B /* StatsProfileHeaderView.swift in Sources */,
 				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
 				B60D3A7021783F410099547D /* KEPEntryMultiPhotosView.m in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
+				3E2FD4A921783AF000B7365B /* StatsDataInsightCell.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
@@ -974,7 +1106,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C62TJ4568H;
+				DEVELOPMENT_TEAM = 6AJL6H6UF5;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -997,7 +1129,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C62TJ4568H;
+				DEVELOPMENT_TEAM = 6AJL6H6UF5;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
