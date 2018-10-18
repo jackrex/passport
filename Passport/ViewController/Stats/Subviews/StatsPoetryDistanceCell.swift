@@ -136,15 +136,15 @@ class StatsFarthestDayView: UIView {
         photoImageView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(28)
             make.width.height.equalTo(142)
-            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-22)
         }
         dateLabel.snp.makeConstraints { (make) in
             make.top.equalTo(photoImageView.snp.bottom).offset(12)
             make.centerX.equalTo(photoImageView)
         }
         stepCountLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(photoImageView.snp.right)
-            make.right.equalToSuperview().offset(-24)
+            make.right.equalTo(photoImageView.snp.left)
+            make.left.equalToSuperview()
             make.height.equalTo(62)
             make.centerY.equalToSuperview()
         }
@@ -177,7 +177,7 @@ class StatsPoetryDistanceCell: StatsBaseCell {
     
     func setupSubviews() {
         titleLabel.text = "诗和远方"
-        descLabel.text = "到过的世界上最遥远的地方、拍下的风景和见过的人"
+        descLabel.text = "到过的最遥远的地方、拍下的风景和见过的人"
         containView.addSubview(farthestPlaceView)
         containView.addSubview(farthestDayView)
         farthestPlaceView.snp.makeConstraints { (make) in
@@ -197,16 +197,20 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         farthestPlaceView.dateLabel.text = formatDateString(stats.poetryDistance.day)
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.city
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.city
-        farthestPlaceView.distanceLabel.text = stats.poetryDistance.distance
+        farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.distance) + "米"
         let farthestPlaceDate = convertToDate(stats.poetryDistance.day)
         PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
-            self!.farthestPlaceView.photoImageView.image = image
+            DispatchQueue.global().async {
+                self!.farthestPlaceView.photoImageView.image = image
+            }
         })
         farthestDayView.dateLabel.text = formatDateString(stats.poetryDistance.farthestWalkedDay.day)
-        farthestDayView.stepCountLabel.text = stats.poetryDistance.farthestWalkedDay.steps
+        farthestDayView.stepCountLabel.text = String(stats.poetryDistance.farthestWalkedDay.steps)
         let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day)
         PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
-            self!.farthestDayView.photoImageView.image = image
+            DispatchQueue.global().async {
+                self!.farthestDayView.photoImageView.image = image
+            }
         })
     }
     
@@ -220,6 +224,7 @@ class StatsPoetryDistanceCell: StatsBaseCell {
     func formatDateString(_ string: String) -> String {
         let date = convertToDate(string)
         let dateFormatter = DateFormatter.init()
+        dateFormatter.locale = Locale.init(identifier: "zh-CN")
         dateFormatter.dateStyle = .full
         return dateFormatter.string(from: date)
     }

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatsGazeWorld : KEPBaseJSONModel
 
-@property(nonatomic, copy) NSString *countryCount;
+@property(nonatomic, assign) NSInteger countryCount;
 @property(nonatomic, copy) NSString *unlockRate;
 @property(nonatomic, copy) NSArray<NSString *> *continents;
 
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StatsFarthestWalkedDay : KEPBaseJSONModel
 
 @property(nonatomic, copy) NSString *day;
-@property(nonatomic, copy) NSString *steps;
+@property(nonatomic, assign) long long steps;
 
 @end
 
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) StatsPlace *from;
 @property(nonatomic, strong) StatsPlace *to;
 @property(nonatomic, copy) NSString *day;
-@property(nonatomic, copy) NSString *distance;
+@property(nonatomic, assign) long long distance;
 @property(nonatomic, strong) StatsFarthestWalkedDay *farthestWalkedDay;
 
 @end

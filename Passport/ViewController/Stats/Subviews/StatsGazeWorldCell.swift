@@ -76,6 +76,7 @@ class StatsGazeWorldCardView: UIView {
 class StatsGazeWorldMapView: UIView {
     
     let nameList = ["亚洲","欧洲","南美洲","北美洲","大洋洲","非洲","南极洲"]
+    let nameCodeMap = ["AS":"亚洲","EU":"欧洲","SA":"南美洲","NA":"北美洲","OC":"大洋洲","AF":"非洲"]
     let continentImages = ["Asia","Europe","SouthAmerica","NorthAmerica","Ocenia","Africa"]
     
     let nameListView = UIView()
@@ -137,10 +138,13 @@ class StatsGazeWorldMapView: UIView {
     func updateUIWithData(_ stats: StatsModel) {
         for idx in 0 ..< nameList.count {
             if let label = nameListView.subviews[idx] as? UILabel {
-                if stats.gazeWorld.continents.contains(label.text!) {
-                    label.textColor = UIColor.kep_color(fromHex: 0x24C789)
-                    if let imageView = mapStatusView.subviews[idx] as? UIImageView {
-                        imageView.image = UIImage(named: continentImages[idx])
+                for continent in stats.gazeWorld.continents {
+                    let name = nameCodeMap[continent]
+                    if name == label.text! {
+                        label.textColor = UIColor.kep_color(fromHex: 0x24C789)
+                        if let imageView = mapStatusView.subviews[idx] as? UIImageView {
+                            imageView.image = UIImage(named: continentImages[idx])
+                        }
                     }
                 }
             }
@@ -195,7 +199,7 @@ class StatsGazeWorldCell: StatsBaseCell {
     }
     
     func updateUIWithData(_ stats: StatsModel) {
-        countryView.valueLabel.text = stats.gazeWorld.countryCount
+        countryView.valueLabel.text = String(stats.gazeWorld.countryCount)
         countryView.imageView.image = UIImage(named: "country")
         unlockView.valueLabel.text = stats.gazeWorld.unlockRate
         unlockView.imageView.image = UIImage(named: "mist")

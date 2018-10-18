@@ -23,6 +23,14 @@ class StatsBaseCell: UITableViewCell {
         $0.font = UIFont.kep_regularPingFangSC(withSize: 12)
     }
     
+    public let shareButton = UIButton.init(type: UIButton.ButtonType.custom).then {
+        $0.backgroundColor = UIColor.kep_color(fromHex: 0x24C789)
+        $0.layer.cornerRadius = 14
+        $0.layer.masksToBounds = true
+        $0.setTitle("分享足迹", for: .normal)
+        $0.titleLabel?.font = UIFont.kep_regularPingFangSC(withSize: 11)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,6 +42,7 @@ class StatsBaseCell: UITableViewCell {
         contentView.addSubview(containView)
         containView.addSubview(titleLabel)
         containView.addSubview(descLabel)
+        containView.addSubview(shareButton)
         containView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(10)
             make.leadingMargin.equalTo(11)
@@ -51,6 +60,12 @@ class StatsBaseCell: UITableViewCell {
             make.leadingMargin.equalTo(11)
             make.trailingMargin.equalTo(-11)
             make.height.equalTo(17)
+        }
+        shareButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(11)
+            make.right.equalToSuperview().offset(-22)
+            make.width.equalTo(80)
+            make.height.equalTo(28)
         }
     }
 }

@@ -105,9 +105,20 @@ class TripsClipTagView: UIView {
     }
     
     @objc public func updateUI(tripsClip: TripsClipModel!) {
-        tagView.isHidden = tripsClip.dayCount < 5
-        descLabel.text = "\(tripsClip.dayCount)日行程"
+        let startDate = convertToDate(tripsClip.startDay)
+        let endDate = convertToDate(tripsClip.endDay)
+        let calendar = Calendar.init(identifier: .gregorian)
+        let comp = calendar.dateComponents([.day], from: endDate, to: startDate)
+        tagView.isHidden = comp.day! < 5
+        descLabel.text = "\(comp.day!)日行程"
         cityTitleLabel.text = tripsClip.cityTitle
         bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
+    }
+    
+    func convertToDate(_ string: String) -> Date {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        let date = dateFormatter.date(from: string)
+        return date!
     }
 }

@@ -219,7 +219,9 @@ class StatsTomorrowCell: StatsBaseCell {
         } else {
             lastTripDayView.iconImageView.image = UIImage(named: "emoji_peaceful_selected")
         }
-        lastTripDayView.valueLabel.text = String(days)
+        let attributedText = NSMutableAttributedString.init(string: String(days) + "天")
+        attributedText.addAttribute(NSAttributedString.Key.font, value: UIFont.kep_regularPingFangSC(withSize: 13), range: NSRange.init(location: String(days).characters.count, length: "天".characters.count))
+        lastTripDayView.valueLabel.attributedText = attributedText
         recommendedDestinationView.updateUIWithData(stats)
     }
     

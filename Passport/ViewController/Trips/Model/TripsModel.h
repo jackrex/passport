@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *_id;
 @property(nonatomic, copy) NSString *cityTitle;
 @property(nonatomic, copy) NSString *pic;
-@property(nonatomic, assign) NSInteger dayCount;
+@property(nonatomic, copy) NSString *startDay;
+@property(nonatomic, copy) NSString *endDay;
+
 
 @end
 
