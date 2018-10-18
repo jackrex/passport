@@ -7,6 +7,7 @@
 //
 
 #import <KEPIntlCommonUI/BaseUIViewController.h>
+
 @class TripDetailViewModel;
 
 NS_ASSUME_NONNULL_BEGIN

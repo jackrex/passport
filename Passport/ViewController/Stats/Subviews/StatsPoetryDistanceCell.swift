@@ -234,15 +234,29 @@ class StatsPoetryDistanceCell: UITableViewCell {
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.city
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.city
         farthestPlaceView.distanceLabel.text = stats.poetryDistance.distance
+        let farthestPlaceDate = convertToDate(stats.poetryDistance.day)
+        PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
+            self!.farthestPlaceView.photoImageView.image = image
+        })
         farthestDayView.dateLabel.text = formatDateString(stats.poetryDistance.farthestWalkedDay.day)
         farthestDayView.stepCountLabel.text = stats.poetryDistance.farthestWalkedDay.steps
+        let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day)
+        PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
+            self!.farthestDayView.photoImageView.image = image
+        })
     }
     
-    func formatDateString(_ string: String) -> String {
+    func convertToDate(_ string: String) -> Date {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyyMMdd"
         let date = dateFormatter .date(from: string)
+        return date!
+    }
+    
+    func formatDateString(_ string: String) -> String {
+        let date = convertToDate(string)
+        let dateFormatter = DateFormatter.init()
         dateFormatter.dateStyle = .full
-        return dateFormatter.string(from: date!)
+        return dateFormatter.string(from: date)
     }
 }
