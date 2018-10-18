@@ -19,7 +19,7 @@ target 'Passport' do
   pod 'iCarousel', '1.8.3'
   pod 'Masonry','1.1.0.1'
   pod 'KEPSVProgressHUD', '0.0.4.1'
-  pod 'KEPIntlCommonUI', '0.0.66.1'
+  pod 'KEPIntlCommonUI', '0.0.66'
   pod 'GZIP', '0.0.3.1'
   pod 'SnapKit', '4.0.1'
   pod 'Then'

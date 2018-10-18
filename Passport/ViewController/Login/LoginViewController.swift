@@ -8,11 +8,17 @@
 
 import UIKit
 
+public protocol LoginViewDelegate {
+    func loginFinish()
+}
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    public var delegate: LoginViewDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +48,7 @@ class LoginViewController: UIViewController {
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)
                 print(dataDict)
+                self.delegate.loginFinish()
             }catch {
                 let nsError = error as NSError
                 print(nsError.debugDescription)

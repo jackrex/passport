@@ -13,4 +13,8 @@ class ResourceUtil: NSObject {
     public static func loginSB() -> UIStoryboard {
         return UIStoryboard.init(name: "LoginView", bundle: nil)
     }
+    
+    public static func mainSB() -> UIStoryboard {
+        return UIStoryboard.init(name: "Main", bundle: nil)
+    }
 }

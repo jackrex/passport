@@ -10,29 +10,33 @@ import UIKit
 import Photos
 import Toast_Swift
 
+typealias ClosureBlock = ()->()
+typealias ImageBlock = (_ image: UIImage?) -> ()
+
 class PhotoScanProcessor {
     
     public static let COMPARE_NUM = 5
     public static let DUP_INTERVAL = 0.7 //use time filter
     public static let GEOHASH_LENGTH = 100
     
-    public static func getAuthorized(view :UIView) -> [(PhotoMeta)] {
+    public static var allPhotos:[(PhotoMeta)] = []
+    
+    public static func getAuthorized(view :UIView, _ block: @escaping ClosureBlock) {
         let authStatus = PHPhotoLibrary.authorizationStatus()
         if authStatus == PHAuthorizationStatus.notDetermined {
             PHPhotoLibrary.requestAuthorization { (status) in
                 if status == PHAuthorizationStatus.authorized {
-                     fetchAllPhotosGPSInfo()
+                    block()
                 }else if status == PHAuthorizationStatus.denied {
                     view.makeToast("Deny")
                 }
             }
         }else if authStatus == PHAuthorizationStatus.authorized {
-            let photos = handleDuplicatePhotos()
-            return photos
+                 block()
         }else {
             view.makeToast("Deny")
         }
-        return []
+   
         
     }
     
@@ -65,6 +69,11 @@ class PhotoScanProcessor {
     }
     
     public static func handleDuplicatePhotos() -> [(PhotoMeta)]  {
+        
+        guard allPhotos.count <= 0 else {
+            return allPhotos
+        }
+        
         // use timestamp && location simliar
         let data = fetchAllPhotosGPSInfo()
         var dupIds: [String] = []
@@ -103,7 +112,7 @@ class PhotoScanProcessor {
         for photo in photos {
             let hash = Geohash.encode(latitude: (photo.location?.coordinate.latitude)!, longitude: (photo.location?.coordinate.longitude)!, precision: Geohash.Precision.twentyKilometers)
 
-            print("\(DateUtil.date2Str(date: photo.time!)),\(hash)")
+            //print("\(DateUtil.date2Str(date: photo.time!)),\(hash)")
             
             if hashDict[hash] == nil {
                 let photoHashData = PhotoHashData()
@@ -124,11 +133,93 @@ class PhotoScanProcessor {
         
         //TODO print data
         //geolist totalcount daystotalcount randomPicPos
-//        for dict in hashDict {
-//            print(dict.value.toString())
-//        }
+        for dict in hashDict {
+            print(dict.value.toString())
+        }
 
         return geoHashList
     }
 
+    public static func getDatePhotos() -> [String: [PhotoMeta]] {
+        let photos = handleDuplicatePhotos()
+        var dateDict: [String: [PhotoMeta]] = [:]
+        for photo in photos {
+            let key: String = DateUtil.date2Str(date: photo.time!)
+            if dateDict[key] == nil {
+                var metas:[PhotoMeta] = []
+                metas.append(photo)
+                dateDict.updateValue(metas, forKey: key)
+            }else {
+                var metas:[PhotoMeta] = dateDict[key]!
+                metas.append(photo)
+                dateDict.updateValue(metas, forKey: key)
+            }
+        }
+        return dateDict
+    }
+    
+    public static func getRandomPhoto(_ date: Date, block: @escaping ImageBlock) {
+//        let options = PHFetchOptions.init()
+//        options.sortDescriptors = [NSSortDescriptor.init(key: "creationDate", ascending: true)]
+//        options.predicate = NSPredicate.init(format: "creationDate == %@", "2015-03-05")
+//        let allPhotos = PHAsset.fetchAssets(with: options)
+//        let asset = allPhotos.object(at: Int.random(in: 0..<allPhotos.count))
+        let dict = getDatePhotos()
+        let metas = dict[DateUtil.date2Str(date: date)]
+        
+        if metas == nil {
+            block(nil)
+            return
+        }
+        
+        if (metas?.count)! <= 0 {
+            //TODO fix that
+            block(nil)
+            return
+        }
+        
+        let asset = metas![Int.random(in: 0..<metas!.count)].asset
+        
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = .exact
+        
+        let scale = UIScreen.main.scale
+        let dimension = CGFloat(200.0)
+        let size = CGSize(width: dimension * scale, height: dimension * scale)
+        
+        PHImageManager.default().requestImage(for: asset!, targetSize: size, contentMode: .aspectFill, options: requestOptions) { (image, info) in
+            DispatchQueue.main.async {
+                block(image!)
+            }
+        }
+    }
+    
+    public static func generateJSON() -> String {
+        let datePhotos = getDatePhotos()
+        var uploadList:[UploadData] = []
+        var upload: Upload = Upload.init(0, uploadList)
+        for (date, metas) in datePhotos {
+            var hashList: [String] = []
+            for meta in metas {
+                let hash = Geohash.encode(latitude: (meta.location?.coordinate.latitude)!, longitude: (meta.location?.coordinate.longitude)!, precision: Geohash.Precision.twentyKilometers)
+                
+                if !hashList.contains(hash) {
+                    hashList.append(hash)
+                }
+                
+            }
+            let uploadData = UploadData.init(date, hashList)
+            uploadList.append(uploadData)
+            
+        }
+        upload.data = uploadList
+        let encoder = JSONEncoder()
+        let encodedUserData = try? encoder.encode(upload)
+        let userDict = try? JSONSerialization.jsonObject(with: encodedUserData!, options: .mutableContainers) as! NSDictionary
+        let jsonData = try? JSONSerialization.data(withJSONObject: userDict, options: [])
+        let jsonString = String(data: jsonData!, encoding: .utf8)!
+        print(jsonString)
+        return jsonString
+    }
+    
 }

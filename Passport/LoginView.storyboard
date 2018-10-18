@@ -158,7 +158,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginClick:" destination="mLc-3L-4lZ" eventType="touchUpInside" id="ErI-hZ-f5k"/>
+                                    <action selector="scanClick:" destination="mLc-3L-4lZ" eventType="touchUpInside" id="SvE-Q9-GVU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫描照片，开启时光旅行。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8M6-hN-472">
@@ -192,12 +192,101 @@
                         <viewLayoutGuide key="safeArea" id="erA-7b-g62"/>
                     </view>
                     <connections>
-                        <outlet property="loginBtn" destination="LH4-Nh-Gzy" id="ekn-ss-eAY"/>
+                        <outlet property="scanBtn" destination="LH4-Nh-Gzy" id="7N6-gg-T8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZd-gk-YWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="4"/>
+            <point key="canvasLocation" x="324" y="4"/>
+        </scene>
+        <!--Prepare View Controller-->
+        <scene sceneID="59d-Tk-0Tl">
+            <objects>
+                <viewController storyboardIdentifier="PrepareViewController" id="1LA-s2-lYA" customClass="PrepareViewController" customModule="Passport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="At3-TK-ul5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-tJ-bmi">
+                                <rect key="frame" x="42" y="587" width="291" height="50"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.78039215689999997" blue="0.53725490200000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="l1c-bh-GeO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="查看我的旅行日志">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openJourney:" destination="1LA-s2-lYA" eventType="touchUpInside" id="KCR-A3-8AQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时光机已开启。。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnr-43-N2C">
+                                <rect key="frame" x="106" y="203" width="163.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All the world’s a stage. All the men and women merely players. They have their exits and their entrances." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ke-Vy-5zt">
+                                <rect key="frame" x="40" y="82" width="295" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回忆覆盖度 35%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FME-Oi-bjy">
+                                <rect key="frame" x="124.5" y="423" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tV5-iK-pwB">
+                                <rect key="frame" x="67.5" y="479" width="240" height="156"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3S9-tl-LXj"/>
+                                    <constraint firstAttribute="height" constant="156" id="Kxd-JY-Xze"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWa-n4-0Ym" customClass="KCircleView">
+                                <rect key="frame" x="123.5" y="256" width="128" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="LRP-1u-03l"/>
+                                    <constraint firstAttribute="width" constant="128" id="Ryr-17-2PN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UG0-tJ-bmi" firstAttribute="leading" secondItem="a6A-N1-0Sl" secondAttribute="leading" constant="42" id="0aY-Mn-AaG"/>
+                            <constraint firstItem="wnr-43-N2C" firstAttribute="top" secondItem="2Ke-Vy-5zt" secondAttribute="bottom" constant="60" id="17C-CB-5kn"/>
+                            <constraint firstItem="2Ke-Vy-5zt" firstAttribute="trailing" secondItem="a6A-N1-0Sl" secondAttribute="trailing" constant="-40" id="2zy-rc-bMe"/>
+                            <constraint firstItem="FWa-n4-0Ym" firstAttribute="centerX" secondItem="a6A-N1-0Sl" secondAttribute="centerX" id="4NT-7F-a70"/>
+                            <constraint firstItem="wnr-43-N2C" firstAttribute="centerX" secondItem="At3-TK-ul5" secondAttribute="centerX" id="IHQ-xh-xht"/>
+                            <constraint firstItem="a6A-N1-0Sl" firstAttribute="trailing" secondItem="UG0-tJ-bmi" secondAttribute="trailing" constant="42" id="Inx-ah-0HB"/>
+                            <constraint firstItem="2Ke-Vy-5zt" firstAttribute="top" secondItem="a6A-N1-0Sl" secondAttribute="top" constant="62" id="JLU-YH-kFN"/>
+                            <constraint firstItem="FME-Oi-bjy" firstAttribute="top" secondItem="FWa-n4-0Ym" secondAttribute="bottom" constant="39" id="Qry-SJ-rOt"/>
+                            <constraint firstItem="tV5-iK-pwB" firstAttribute="top" secondItem="FME-Oi-bjy" secondAttribute="bottom" constant="35" id="Ucs-7E-zdY"/>
+                            <constraint firstItem="2Ke-Vy-5zt" firstAttribute="leading" secondItem="a6A-N1-0Sl" secondAttribute="leading" constant="40" id="XVh-Gc-qg6"/>
+                            <constraint firstItem="tV5-iK-pwB" firstAttribute="centerX" secondItem="FME-Oi-bjy" secondAttribute="centerX" id="de3-oM-eTC"/>
+                            <constraint firstItem="FWa-n4-0Ym" firstAttribute="top" secondItem="wnr-43-N2C" secondAttribute="bottom" constant="29" id="pwU-JC-3ig"/>
+                            <constraint firstItem="a6A-N1-0Sl" firstAttribute="bottom" secondItem="UG0-tJ-bmi" secondAttribute="bottom" constant="30" id="ruH-Ut-DSA"/>
+                            <constraint firstItem="FME-Oi-bjy" firstAttribute="centerX" secondItem="a6A-N1-0Sl" secondAttribute="centerX" id="vaO-b5-L74"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a6A-N1-0Sl"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomBtn" destination="UG0-tJ-bmi" id="Lg1-YP-ZMl"/>
+                        <outlet property="countryListView" destination="tV5-iK-pwB" id="XWL-44-wuX"/>
+                        <outlet property="percentMemoryLabel" destination="FME-Oi-bjy" id="l6p-JX-SKv"/>
+                        <outlet property="progressView" destination="FWa-n4-0Ym" id="QpV-I9-Xhe"/>
+                        <outlet property="timeReverseLabel" destination="wnr-43-N2C" id="ng4-Yz-77M"/>
+                        <outlet property="topMottoLabel" destination="2Ke-Vy-5zt" id="42f-fI-kY1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAT-zz-0kY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="2.2488755622188905"/>
         </scene>
     </scenes>
     <resources>

@@ -28,6 +28,21 @@
 		3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */; };
 		73EE3E59A9F784FAAA1F37E8 /* Pods_PassportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4DFCF347104123E39DD01E /* Pods_PassportTests.framework */; };
 		7D2FCC4564F224EE972E5C9D /* Pods_PassportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */; };
+		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
+		B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */; };
+		B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */; };
+		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
+		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
+		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
+		B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */; };
+		B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB0217764E700C47258 /* TripDetailCarouseView.m */; };
+		B6DFCEB42177652000C47258 /* TripDetailCarouseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB32177652000C47258 /* TripDetailCarouseViewModel.m */; };
+		B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB62177656F00C47258 /* TripDetailModel.m */; };
+		B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEB9217765BF00C47258 /* TripPenetrateBaseViewModel.m */; };
+		B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBC2177677200C47258 /* TripDetailTableView.m */; };
+		B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */; };
+		B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */; };
+		D855BC19217899700028A8EE /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855BC18217899700028A8EE /* UploadData.swift */; };
 		D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */; };
 		D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2621776809002D1D99 /* PHPersonHandler.m */; };
 		D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2921777004002D1D99 /* Geohash.swift */; };
@@ -43,6 +58,8 @@
 		D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */; };
 		D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF462178399D002D1D99 /* HttpApi.swift */; };
 		D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF4821783ED0002D1D99 /* LoginData.swift */; };
+		D8C9989A2178638F00570F75 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C998992178638F00570F75 /* PrepareViewController.swift */; };
+		D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9989D21786A8E00570F75 /* ColorUtils.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
 		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
 		B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */; };
@@ -82,6 +99,7 @@
 		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
 		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
+
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
 		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
 		D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */; };
@@ -197,6 +215,7 @@
 		B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KEP_OutdoorActivity.m"; sourceTree = "<group>"; };
 		B6DFCEC3217776DE00C47258 /* UIView+KEP_OutdoorActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KEP_OutdoorActivity.h"; sourceTree = "<group>"; };
 		D81ED50558BD9F19085B2840 /* Pods-Passport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.release.xcconfig"; sourceTree = "<group>"; };
+		D855BC18217899700028A8EE /* UploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
 		D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewController.swift; sourceTree = "<group>"; };
 		D87DDF2521776809002D1D99 /* PHPersonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonHandler.h; sourceTree = "<group>"; };
 		D87DDF2621776809002D1D99 /* PHPersonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonHandler.m; sourceTree = "<group>"; };
@@ -215,6 +234,8 @@
 		D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyBoardExt.swift; path = Passport/Assets.xcassets/KeyBoardExt.swift; sourceTree = SOURCE_ROOT; };
 		D87DDF462178399D002D1D99 /* HttpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpApi.swift; sourceTree = "<group>"; };
 		D87DDF4821783ED0002D1D99 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		D8C998992178638F00570F75 /* PrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareViewController.swift; sourceTree = "<group>"; };
+		D8C9989D21786A8E00570F75 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppDelegate.swift; sourceTree = "<group>"; };
 		D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -479,6 +500,7 @@
 				D8DE7E262177386D004F1A95 /* PhotoMeta.swift */,
 				D87DDF2B21777984002D1D99 /* PhotoHashData.swift */,
 				D87DDF4821783ED0002D1D99 /* LoginData.swift */,
+				D855BC18217899700028A8EE /* UploadData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -524,6 +546,7 @@
 				D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */,
 				D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */,
 				D87DDF462178399D002D1D99 /* HttpApi.swift */,
+				D8C9989D21786A8E00570F75 /* ColorUtils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -533,6 +556,7 @@
 			children = (
 				D87DDF3C217824E1002D1D99 /* LoginViewController.swift */,
 				D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */,
+				D8C998992178638F00570F75 /* PrepareViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -876,6 +900,7 @@
 			files = (
 				B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */,
 				3E2FD4A721783AF000B7365B /* StatsTomorrowCell.swift in Sources */,
+				D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */,
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
 				3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */,
@@ -922,6 +947,8 @@
 				B60D3A7021783F410099547D /* KEPEntryMultiPhotosView.m in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
 				3E2FD4A921783AF000B7365B /* StatsDataInsightCell.swift in Sources */,
+				D8C9989A2178638F00570F75 /* PrepareViewController.swift in Sources */,
+				D855BC19217899700028A8EE /* UploadData.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
@@ -929,6 +956,7 @@
 				D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */,
 				B60D3A50217838E80099547D /* TripDetailBaseHeaderCell.m in Sources */,
 				B60D3A6A21783F410099547D /* KEPEntryPhotoAndVideoView.m in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1135,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1130,6 +1159,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

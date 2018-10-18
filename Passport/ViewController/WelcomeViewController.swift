@@ -8,9 +8,12 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
-    
+class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelegate {
+
     let videoView = KEPWelcomeVideoView.init(frame: UIScreen.main.bounds)
+    let loginView: LoginViewController = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+    let scanView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "ScanPicViewController") as! ScanPicViewController
+    let prepareView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "PrepareViewController") as! PrepareViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +21,53 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.addSubview(videoView)
         self.navigationController?.navigationBar.isHidden = true
-        let loginView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "LoginViewController").view
-        self.view.addSubview(loginView!)
-//        
+
+        self.addChild(loginView)
+        self.addChild(scanView)
+        self.addChild(prepareView)
+        loginView.delegate = self
+        scanView.delegate = self
+        self.view.addSubview(loginView.view!)
+        self.view.addSubview(scanView.view)
+        self.view.addSubview(prepareView.view)
+        self.scanView.view.alpha = 0
+        self.prepareView.view.alpha = 0
+        
+       // PhotoScanProcessor.getHashList()
+        PhotoScanProcessor.getAuthorized(view: self.view) {
+            
+        }
+        
+        PhotoScanProcessor.getRandomPhoto(Date()) { (image) in
+
+        }
+        
+//        PhotoScanProcessor.generateJSON()
+        
+        
+    }
+    
+    func loginFinish() {
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
+            self.loginView.view.alpha = 0
+        }) { (finished) in
+            self.loginView.view.removeFromSuperview()
+            self.loginView.removeFromParent()
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
+                self.scanView.view.alpha = 1
+            }) { (finished) in
+            }
+        }
+       
+ 
+    }
+    
+
+
+
+//    @IBAction func connectKeep(_ sender: Any) {
+
 //        let viewModel = TripDetailViewModel()
 //        let vc = TripDetailViewController.init(viewModel: viewModel)
 //        self.navigationController?.pushViewController(vc, animated: true)
@@ -32,17 +79,4 @@ class WelcomeViewController: UIViewController {
         return true
     }
 
-    @IBAction func connectKeep(_ sender: Any) {
-        PHPersonHandler.sharedInstance()
-        PhotoScanProcessor.getHashList()
-    }
-    
-    @IBAction func startScan(_ sender: Any) {
-        
-        let photoListVC: PhotoListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "PhotoListTableViewController") as! PhotoListTableViewController
-        photoListVC.datas = PhotoScanProcessor.getAuthorized(view: self.view)
-        photoListVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(photoListVC, animated: true)
-        
-    }
 }
