@@ -19,7 +19,9 @@ class HttpApi: NSObject {
     ]
     
     public static func login(_ phone: String, _ pwd: String, _ completion: @escaping (Data) -> ()) -> Void {
-        Alamofire.request(HOST + "/box/hackday/login", method: .post, parameters: ["mobile": phone, "password": pwd], encoding: URLEncoding.default, headers: headers).validate(statusCode: 200..<300).responseData { (response) in
+        
+        let parms = ["mobile": phone, "password": pwd]
+        Alamofire.request(HOST + "/box/hackday/login", method: .post, parameters: parms, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300).responseData { (response) in
             switch response.result {
             case .success:
                 print(String.init(data: response.result.value!, encoding: String.Encoding.utf8)!)
@@ -27,7 +29,7 @@ class HttpApi: NSObject {
                 break
             case .failure(let error):
                 print(error)
-                SVProgressHUD.show(withStatus: "登录出错")
+                SVProgressHUD.showInfo(withStatus: "登录出错")
                 break
                 
             }

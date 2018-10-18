@@ -64,6 +64,23 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
     }
     
 
+    
+    func startScan() {
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
+            self.scanView.view.alpha = 0
+        }) { (finished) in
+            self.scanView.view.removeFromSuperview()
+            self.scanView.removeFromParent()
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
+                self.prepareView.view.alpha = 1
+            }) { (finished) in
+            }
+        }
+
+    }
+    
+
 
 
 //    @IBAction func connectKeep(_ sender: Any) {
@@ -71,8 +88,7 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
 //        let viewModel = TripDetailViewModel()
 //        let vc = TripDetailViewController.init(viewModel: viewModel)
 //        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
+    
     
     
     override var prefersStatusBarHidden: Bool {
