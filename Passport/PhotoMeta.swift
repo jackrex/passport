@@ -16,6 +16,7 @@ struct PhotoMeta {
     public var time: Date?
     public var type: PHAssetMediaType
     public var isSimilar: Bool
+    public var asset: PHAsset?
  
     init(identifier: String, location: CLLocation?, time: Date?, type: PHAssetMediaType) {
         self.identifier = identifier

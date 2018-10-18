@@ -18,13 +18,16 @@ class WelcomeViewController: UIViewController {
     
 
     @IBAction func connectKeep(_ sender: Any) {
-        
-        
+        PHPersonHandler.sharedInstance()
+        PhotoScanProcessor.getHashList()
     }
     
     @IBAction func startScan(_ sender: Any) {
         
-        PhotoScanProcessor.getAuthorized(view: self.view)
+        let photoListVC: PhotoListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "PhotoListTableViewController") as! PhotoListTableViewController
+        photoListVC.datas = PhotoScanProcessor.getAuthorized(view: self.view)
+        photoListVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(photoListVC, animated: true)
         
     }
 }

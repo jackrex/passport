@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		73EE3E59A9F784FAAA1F37E8 /* Pods_PassportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4DFCF347104123E39DD01E /* Pods_PassportTests.framework */; };
 		7D2FCC4564F224EE972E5C9D /* Pods_PassportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */; };
+		D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */; };
+		D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2621776809002D1D99 /* PHPersonHandler.m */; };
+		D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2921777004002D1D99 /* Geohash.swift */; };
+		D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2B21777984002D1D99 /* PhotoHashData.swift */; };
+		D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2D2177832E002D1D99 /* DateUtil.swift */; };
+		D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF2F21781875002D1D99 /* Earth.mp4 */; };
 		D8DE7DEA2176DBCD004F1A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */; };
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
 		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
@@ -54,6 +60,14 @@
 		8A11E486CA3E7D15668A710F /* Pods-PassportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA47B98829EE2FB5FB7FEB14 /* Pods_Passport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81ED50558BD9F19085B2840 /* Pods-Passport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.release.xcconfig"; sourceTree = "<group>"; };
+		D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewController.swift; sourceTree = "<group>"; };
+		D87DDF2521776809002D1D99 /* PHPersonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPersonHandler.h; sourceTree = "<group>"; };
+		D87DDF2621776809002D1D99 /* PHPersonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPersonHandler.m; sourceTree = "<group>"; };
+		D87DDF282177687F002D1D99 /* PHPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPerson.h; sourceTree = "<group>"; };
+		D87DDF2921777004002D1D99 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
+		D87DDF2B21777984002D1D99 /* PhotoHashData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHashData.swift; sourceTree = "<group>"; };
+		D87DDF2D2177832E002D1D99 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		D87DDF2F21781875002D1D99 /* Earth.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Earth.mp4; sourceTree = "<group>"; };
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +179,7 @@
 		D8DE7DE82176DBCD004F1A95 /* Passport */ = {
 			isa = PBXGroup;
 			children = (
+				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
 				D8DE7E1B2176DD0F004F1A95 /* ViewController */,
 				D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */,
 				D8DE7DF22176DBCF004F1A95 /* Assets.xcassets */,
@@ -176,6 +191,12 @@
 				D8DE7E242176E014004F1A95 /* PhotoScanProcessor.swift */,
 				D8DE7E262177386D004F1A95 /* PhotoMeta.swift */,
 				D8DE7DE92176DBCD004F1A95 /* AppDelegate.swift */,
+				D87DDF2921777004002D1D99 /* Geohash.swift */,
+				D87DDF282177687F002D1D99 /* PHPerson.h */,
+				D87DDF2521776809002D1D99 /* PHPersonHandler.h */,
+				D87DDF2621776809002D1D99 /* PHPersonHandler.m */,
+				D87DDF2B21777984002D1D99 /* PhotoHashData.swift */,
+				D87DDF2D2177832E002D1D99 /* DateUtil.swift */,
 			);
 			path = Passport;
 			sourceTree = "<group>";
@@ -206,6 +227,7 @@
 				D8DE7E192176DD08004F1A95 /* GroupsTableViewController.swift */,
 				D8DE7E202176DD65004F1A95 /* WelcomeViewController.swift */,
 				D8DE7E222176DD97004F1A95 /* CustomTabBarViewController.swift */,
+				D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -321,6 +343,7 @@
 			files = (
 				D8DE7DF62176DBCF004F1A95 /* LaunchScreen.storyboard in Resources */,
 				D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */,
+				D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,13 +452,18 @@
 			files = (
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
 				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
+				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
+				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
+				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
 				D8DE7DEA2176DBCD004F1A95 /* AppDelegate.swift in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
+				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
+				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +641,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = C62TJ4568H;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -636,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = C62TJ4568H;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
