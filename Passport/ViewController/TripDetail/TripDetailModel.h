@@ -49,6 +49,8 @@ KEPJSONMODELPROTOCOL(TripMetaData)
 
 @property(nonatomic, copy) NSString *dateText;
 
+- (BOOL)isGroupData;
+
 
 @end
 
@@ -76,7 +78,7 @@ KEPJSONMODELPROTOCOL(TripMetaData)
 
 @end
 
-@interface TripGroupFeature: KEPBaseJSONModel
+@interface TripGroupFeature: TripDetailModel
 
 @property(nonatomic, strong) TripGroupPoint *geometry;
 @property(nonatomic, strong) TripGroupPointPropeties *properties;

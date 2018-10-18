@@ -81,12 +81,12 @@
     }
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer {
-    if ([gestureRecognizer isEqual:self.mapTapGestureRecognizer] && [otherGestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-        return YES;
-    }
-    
-    return NO;
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(nonnull UIGestureRecognizer *)otherGestureRecognizer {
+//    if ([gestureRecognizer isEqual:self.mapTapGestureRecognizer] && [otherGestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+//        return YES;
+//    }
+//
+//    return NO;
+//}
 
 @end

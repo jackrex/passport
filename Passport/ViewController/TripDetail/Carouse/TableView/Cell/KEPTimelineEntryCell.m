@@ -105,6 +105,14 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         }
         SetFrameByHeight(self.headerView, 0, 0, [KEPEntryHeaderView viewHeight]);
         bottomSpacing = NO;
+        
+        if (model.isGroupData) {
+            self.cellHeight = originY;
+            CGRect rect = self.frame;
+            rect.size.height = self.cellHeight;
+            self.frame = rect;
+            return;
+        }
     }
     
     

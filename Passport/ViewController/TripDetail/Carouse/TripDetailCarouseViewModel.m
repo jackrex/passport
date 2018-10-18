@@ -21,4 +21,6 @@
     _tripModels = tripModels;
     self.wrap = tripModels.count > 2;
 }
+
+
 @end

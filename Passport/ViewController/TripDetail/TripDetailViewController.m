@@ -91,14 +91,15 @@ static CGSize const IconSize = {24, 24};
     if (!_mapView) {
         _mapView = [[KEPOutdoorActivitySummaryMGLMapView alloc] initWithFrame:self.view.bounds
                                                                      styleURL:[NSURL URLWithString:self.viewModel.fromType == KEPAthleticFieldFromTypeGroup ? kHeatMapStyle : kDetaultStyle]];
-//        @weakify(self);
-//        ((KEPOutdoorActivitySummaryMGLMapView *)_mapView).didClickMapViewBlock = ^(CGPoint point) {
-//            @strongify(self);
-//            if (KEPAthleticFieldSceneTypeGlance == self.viewModel.sceneType) {
-//                return;
-//            }
-//            [self _kep_quitAthleticFieldScene];
-//        };
+
+        @weakify(self);
+        _mapView.mapViewMoveByUser = ^{
+            @strongify(self);
+            if (KEPAthleticFieldSceneTypeGlance == self.viewModel.sceneType || (self.viewModel.fromType == KEPAthleticFieldFromTypeTrip && self.viewModel.sceneType == KEPAthleticFieldSceneTypeRespective)) {
+                return;
+            }
+            [self _kep_quitAthleticFieldScene];
+        };
     }
     return _mapView;
 }
@@ -124,6 +125,17 @@ static CGSize const IconSize = {24, 24};
     if (!_mapViewModel) {
         _mapViewModel = [[TripDetailMapViewModel alloc] init];
         _mapViewModel.fromType = self.viewModel.fromType;
+        _mapViewModel.respectiveBottomPoint = CGRectGetHeight(self.view.bounds) - self.viewModel.tableViewMaxOriginY;
+        _mapViewModel.specificBottomPoint = CGRectGetHeight(self.view.bounds) - self.viewModel.tableViewTopMargin;
+        @weakify(self);
+        _mapViewModel.didClickTripAction = ^(TripDetailModel * _Nonnull model) {
+            @strongify(self);
+            NSArray *datas = @[model];
+            self.viewModel.tripModels = datas;
+            self.carouselView.viewModel.tripModels = datas;
+            [self _kep_scrollTableViewVisible];
+            
+        };
     }
     return _mapViewModel;
 }
@@ -172,7 +184,9 @@ static CGSize const IconSize = {24, 24};
                     NSLog(@"__scroll to bottom DidEndDraggingBlock offset=%f, directionUp=%@", scrollView.contentOffset.y, @(directionUp).stringValue);
                     [self _kep_scrollToBottom];
                 } else if (self.viewModel.sceneType == KEPAthleticFieldSceneTypeRespective && -scrollView.contentOffset.y >= self.carouselView.viewModel.tableViewMaxOriginY) {
-//                    [self _kep_transitToGlanceScene];
+                    if (self.viewModel.fromType == KEPAthleticFieldFromTypeGroup) {
+                        [self _kep_transitToGlanceScene];
+                    }
                 } else if (-scrollView.contentOffset.y == self.carouselView.viewModel.tableViewMaxOriginY && self.viewModel.scrollingDetailPage) {
                     [self _kep_disposeScrollViewOffset:scrollView.contentOffset];
                 }
@@ -260,6 +274,28 @@ static CGSize const IconSize = {24, 24};
     }];
 }
 
+
+- (void)_kep_transitToGlanceScene {
+    [self.mapViewModel _kep_setupDefaultZoomLevel:YES];
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         self.carouselView.frame = ({
+                             CGRect frame;
+                             frame.size = self.carouselView.frame.size;
+                             frame.origin.x = self.carouselView.frame.origin.x;
+                             frame.origin.y = self.view.bounds.size.height;
+                             frame;
+                         });
+                         [self.view layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         self.viewModel.sceneType =  KEPAthleticFieldSceneTypeGlance;
+                         self.viewModel.tripModels = nil;
+                         self.carouselView.viewModel.tripModels = nil;
+                         [self.carouselView removeFromSuperview];
+                     }];
+    
+}
+
 - (void)_kep_bindViewModelToMap {
     [self.mapViewModel configureMapView:self.mapView];
 }
@@ -275,6 +311,7 @@ static CGSize const IconSize = {24, 24};
                 NSArray <TripDetailModel *> *datas = dic[kResultData];
                 self.viewModel.tripModels = datas;
                 self.carouselView.viewModel.tripModels = datas;
+                self.mapViewModel.currentModel = datas.firstObject;
                 [self _kep_scrollTableViewVisible];
             } else {
                 [SVProgressHUD showWithStatus:dic[kResultData]];
@@ -307,7 +344,13 @@ static CGSize const IconSize = {24, 24};
         }
         self.carouselView.viewModel.sceneType = sceneType;
         self.mapViewModel.sceneType = sceneType;
-        CGAffineTransform transform = KEPAthleticFieldSceneTypeSpecific == sceneType ? CGAffineTransformMakeRotation(-M_PI_2) : CGAffineTransformIdentity;
+        
+        CGAffineTransform transform;
+        if (self.viewModel.fromType == KEPAthleticFieldFromTypeTrip) {
+            transform = KEPAthleticFieldSceneTypeSpecific == sceneType ? CGAffineTransformMakeRotation(-M_PI_2) : CGAffineTransformIdentity;
+        } else {
+            transform = KEPAthleticFieldSceneTypeGlance == sceneType ? CGAffineTransformIdentity : CGAffineTransformMakeRotation(-M_PI_2);
+        }
         if (!CGAffineTransformEqualToTransform(self.backToggle.transform, transform)) {
             [UIView animateWithDuration:.25
                              animations:^{
@@ -316,6 +359,14 @@ static CGSize const IconSize = {24, 24};
         }
     }];
     
+    [[RACObserve(self.carouselView.viewModel, currentTripModel) distinctUntilChanged] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        TripDetailModel *model = self.carouselView.viewModel.currentTripModel;
+        self.mapViewModel.currentModel = model;
+        if (self.viewModel.sceneType == KEPAthleticFieldSceneTypeRespective) {
+            [self.mapViewModel adjustMapForRespective];
+        }
+    }];
 
 
 }
@@ -332,13 +383,14 @@ static CGSize const IconSize = {24, 24};
         [tableView reloadData];
         [UIView animateWithDuration:.5 animations:^{
             [tableView setContentOffset:CGPointMake(0, -self.carouselView.viewModel.tableViewMaxOriginY)];
+        } completion:^(BOOL finished) {
+            if (self.viewModel.sceneType != KEPAthleticFieldSceneTypeRespective) {
+                self.viewModel.sceneType = KEPAthleticFieldSceneTypeRespective;
+            }
         }];
     }
 
-    if (self.viewModel.sceneType != KEPAthleticFieldSceneTypeRespective) {
-        self.viewModel.sceneType = KEPAthleticFieldSceneTypeRespective;
-    }
-//    [self.viewModel.mapViewModel adjustMapForRespective];
+    [self.mapViewModel adjustMapForRespective];
     [self _kep_showTogglesForRespectiveScene];
 }
 
@@ -374,14 +426,14 @@ static CGSize const IconSize = {24, 24};
     } else {
         [self _kep_hideNavBar];
     }
-//
+
     if (offset.y > -self.carouselView.viewModel.tableViewMaxOriginY) {
         NSLog(@"__scroll will detail style");
         if (KEPAthleticFieldSceneTypeRespective == self.viewModel.sceneType) {
             NSLog(@"__scroll to detail style");
             [self _kep_showTogglesForSpecificScene];
             self.viewModel.sceneType = KEPAthleticFieldSceneTypeSpecific;
-//            [self.viewModel.mapViewModel adjustMapForSpecific];
+            [self.mapViewModel adjustMapForSpecific];
         }
     }
     else{
@@ -389,7 +441,7 @@ static CGSize const IconSize = {24, 24};
             NSLog(@"__scroll to Respective");
             [self _kep_showTogglesForRespectiveScene];
             self.viewModel.sceneType = KEPAthleticFieldSceneTypeRespective;
-//            [self.viewModel.mapViewModel adjustMapForRespective];
+            [self.mapViewModel adjustMapForRespective];
         }
     }
 }
@@ -409,9 +461,15 @@ static CGSize const IconSize = {24, 24};
 
 
 - (void)_kep_quitAthleticFieldScene {
-    if (KEPAthleticFieldSceneTypeGlance == self.viewModel.sceneType || KEPAthleticFieldSceneTypeRespective == self.viewModel.sceneType) {
+    if (KEPAthleticFieldSceneTypeGlance == self.viewModel.sceneType) {
         [self.navigationController popViewControllerAnimated:YES];
-    }  else if (KEPAthleticFieldSceneTypeSpecific == self.viewModel.sceneType) {
+    } else if (KEPAthleticFieldSceneTypeRespective == self.viewModel.sceneType) {
+        if (self.viewModel.fromType == KEPAthleticFieldFromTypeGroup) {
+            [self _kep_transitToGlanceScene];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } else if (KEPAthleticFieldSceneTypeSpecific == self.viewModel.sceneType) {
         [self _kep_scrollToBottom];
     }
 }

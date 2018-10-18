@@ -7,6 +7,7 @@
 //
 
 #import "TripDetailViewModel.h"
+#import "KEPEntryHeaderView.h"
 
 static CGFloat const TableViewTopMargin = 188;
 static CGFloat const TableViewMinBottomHeight = 147;
@@ -18,11 +19,11 @@ static CGFloat const TableViewMinBottomHeight = 147;
 }
 
 - (CGFloat)tableViewMaxOriginY {
-    return CGRectGetHeight([[UIScreen mainScreen] bounds]) - TableViewMinBottomHeight;
+    return CGRectGetHeight([[UIScreen mainScreen] bounds]) - [self tableViewMinBottomHeight];
 }
 
 - (CGFloat)tableViewMinBottomHeight {
-    return TableViewMinBottomHeight;
+    return self.fromType == KEPAthleticFieldFromTypeGroup ? [KEPEntryHeaderView viewHeight] : TableViewMinBottomHeight;
 }
 
 

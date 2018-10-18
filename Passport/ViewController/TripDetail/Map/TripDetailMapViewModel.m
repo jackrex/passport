@@ -15,10 +15,12 @@
 #import <Masonry/Masonry.h>
 
 #import "TripDetailMapViewModel.h"
-#import "TripDetailModel.h"
 #import "ClusterKit.h"
 #import "MGLMapView+ClusterKit.h"
 #import "MKAnnotation+TripDetail.h"
+
+static NSTimeInterval const FlyCameraDuration = .35;
+static CGFloat const Inset = 40;
 
 @interface TripDetailMapViewModel () <MGLMapViewDelegate>
 
@@ -35,7 +37,6 @@
     }
     return self;
 }
-
 
 
 - (void)configureMapView:(nonnull __kindof UIView *)mapView {
@@ -62,6 +63,70 @@
     }
 
 }
+
+- (void)setCurrentModel:(TripDetailModel *)currentModel {
+    _currentModel = currentModel;
+    if (self.fromType == KEPAthleticFieldFromTypeTrip) {
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        for (TripPointModel *model in self.currentModel.points) {
+            MGLPointAnnotation *annotation = [[MGLPointAnnotation alloc] init];
+            annotation.coordinate = CLLocationCoordinate2DMake(model.latitude, model.longitude);
+            [self.mapView addAnnotation:annotation];
+        }
+        
+    }
+}
+
+- (void)adjustMapForSpecific {
+    if (self.fromType == KEPAthleticFieldFromTypeTrip) {
+        MGLMapCamera *camera = [self _kep_cameraForType:KEPAthleticFieldSceneTypeSpecific];
+        [self.mapView flyToCamera:camera
+                     withDuration:FlyCameraDuration
+                completionHandler:^{
+                }];
+    }
+   
+}
+
+- (void)adjustMapForRespective {
+    if (self.fromType == KEPAthleticFieldFromTypeTrip) {
+        MGLMapCamera *camera = [self _kep_cameraForType:KEPAthleticFieldSceneTypeRespective];
+        [self.mapView flyToCamera:camera
+                     withDuration:FlyCameraDuration
+                completionHandler:^{
+                }];
+    }
+
+}
+
+- (MGLMapCamera *)_kep_cameraForType:(KEPAthleticFieldSceneType)type {
+    MGLMapCamera *camera = nil;
+    TripPointModel *model = self.currentModel.points.firstObject;
+    
+    MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(model.latitude, model.longitude), CLLocationCoordinate2DMake(model.latitude, model.longitude));
+    
+    for (TripPointModel *annotation in self.currentModel.points) {
+        bounds = MGLCoordinateIncludingCoordinate(bounds, CLLocationCoordinate2DMake(annotation.latitude + (self.currentModel.points.count == 1 ? 0.00001 : 0), annotation.longitude));
+    }
+    
+    if (KEPAthleticFieldSceneTypeSpecific == type) {
+        camera = [self.mapView cameraThatFitsCoordinateBounds:bounds
+                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, _specificBottomPoint + 2 * Inset, Inset)];
+        camera.pitch = 0;
+        camera.heading = 0;
+        return camera;
+        
+    }
+    else if (KEPAthleticFieldSceneTypeRespective == type) {
+        camera = [self.mapView cameraThatFitsCoordinateBounds:bounds
+                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, Inset + _respectiveBottomPoint, Inset)];
+        camera.pitch = 35;
+        camera.heading = 8;
+        return camera;
+    }
+    return camera;
+}
+
 
 - (void)_kep_setClusterManager {
     CKNonHierarchicalDistanceBasedAlgorithm *algorithm = [[CKNonHierarchicalDistanceBasedAlgorithm alloc] init];;
@@ -102,27 +167,38 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
 
 
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
-    CKCluster *cluster = (CKCluster *)annotation;
-    
-    if (cluster.count > 1) {
+    if (self.fromType == KEPAthleticFieldFromTypeGroup) {
+        CKCluster *cluster = (CKCluster *)annotation;
+        if (cluster.count > 1) {
+            MBXClusterView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
+            if (!view) {
+                view = [[MBXClusterView alloc] initWithAnnotation:cluster reuseIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
+            }
+            view.label.text = [NSString stringWithFormat:@"%ld", cluster.count];
+            return view;
+        }
+        
+        
+        MKPointAnnotation *pointAnnotation = (MKPointAnnotation *)cluster.firstAnnotation;
+        MBXAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultAnnotationViewReuseIdentifier];
+        if (!view) {
+            view = [[MBXAnnotationView alloc] initWithAnnotation:cluster reuseIdentifier:MBXMapViewDefaultAnnotationViewReuseIdentifier];
+        }
+        [view.imageView sd_setImageWithURL:[NSURL URLWithString:pointAnnotation.tripFeature.properties.avatar]
+                          placeholderImage:[UIImage imageNamed:@"defaul_mount"]];
+        
+        return view;
+    }
+    else if (self.fromType == KEPAthleticFieldFromTypeTrip) {
         MBXClusterView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
         if (!view) {
-            view = [[MBXClusterView alloc] initWithAnnotation:cluster reuseIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
+            view = [[MBXClusterView alloc] initWithAnnotation:annotation reuseIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
         }
-        view.label.text = [NSString stringWithFormat:@"%ld", cluster.count];
+        view.label.text = [NSString stringWithFormat:@"%ld", 1];
         return view;
     }
     
-    
-    MKPointAnnotation *pointAnnotation = (MKPointAnnotation *)cluster.firstAnnotation;
-    MBXAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultAnnotationViewReuseIdentifier];
-    if (!view) {
-        view = [[MBXAnnotationView alloc] initWithAnnotation:cluster reuseIdentifier:MBXMapViewDefaultAnnotationViewReuseIdentifier];
-    }
-    [view.imageView sd_setImageWithURL:[NSURL URLWithString:pointAnnotation.tripFeature.properties.avatar]
-                      placeholderImage:[UIImage imageNamed:@"defaul_mount"]];
-    
-    return view;
+    return nil;
 }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
@@ -132,25 +208,38 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
 #pragma mark - How To Update Clusters
 
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    [mapView.clusterManager updateClustersIfNeeded];
+    if (self.fromType == KEPAthleticFieldFromTypeGroup) {
+        [mapView.clusterManager updateClustersIfNeeded];
+    }
 }
 
 
 #pragma mark - How To Handle Selection/Deselection
-- (void)mapView:(MGLMapView *)mapView didSelectAnnotationView:(MGLAnnotationView *)annotationView {
-    
-}
+
 
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-    CKCluster *cluster = (CKCluster *)annotation;
-    if (cluster.count == 1) {
-       
+    if (self.fromType == KEPAthleticFieldFromTypeGroup) {
+        CKCluster *cluster = (CKCluster *)annotation;
+        UIEdgeInsets edgePadding = UIEdgeInsetsMake(Inset, Inset, _respectiveBottomPoint + Inset, Inset);
+        MGLMapCamera *camera = [mapView cameraThatFitsCluster:cluster edgePadding:edgePadding];
+        if (cluster.count > 1) {
+            [mapView setCamera:camera animated:YES];
+        } else {
+            MKPointAnnotation *pointAnnotation = (MKPointAnnotation *)cluster.firstAnnotation;
+            !self.didClickTripAction ?: self.didClickTripAction(pointAnnotation.tripFeature);
+            [mapView flyToCamera:camera withDuration:.35 completionHandler:^{
+                
+            }];
+        }
     }
+    [mapView deselectAnnotation:annotation animated:NO];
 }
 
 - (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
-    CKCluster *cluster = (CKCluster *)annotation;
-    [mapView.clusterManager deselectAnnotation:cluster.firstAnnotation animated:NO];
+    if (self.fromType == KEPAthleticFieldFromTypeGroup) {
+        CKCluster *cluster = (CKCluster *)annotation;
+        [mapView.clusterManager deselectAnnotation:cluster.firstAnnotation animated:NO];
+    }
 }
 
 

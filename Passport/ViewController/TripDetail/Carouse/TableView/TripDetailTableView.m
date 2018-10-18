@@ -100,6 +100,7 @@
 
 
 - (void)_kep_configure {
+
     self.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
     self.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
     self.backgroundColor = [UIColor clearColor];
@@ -118,7 +119,10 @@
     self.estimatedRowHeight = 0;
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
-
+    if (self.viewModel.fromType == KEPAthleticFieldFromTypeGroup) {
+        self.alwaysBounceVertical = YES;
+        self.bounces = YES;
+    }
 }
 
 

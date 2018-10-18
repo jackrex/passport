@@ -11,6 +11,7 @@
 #import <KEPIntlCommonUI/KEPIntlCommonUI.h>
 #import <Masonry/Masonry.h>
 #import <KEPIntlCommon/KEPCommon.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "KEPEntryHeaderView.h"
 #import "TripDetailModel.h"
@@ -24,6 +25,9 @@ static CGSize const kAvatarSize = {35, 35};
 
 @property(nonatomic, strong) UIView *dayIndexBackgroundView;
 @property(nonatomic, strong) UILabel *dayIndexLabel;
+@property(nonatomic, strong) UIImageView *avatarView;
+
+
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 
@@ -45,9 +49,19 @@ static CGSize const kAvatarSize = {35, 35};
 
 - (void)updateData:(TripDetailModel *)model {
     self.TripDetailModel = model;
-    self.dayIndexLabel.text = [NSString stringWithFormat:@"D%ld", model.dayIndex + 1];
-    self.nameLabel.text = model.cityName;
-    self.timeLabel.text = model.dateText;
+    
+    if (model.isGroupData) {
+        TripGroupFeature *data = model;
+        self.dayIndexBackgroundView.hidden = YES;
+        [self.avatarView sd_setImageWithURL:[NSURL URLWithString:data.properties.avatar]];
+        self.nameLabel.text = data.properties.username;
+        self.timeLabel.text = [NSString stringWithFormat:@"%@", data.properties.country];
+    } else {
+        self.dayIndexLabel.text = [NSString stringWithFormat:@"D%ld", model.dayIndex + 1];
+        self.nameLabel.text = model.cityName;
+        self.timeLabel.text = model.dateText;
+    }
+
 }
 
 + (CGFloat)viewHeight {
@@ -60,6 +74,7 @@ static CGSize const kAvatarSize = {35, 35};
 - (void)_kep_setupSubviews {
     [self addSubview:self.dayIndexBackgroundView];
     [self.dayIndexBackgroundView addSubview:self.dayIndexLabel];
+    [self addSubview:self.avatarView];
     [self addSubview:self.nameLabel];
     [self addSubview:self.timeLabel];
     
@@ -71,6 +86,9 @@ static CGSize const kAvatarSize = {35, 35};
     }];
     [self.dayIndexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_offset(0);
+        make.edges.mas_equalTo(self.dayIndexBackgroundView);
+    }];
+    [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.dayIndexBackgroundView);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,4 +141,14 @@ static CGSize const kAvatarSize = {35, 35};
     return _timeLabel;
 }
 
+- (UIImageView *)avatarView {
+    if (!_avatarView) {
+        _avatarView = [UIImageView kep_createImageView];
+        _avatarView.layer.masksToBounds = YES;
+        _avatarView.layer.cornerRadius = 30;
+        _avatarView.layer.borderColor = [KColorManager buttonGreenTitleColor].CGColor;
+        _avatarView.layer.borderWidth = 2;
+    }
+    return _avatarView;
+}
 @end

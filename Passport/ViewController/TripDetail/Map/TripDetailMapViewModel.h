@@ -9,6 +9,7 @@
 @import UIKit;
 #import <Mapbox/Mapbox.h>
 #import "TripDetailHeader.h"
+#import "TripDetailModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) KEPAthleticFieldSceneType sceneType;
 @property(nonatomic, assign) KEPAthleticFieldFromType fromType;
 
+@property(nonatomic, strong) TripDetailModel *currentModel;
+
+@property(nonatomic, copy) void (^didClickTripAction)(TripDetailModel *model);
+
+@property (nonatomic, assign) CGFloat specificBottomPoint;
+@property (nonatomic, assign) CGFloat respectiveBottomPoint;
+
+- (void)adjustMapForSpecific;
+- (void)adjustMapForRespective;
+
 - (void)configureMapView:(nonnull __kindof UIView *)mapView;
+
+- (void)_kep_setupDefaultZoomLevel:(BOOL)animation;
 
 @end
 

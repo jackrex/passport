@@ -19,6 +19,10 @@
     return _dateText;
 }
 
+- (BOOL)isGroupData {
+    return NO;
+}
+
 @end
 
 @implementation TripMetaData
@@ -65,10 +69,14 @@
 
 + (NSArray <TripGroupFeature *> *)defaultFeatures {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"group" ofType:@"plist"];
-
     NSArray *datas = [[NSArray alloc] initWithContentsOfFile:plistPath];
     NSError *error = nil;
     NSArray *features = [TripGroupFeature arrayOfModelsFromDictionaries:datas error:&error];
     return features;
 }
+
+- (BOOL)isGroupData {
+    return YES;
+}
+
 @end

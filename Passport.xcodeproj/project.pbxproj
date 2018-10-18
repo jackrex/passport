@@ -53,7 +53,6 @@
 		B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */; };
 		B60D3A752178529C0099547D /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A742178529C0099547D /* FlexiblePageControl.swift */; };
 		B60D3A812178BE590099547D /* TripDetailRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A802178BE590099547D /* TripDetailRequester.m */; };
-		B60D3A852178DAB60099547D /* group.plist in Resources */ = {isa = PBXBuildFile; fileRef = B60D3A842178DAB60099547D /* group.plist */; };
 		B60D3AA22178E1EA0099547D /* CKQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8B2178E1EA0099547D /* CKQuadTree.m */; };
 		B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8D2178E1EA0099547D /* CKClusterManager.m */; };
 		B60D3AA42178E1EA0099547D /* CKCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8E2178E1EA0099547D /* CKCluster.m */; };
@@ -62,6 +61,8 @@
 		B60D3AA72178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A932178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m */; };
 		B60D3AAA2178E1EA0099547D /* MGLMapView+ClusterKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A9F2178E1EA0099547D /* MGLMapView+ClusterKit.m */; };
 		B60D3AAD2178EF460099547D /* MKAnnotation+TripDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */; };
+		B60D3AAF2178FE040099547D /* group.plist in Resources */ = {isa = PBXBuildFile; fileRef = B60D3AAE2178FE040099547D /* group.plist */; };
+		B60D3AB221791C360099547D /* MGLTripBaseAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3AB121791C360099547D /* MGLTripBaseAnnotation.m */; };
 		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
 		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
 		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
@@ -202,7 +203,6 @@
 		B60D3A742178529C0099547D /* FlexiblePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
 		B60D3A7F2178BE590099547D /* TripDetailRequester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailRequester.h; sourceTree = "<group>"; };
 		B60D3A802178BE590099547D /* TripDetailRequester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailRequester.m; sourceTree = "<group>"; };
-		B60D3A842178DAB60099547D /* group.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = group.plist; sourceTree = "<group>"; };
 		B60D3A892178E1EA0099547D /* CKAnnotationTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAnnotationTree.h; sourceTree = "<group>"; };
 		B60D3A8A2178E1EA0099547D /* CKQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKQuadTree.h; sourceTree = "<group>"; };
 		B60D3A8B2178E1EA0099547D /* CKQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKQuadTree.m; sourceTree = "<group>"; };
@@ -222,6 +222,9 @@
 		B60D3AA12178E1EA0099547D /* ClusterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterKit.h; sourceTree = "<group>"; };
 		B60D3AAB2178EF460099547D /* MKAnnotation+TripDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKAnnotation+TripDetail.h"; sourceTree = "<group>"; };
 		B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotation+TripDetail.m"; sourceTree = "<group>"; };
+		B60D3AAE2178FE040099547D /* group.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = group.plist; sourceTree = "<group>"; };
+		B60D3AB021791C360099547D /* MGLTripBaseAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGLTripBaseAnnotation.h; sourceTree = "<group>"; };
+		B60D3AB121791C360099547D /* MGLTripBaseAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGLTripBaseAnnotation.m; sourceTree = "<group>"; };
 		B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
 		B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
 		B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewModel.h; sourceTree = "<group>"; };
@@ -480,6 +483,8 @@
 				B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */,
 				B60D3AAB2178EF460099547D /* MKAnnotation+TripDetail.h */,
 				B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */,
+				B60D3AB021791C360099547D /* MGLTripBaseAnnotation.h */,
+				B60D3AB121791C360099547D /* MGLTripBaseAnnotation.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -646,7 +651,7 @@
 		D87DDF3521781CA7002D1D99 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				B60D3A842178DAB60099547D /* group.plist */,
+				B60D3AAE2178FE040099547D /* group.plist */,
 				D84DC9622178BF2300BD0A73 /* hash.json */,
 				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
 				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
@@ -895,6 +900,7 @@
 				3E2FD4CF217877C300B7365B /* Keep_font.ttf in Resources */,
 				3E2FD4C7217877C300B7365B /* TradeGothicLTStd.otf in Resources */,
 				D8DE7DF62176DBCF004F1A95 /* LaunchScreen.storyboard in Resources */,
+				B60D3AAF2178FE040099547D /* group.plist in Resources */,
 				3E2FD4CA217877C300B7365B /* ArchivoNarrow-Regular.otf in Resources */,
 				3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */,
 				D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */,
@@ -905,7 +911,6 @@
 				3E2FD4CD217877C300B7365B /* SF-Pro-Text-Regular.otf in Resources */,
 				3E2FD4CE217877C300B7365B /* SF-Pro-Text-Bold.otf in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
-				B60D3A852178DAB60099547D /* group.plist in Resources */,
 				3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */,
 				3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */,
 				3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -1062,6 +1067,7 @@
 				B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
 				3E2FD4A521783AF000B7365B /* StatsGazeWorldCell.swift in Sources */,
+				B60D3AB221791C360099547D /* MGLTripBaseAnnotation.m in Sources */,
 				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
 				B60D3AA72178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
