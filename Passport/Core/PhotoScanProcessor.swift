@@ -133,9 +133,9 @@ class PhotoScanProcessor {
         
         //TODO print data
         //geolist totalcount daystotalcount randomPicPos
-        for dict in hashDict {
-            print(dict.value.toString())
-        }
+//        for dict in hashDict {
+//            print(dict.value.toString())
+//        }
 
         return geoHashList
     }

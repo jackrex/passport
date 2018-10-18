@@ -19,21 +19,36 @@ class PrepareViewController: UIViewController {
     
     public var progressView: KPESchduleConfirmProgressView!
     public var hashCityList: [String: HashCityData] = [:]
+    public var hashList: [String] = []
+    public var countries: [String] = []
+    
+    public let tabbar: CustomTabBarViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "CustomTabBarViewController") as! CustomTabBarViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let path = Bundle.main.path(forResource: "hash", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let dataDict = try JSONDecoder().decode(HashCity.self, from: data)
-                for data in dataDict.data {
-                    hashCityList.updateValue(data, forKey: data.hash)
+        DispatchQueue.global().async {
+            if let path = Bundle.main.path(forResource: "hash", ofType: "json") {
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                    let dataDict = try JSONDecoder().decode(HashCity.self, from: data)
+                    for data in dataDict.data {
+                        self.hashCityList.updateValue(data, forKey: data.hash)
+                    }
+                } catch {
+                    // handle error
                 }
-            } catch {
-                // handle error
+                
+                self.hashList = PhotoScanProcessor.getHashList()
+                self.countries = self.mergeHashData()
+
+            }
+            
+            DispatchQueue.main.async {
+                
             }
         }
+        
         
         progressView = KPESchduleConfirmProgressView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
         progressView.alpha = 0
@@ -42,12 +57,12 @@ class PrepareViewController: UIViewController {
         bottomBtn.layer.cornerRadius = 25
         bottomBtn.clipsToBounds = true
         
+        percentMemoryLabel.alpha = 0
+        
         progressView.animationDidEnd = ({
-            
             UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
                 self.topMottoLabel.alpha = 1
                 self.bottomBtn.alpha = 1
-                
                 self.timeReverseLabel.alpha = 0
                 
             }) { (finished) in
@@ -56,7 +71,8 @@ class PrepareViewController: UIViewController {
         })
         
         topMottoLabel.alpha = 0
-        bottomBtn.alpha = 1
+        bottomBtn.alpha = 0
+        timeReverseLabel.alpha = 0
         
     }
     
@@ -65,21 +81,72 @@ class PrepareViewController: UIViewController {
 
     }
     
-    public func startScan() {
-      
-//        PHPersonHandler.sharedInstance()
-//        PhotoScanProcessor.getHashList()
+    func mergeHashData() -> [String] {
+        var countries: [String] = []
+        for hash in hashList {
+            let cityData = hashCityList[hash]!
+            if !countries.contains(cityData.iso2) {
+                countries.append(cityData.iso2)
+            }
+        }
+        return countries
+        
     }
     
     @IBAction func openJourney(_ sender: Any) {
-        progressView.alpha = 1
-        progressView.startAnimation()
-
-        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+        self.navigationController?.present(tabbar, animated: true, completion: {
             
-            timer.invalidate()
-        }
+        })
+        
     }
     
+    public func startCalculate() -> Void {
+        timeReverseLabel.alpha = 1
+        percentMemoryLabel.alpha = 1
+        progressView.alpha = 1
+        progressView.startAnimation()
+        var i = 1
+        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+            i = i + 1
+            if i >= 100 {
+                timer.invalidate()
+                self.percentMemoryLabel.text = "你一共去了 \(self.countries.count) 个国家和地区"
+                return
+            }
+            self.percentMemoryLabel.text = "回忆覆盖度 \(i)%"
+            
+        }
+        
+        for index in 0..<countries.count {
+            //一排 5 个
+            let row = index % 5
+            let column = index / 5
+            
+            let imageView = UIImageView.init(frame: CGRect.init(x: row * (10 + 50), y: column * (5 + 30) , width: 50, height: 30))
+            var pic = self.countries[index]
+            pic = pic.trimmingCharacters(in: .whitespacesAndNewlines)
+            imageView.image = UIImage.init(named: pic)
+            imageView.alpha = 0
+            imageView.tag = 1000 + index
+            self.countryListView.addSubview(imageView)
+        }
+        
+        self.animateFlags(index: 0)
+    }
+    
+    func animateFlags(index: Int) {
+        if index >= self.countries.count {
+            return
+        }
+        var i = index
+        let timeInterval: Double = 5.0 / Double(countries.count)
+        let imageView = self.countryListView.viewWithTag(1000 + index)
+        UIView.animate(withDuration: timeInterval, delay: 0, options: .transitionFlipFromLeft, animations: {
+            imageView!.alpha = 1
+        }) { (finished) in
+            i = i + 1
+            self.animateFlags(index: i)
+        }
+    }
 
 }

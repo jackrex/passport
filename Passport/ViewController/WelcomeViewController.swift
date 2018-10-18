@@ -33,17 +33,9 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
         self.scanView.view.alpha = 0
         self.prepareView.view.alpha = 0
         
-       // PhotoScanProcessor.getHashList()
         PhotoScanProcessor.getAuthorized(view: self.view) {
             
         }
-        
-        PhotoScanProcessor.getRandomPhoto(Date()) { (image) in
-
-        }
-        
-//        PhotoScanProcessor.generateJSON()
-        
         
     }
     
@@ -74,6 +66,7 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
             UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
                 self.prepareView.view.alpha = 1
             }) { (finished) in
+                self.prepareView.startCalculate()
             }
         }
 
