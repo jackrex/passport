@@ -59,23 +59,7 @@ class StatsDataInsightCardView: UIView {
     }
 }
 
-class StatsDataInsightCell: UITableViewCell {
-    let containView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.cornerRadius = 5
-        $0.layer.masksToBounds = true
-    }
-    let titleLabel = UILabel().then {
-        $0.text = "数据大观园"
-        $0.textColor = UIColor.kep_color(fromHex: 0x333333)
-        $0.font = UIFont.kep_SFProTextSemibold(withSize: 16)
-    }
-    let descLabel = UILabel().then {
-        $0.text = "个人旅行数据汇总"
-        $0.textColor = UIColor.kep_color(fromHex: 0x999999)
-        $0.font = UIFont.kep_regularPingFangSC(withSize: 12)
-    }
-    
+class StatsDataInsightCell: StatsBaseCell {
     let tripsCountView = StatsDataInsightCardView().then {
         $0.backgroundColor = UIColor.kep_color(fromHex: 0xC77A7A)
     }
@@ -99,35 +83,12 @@ class StatsDataInsightCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        selectionStyle = .none
-        layer.cornerRadius = 3
-        layer.masksToBounds = true
-        contentView.backgroundColor = UIColor.kep_color(fromHex: 0xF8F8F8)
-        contentView.addSubview(containView)
-        containView.addSubview(titleLabel)
-        containView.addSubview(descLabel)
+        titleLabel.text = "数据大观园"
+        descLabel.text = "个人旅行数据汇总"
         containView.addSubview(tripsCountView)
         containView.addSubview(beenToCityView)
         containView.addSubview(totalStepsView)
         containView.addSubview(totalDistanceView)
-        containView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.bottom.equalToSuperview()
-        }
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(17)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(23)
-        }
-        descLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(3)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(17)
-        }
         tripsCountView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(8)
             make.right.equalTo(containView.snp.centerX).offset(-2)

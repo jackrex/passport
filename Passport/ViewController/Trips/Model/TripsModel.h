@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *_id;
 @property(nonatomic, copy) NSString *cityTitle;
-@property(nonatomic, copy) NSString *desc;
+@property(nonatomic, copy) NSString *pic;
+@property(nonatomic, assign) NSInteger dayCount;
 
 @end
 
@@ -28,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger dayCount;
 @property(nonatomic, assign) NSInteger countryCount;
 @property(nonatomic, assign) NSInteger longestTripDayCount;
-@property(nonatomic, copy) NSString *beatRate;
+@property(nonatomic, assign) NSInteger beatRate;
 @property(nonatomic, copy) NSArray<TripsClipModel> *clips;
 
 @end

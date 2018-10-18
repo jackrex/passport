@@ -44,12 +44,23 @@ class LoginViewController: UIViewController {
         
         let phone = phoneTextField.text
         let pwd = passwordField.text
+        if (phone?.characters.count == 0) {
+            SVProgressHUD.showInfo(withStatus: "请输入账号和密码")
+            return
+        }
+        if (pwd?.characters.count == 0) {
+            SVProgressHUD.showInfo(withStatus: "请输入密码")
+            return
+        }
         self.delegate.loginFinish()
         return
         HttpApi.login(phone!, pwd!) { (data) in
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)
                 print(dataDict)
+                if let userId = dataDict.data.id {
+                    AccountManager.saveUserId(userId)
+                }
                 self.delegate.loginFinish()
             }catch {
                 let nsError = error as NSError

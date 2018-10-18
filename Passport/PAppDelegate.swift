@@ -23,6 +23,12 @@ class PAppDelegate: UIResponder, UIApplicationDelegate {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
         
+        if let userId = AccountManager.getUserId() {
+            let tabbarController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "CustomTabBarViewController") as! CustomTabBarViewController
+            window?.rootViewController = tabbarController
+            window?.makeKeyAndVisible()
+        }
+        
         return true
     }
     

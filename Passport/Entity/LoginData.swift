@@ -10,7 +10,7 @@ import UIKit
 
 struct LoginData: Decodable {
 
-    var id: String
+    var id: String?
     var username: String
     var avatar: String
     var birthday: CLongLong

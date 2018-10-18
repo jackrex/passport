@@ -148,22 +148,7 @@ class StatsGazeWorldMapView: UIView {
     }
 }
 
-class StatsGazeWorldCell: UITableViewCell {
-    let containView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.cornerRadius = 5
-        $0.layer.masksToBounds = true
-    }
-    let titleLabel = UILabel().then {
-        $0.text = "凝视世界"
-        $0.textColor = UIColor.kep_color(fromHex: 0x333333)
-        $0.font = UIFont.kep_SFProTextSemibold(withSize: 16)
-    }
-    let descLabel = UILabel().then {
-        $0.text = "去过的国家、解锁的大洲"
-        $0.textColor = UIColor.kep_color(fromHex: 0x999999)
-        $0.font = UIFont.kep_regularPingFangSC(withSize: 12)
-    }
+class StatsGazeWorldCell: StatsBaseCell {
     let countryView = StatsGazeWorldCardView().then {
         $0.descLabel.text = "涉足国家"
     }
@@ -184,32 +169,11 @@ class StatsGazeWorldCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        selectionStyle = .none
-        contentView.backgroundColor = UIColor.kep_color(fromHex: 0xF8F8F8)
-        contentView.addSubview(containView)
-        containView.addSubview(titleLabel)
-        containView.addSubview(descLabel)
+        titleLabel.text = "凝视世界"
+        descLabel.text = "去过的国家、解锁的大洲"
         containView.addSubview(countryView)
         containView.addSubview(unlockView)
         containView.addSubview(mapView)
-        containView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(18)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.bottom.equalToSuperview()
-        }
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(17)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(23)
-        }
-        descLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(3)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(17)
-        }
         countryView.snp.makeConstraints { (make) in
             make.leadingMargin.equalTo(11)
             make.top.equalTo(descLabel.snp.bottom).offset(8)

@@ -176,24 +176,11 @@ class StatsRecommendedDestinationView: UIView {
     }
 }
 
-class StatsTomorrowCell: UITableViewCell {
-    let containView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.cornerRadius = 5
-        $0.layer.masksToBounds = true
-    }
-    let titleLabel = UILabel().then {
-        $0.text = "明天，你是否会出发"
-        $0.textColor = UIColor.kep_color(fromHex: 0x333333)
-        $0.font = UIFont.kep_SFProTextSemibold(withSize: 16)
-    }
-    let descLabel = UILabel().then {
-        $0.text = "收拾行囊，憧憬下一场旅程"
-        $0.textColor = UIColor.kep_color(fromHex: 0x999999)
-        $0.font = UIFont.kep_regularPingFangSC(withSize: 12)
-    }
+class StatsTomorrowCell: StatsBaseCell {
     
-    let lastTripDayView = StatsLastTripDayView()
+    let lastTripDayView = StatsLastTripDayView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 64, height: 165)).then {
+        $0.setGradientLayer([UIColor.kep_color(fromHex: 0x24C789)!.cgColor,UIColor.kep_color(fromHex: 0x24C7AF)!.cgColor], locations: [NSNumber.init(value: 0),NSNumber.init(value: 1)], start: .zero, end: CGPoint(x: 1, y: 1))
+    }
     let recommendedDestinationView = StatsRecommendedDestinationView()
     
     required init?(coder aDecoder: NSCoder) {
@@ -206,31 +193,10 @@ class StatsTomorrowCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        selectionStyle = .none
-        contentView.backgroundColor = UIColor.kep_color(fromHex: 0xF8F8F8)
-        contentView.addSubview(containView)
-        containView.addSubview(titleLabel)
-        containView.addSubview(descLabel)
+        titleLabel.text = "明天，你是否会出发"
+        descLabel.text = "收拾行囊，憧憬下一场旅程"
         containView.addSubview(lastTripDayView)
         containView.addSubview(recommendedDestinationView)
-        containView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.bottom.equalToSuperview().offset(-100)
-        }
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(17)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(23)
-        }
-        descLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(3)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(17)
-        }
         lastTripDayView.snp.makeConstraints { (make) in
             make.top.equalTo(descLabel.snp.bottom).offset(12)
             make.left.equalToSuperview().offset(14)

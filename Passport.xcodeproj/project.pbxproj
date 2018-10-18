@@ -26,8 +26,16 @@
 		3E2FD4D0217877C300B7365B /* Keeprun_font_mac.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */; };
 		3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */; };
 		3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */; };
+		3E690D722178E256004B7094 /* StatsBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D712178E256004B7094 /* StatsBaseCell.swift */; };
+		3E690D742178EE78004B7094 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D732178EE78004B7094 /* AccountManager.swift */; };
+		3E690D762178F8FF004B7094 /* iPhoneX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D752178F8FF004B7094 /* iPhoneX.swift */; };
 		3E79D21D2178C82000049C16 /* TripsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2162178C82000049C16 /* TripsRequester.m */; };
 		3E79D2202178C82000049C16 /* TripsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D21C2178C82000049C16 /* TripsModel.m */; };
+		3E79D2232178C93B00049C16 /* TripsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2222178C93B00049C16 /* TripsViewController.m */; };
+		3E79D2272178C97000049C16 /* TripsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2252178C97000049C16 /* TripsHeaderView.swift */; };
+		3E79D2282178C97000049C16 /* TripsClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2262178C97000049C16 /* TripsClipCell.swift */; };
+		3E79D22E2178C9CA00049C16 /* KEPHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D22D2178C9CA00049C16 /* KEPHomeView.m */; };
+		3E79D2312178C9FD00049C16 /* KEPHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2302178C9FD00049C16 /* KEPHomeHeaderView.m */; };
 		73EE3E59A9F784FAAA1F37E8 /* Pods_PassportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4DFCF347104123E39DD01E /* Pods_PassportTests.framework */; };
 		7D2FCC4564F224EE972E5C9D /* Pods_PassportUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30BF99830708E0187F01BCE9 /* Pods_PassportUITests.framework */; };
 		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
@@ -88,7 +96,6 @@
 		D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9989D21786A8E00570F75 /* ColorUtils.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
-		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
 		D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */; };
 		D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DF22176DBCF004F1A95 /* Assets.xcassets */; };
 		D8DE7DF62176DBCF004F1A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */; };
@@ -147,10 +154,21 @@
 		3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Keeprun_font_mac.ttf; sourceTree = "<group>"; };
 		3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoNarrow-Bold.otf"; sourceTree = "<group>"; };
+		3E690D712178E256004B7094 /* StatsBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBaseCell.swift; sourceTree = "<group>"; };
+		3E690D732178EE78004B7094 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		3E690D752178F8FF004B7094 /* iPhoneX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneX.swift; sourceTree = "<group>"; };
 		3E79D2152178C82000049C16 /* TripsRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsRequester.h; sourceTree = "<group>"; };
 		3E79D2162178C82000049C16 /* TripsRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsRequester.m; sourceTree = "<group>"; };
 		3E79D21B2178C82000049C16 /* TripsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsModel.h; sourceTree = "<group>"; };
 		3E79D21C2178C82000049C16 /* TripsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsModel.m; sourceTree = "<group>"; };
+		3E79D2212178C93B00049C16 /* TripsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripsViewController.h; sourceTree = "<group>"; };
+		3E79D2222178C93B00049C16 /* TripsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripsViewController.m; sourceTree = "<group>"; };
+		3E79D2252178C97000049C16 /* TripsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsHeaderView.swift; sourceTree = "<group>"; };
+		3E79D2262178C97000049C16 /* TripsClipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsClipCell.swift; sourceTree = "<group>"; };
+		3E79D22C2178C9CA00049C16 /* KEPHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPHomeView.h; sourceTree = "<group>"; };
+		3E79D22D2178C9CA00049C16 /* KEPHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPHomeView.m; sourceTree = "<group>"; };
+		3E79D22F2178C9FD00049C16 /* KEPHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPHomeHeaderView.h; sourceTree = "<group>"; };
+		3E79D2302178C9FD00049C16 /* KEPHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPHomeHeaderView.m; sourceTree = "<group>"; };
 		40BB27FCD85F73018474EBAC /* Pods-PassportTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassportTests/Pods-PassportTests.release.xcconfig"; sourceTree = "<group>"; };
 		826302745DFFF33B46F72147 /* Pods-PassportUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A11E486CA3E7D15668A710F /* Pods-PassportUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportUITests/Pods-PassportUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,7 +274,6 @@
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppDelegate.swift; sourceTree = "<group>"; };
 		D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
 		D8DE7DF02176DBCD004F1A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8DE7DF22176DBCF004F1A95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8DE7DF52176DBCF004F1A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -326,8 +343,8 @@
 		3E2FD49821783AF000B7365B /* Requester */ = {
 			isa = PBXGroup;
 			children = (
-				3E2FD49921783AF000B7365B /* StatsRequester.m */,
 				3E2FD49A21783AF000B7365B /* StatsRequester.h */,
+				3E2FD49921783AF000B7365B /* StatsRequester.m */,
 			);
 			path = Requester;
 			sourceTree = "<group>";
@@ -340,6 +357,7 @@
 				3E2FD49F21783AF000B7365B /* StatsPoetryDistanceCell.swift */,
 				3E2FD49D21783AF000B7365B /* StatsProfileHeaderView.swift */,
 				3E2FD49E21783AF000B7365B /* StatsTomorrowCell.swift */,
+				3E690D712178E256004B7094 /* StatsBaseCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -383,6 +401,7 @@
 		3E79D2132178C82000049C16 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
+				3E79D2242178C97000049C16 /* Subviews */,
 				3E79D2142178C82000049C16 /* Requester */,
 				3E79D21A2178C82000049C16 /* Model */,
 			);
@@ -405,6 +424,19 @@
 				3E79D21C2178C82000049C16 /* TripsModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3E79D2242178C97000049C16 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				3E79D22F2178C9FD00049C16 /* KEPHomeHeaderView.h */,
+				3E79D2302178C9FD00049C16 /* KEPHomeHeaderView.m */,
+				3E79D22C2178C9CA00049C16 /* KEPHomeView.h */,
+				3E79D22D2178C9CA00049C16 /* KEPHomeView.m */,
+				3E79D2252178C97000049C16 /* TripsHeaderView.swift */,
+				3E79D2262178C97000049C16 /* TripsClipCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		A5602E467ABF972675DCF90A /* Frameworks */ = {
@@ -649,6 +681,7 @@
 		D87DDF402178253D002D1D99 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				3E690D752178F8FF004B7094 /* iPhoneX.swift */,
 				D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */,
 				D87DDF2D2177832E002D1D99 /* DateUtil.swift */,
 				D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */,
@@ -667,6 +700,7 @@
 				D87DDF3C217824E1002D1D99 /* LoginViewController.swift */,
 				D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */,
 				D8C998992178638F00570F75 /* PrepareViewController.swift */,
+				3E690D732178EE78004B7094 /* AccountManager.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -738,11 +772,12 @@
 				D87DDF43217825CE002D1D99 /* Login */,
 				B6DFCEA221775E0C00C47258 /* TripDetail */,
 				D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */,
-				D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */,
 				D8DE7E192176DD08004F1A95 /* GroupsTableViewController.swift */,
 				D8DE7E202176DD65004F1A95 /* WelcomeViewController.swift */,
 				D8DE7E222176DD97004F1A95 /* CustomTabBarViewController.swift */,
 				D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */,
+				3E79D2212178C93B00049C16 /* TripsViewController.h */,
+				3E79D2222178C93B00049C16 /* TripsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1014,15 +1049,16 @@
 				B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */,
 				3E2FD4A721783AF000B7365B /* StatsTomorrowCell.swift in Sources */,
 				D84DC9612178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m in Sources */,
+				3E79D2232178C93B00049C16 /* TripsViewController.m in Sources */,
 				D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */,
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
 				B60D3A812178BE590099547D /* TripDetailRequester.m in Sources */,
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
 				3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */,
+				3E79D2282178C97000049C16 /* TripsClipCell.swift in Sources */,
 				3E2FD4A821783AF000B7365B /* StatsPoetryDistanceCell.swift in Sources */,
 				B60D3AAD2178EF460099547D /* MKAnnotation+TripDetail.m in Sources */,
 				B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */,
-				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
 				B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
 				3E2FD4A521783AF000B7365B /* StatsGazeWorldCell.swift in Sources */,
@@ -1033,11 +1069,13 @@
 				B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */,
 				B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */,
 				B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */,
+				3E79D2312178C9FD00049C16 /* KEPHomeHeaderView.m in Sources */,
 				B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */,
 				B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */,
 				B60D3AA62178E1EA0099547D /* CKClusterAlgorithm.m in Sources */,
 				B60D3A6D21783F410099547D /* KEPEntryMetaAndCardView.m in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
+				3E79D2272178C97000049C16 /* TripsHeaderView.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
 				D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */,
 				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,
@@ -1046,6 +1084,7 @@
 				B60D3AAA2178E1EA0099547D /* MGLMapView+ClusterKit.m in Sources */,
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
 				B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */,
+				3E690D742178EE78004B7094 /* AccountManager.swift in Sources */,
 				B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */,
 				B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */,
 				B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */,
@@ -1058,6 +1097,7 @@
 				B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
+				3E690D722178E256004B7094 /* StatsBaseCell.swift in Sources */,
 				3E79D2202178C82000049C16 /* TripsModel.m in Sources */,
 				B60D3A7221783F410099547D /* KEPBaseEntryCell.m in Sources */,
 				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
@@ -1066,6 +1106,7 @@
 				D84DC9652178BF8E00BD0A73 /* HashCityData.swift in Sources */,
 				3E2FD4A621783AF000B7365B /* StatsProfileHeaderView.swift in Sources */,
 				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
+				3E690D762178F8FF004B7094 /* iPhoneX.swift in Sources */,
 				3E79D21D2178C82000049C16 /* TripsRequester.m in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
 				B60D3A7021783F410099547D /* KEPEntryMultiPhotosView.m in Sources */,
@@ -1077,6 +1118,7 @@
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
 				B60D3AA42178E1EA0099547D /* CKCluster.m in Sources */,
+				3E79D22E2178C9CA00049C16 /* KEPHomeView.m in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 				B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */,
 				D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */,

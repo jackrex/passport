@@ -13,7 +13,7 @@ import Toast_Swift
 typealias ClosureBlock = ()->()
 typealias ImageBlock = (_ image: UIImage?) -> ()
 
-class PhotoScanProcessor {
+@objc class PhotoScanProcessor: NSObject {
     
     public static let COMPARE_NUM = 5
     public static let DUP_INTERVAL = 0.7 //use time filter
@@ -194,7 +194,7 @@ class PhotoScanProcessor {
         }
     }
     
-    public static func generateJSON() -> String {
+    @objc public static func generateJSON() -> NSDictionary? {
         let datePhotos = getDatePhotos()
         var uploadList:[UploadData] = []
         var upload: Upload = Upload.init(0, uploadList)
@@ -216,10 +216,7 @@ class PhotoScanProcessor {
         let encoder = JSONEncoder()
         let encodedUserData = try? encoder.encode(upload)
         let userDict = try? JSONSerialization.jsonObject(with: encodedUserData!, options: .mutableContainers) as! NSDictionary
-        let jsonData = try? JSONSerialization.data(withJSONObject: userDict, options: [])
-        let jsonString = String(data: jsonData!, encoding: .utf8)!
-        print(jsonString)
-        return jsonString
+        return userDict
     }
     
 }

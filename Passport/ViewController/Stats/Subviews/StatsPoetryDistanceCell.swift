@@ -161,22 +161,7 @@ class StatsFarthestDayView: UIView {
     }
 }
 
-class StatsPoetryDistanceCell: UITableViewCell {
-    let containView = UIView().then {
-        $0.backgroundColor = UIColor.white
-        $0.layer.cornerRadius = 5
-        $0.layer.masksToBounds = true
-    }
-    let titleLabel = UILabel().then {
-        $0.text = "诗和远方"
-        $0.textColor = UIColor.kep_color(fromHex: 0x333333)
-        $0.font = UIFont.kep_SFProTextSemibold(withSize: 16)
-    }
-    let descLabel = UILabel().then {
-        $0.text = "到过的世界上最遥远的地方、拍下的风景和见过的人"
-        $0.textColor = UIColor.kep_color(fromHex: 0x999999)
-        $0.font = UIFont.kep_regularPingFangSC(withSize: 12)
-    }
+class StatsPoetryDistanceCell: StatsBaseCell {
     
     let farthestPlaceView = StatsFarthestPlaceView()
     let farthestDayView = StatsFarthestDayView()
@@ -191,31 +176,10 @@ class StatsPoetryDistanceCell: UITableViewCell {
     }
     
     func setupSubviews() {
-        selectionStyle = .none
-        contentView.backgroundColor = UIColor.kep_color(fromHex: 0xF8F8F8)
-        contentView.addSubview(containView)
-        containView.addSubview(titleLabel)
-        containView.addSubview(descLabel)
+        titleLabel.text = "诗和远方"
+        descLabel.text = "到过的世界上最遥远的地方、拍下的风景和见过的人"
         containView.addSubview(farthestPlaceView)
         containView.addSubview(farthestDayView)
-        containView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(11)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.bottom.equalToSuperview()
-        }
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(17)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(23)
-        }
-        descLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(3)
-            make.leadingMargin.equalTo(11)
-            make.trailingMargin.equalTo(-11)
-            make.height.equalTo(17)
-        }
         farthestPlaceView.snp.makeConstraints { (make) in
             make.top.equalTo(descLabel.snp.bottom)
             make.left.right.equalToSuperview()

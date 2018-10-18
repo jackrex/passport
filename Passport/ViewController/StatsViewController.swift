@@ -13,6 +13,9 @@ import SnapKit
 class StatsViewController: BaseUIViewController {
     
     var stats: StatsModel?
+    let shareButton = UIButton.init(type: UIButton.ButtonType.custom).then {
+        $0.setImage(UIImage(named: "icon_share"), for: .normal)
+    }
     let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.showsVerticalScrollIndicator = false
         $0.separatorStyle = .none
@@ -49,6 +52,7 @@ class StatsViewController: BaseUIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetchStatsInfo()
+        setupActions()
     }
     
     func setupSubviews() {
@@ -58,17 +62,36 @@ class StatsViewController: BaseUIViewController {
         tableView.tableHeaderView = tableHeaderView
         tableView.separatorStyle = .none
         view.addSubview(tableView)
+        view.addSubview(shareButton)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        shareButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(UIDevice.current.isX ? (SafeArea.iPhoneXInsets.top + 32) : 32)
+            make.right.equalToSuperview().offset(-15)
+            make.width.height.equalTo(24)
+        }
+    }
+    
+    func setupActions() {
+        shareButton.addTarget(self, action: #selector(clickShareButton), for: .touchUpInside)
+    }
+    
+    @objc func clickShareButton() {
+        AccountManager.logout()
+        SVProgressHUD.showInfo(withStatus: "账号已退出")
+        let welcomeViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "PassportNavigationController") as! UINavigationController
+        UIApplication.shared.delegate?.window?!.rootViewController = welcomeViewController
     }
 
     func fetchStatsInfo() {
         StatsRequester.fetchStatsInfo { [weak self] (success, dict) in
-            guard let _ = self, let dictionary = dict as? Dictionary<String, Any> else {return}
-            self!.stats = dictionary[kResultData] as! StatsModel
-            self!.tableHeaderView.updateUIWithData(self!.stats!)
-            self!.tableView.reloadData()
+            if success {
+                guard let _ = self, let dictionary = dict as? Dictionary<String, Any> else {return}
+                self!.stats = dictionary[kResultData] as! StatsModel
+                self!.tableHeaderView.updateUIWithData(self!.stats!)
+                self!.tableView.reloadData()
+            }
         }
     }
 }
