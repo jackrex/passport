@@ -14,6 +14,8 @@
 static NSInteger const TripDetailDefaultLevel = 13;
 static NSInteger const TripDetailDefaultMinLevel = 8;
 
+static CGFloat const kDefautMargin = 14;
+
 typedef NS_ENUM(NSInteger, KEPAthleticFieldSceneType) {
     KEPAthleticFieldSceneTypeGlance = 0,
     KEPAthleticFieldSceneTypeRespective,

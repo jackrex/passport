@@ -20,8 +20,19 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<dict>
+		<key>Allow Arbitrary Loads</key>
+		<true/>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
+	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>需要访问你的地理位置,请点击允许</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要访问你的地理位置,请点击允许</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要访问您的相册，请点击允许</string>
 	<key>UILaunchStoryboardName</key>
@@ -57,16 +68,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
-	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>aa</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>bb</string>
-	<key>LSApplicationCategoryType</key>
-	<dict>
-		<key>Allow Arbitrary Loads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>

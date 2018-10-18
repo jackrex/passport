@@ -28,6 +28,17 @@
 		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
 		B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */; };
 		B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */; };
+		B60D3A50217838E80099547D /* TripDetailBaseHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A4F217838E80099547D /* TripDetailBaseHeaderCell.m */; };
+		B60D3A6A21783F410099547D /* KEPEntryPhotoAndVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5521783F410099547D /* KEPEntryPhotoAndVideoView.m */; };
+		B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5721783F410099547D /* KEPTimelineEntryCell.m */; };
+		B60D3A6D21783F410099547D /* KEPEntryMetaAndCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5821783F410099547D /* KEPEntryMetaAndCardView.m */; };
+		B60D3A6E21783F410099547D /* KEPEntryTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5921783F410099547D /* KEPEntryTextView.m */; };
+		B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5A21783F410099547D /* KEPTimelineEntryCellHelper.m */; };
+		B60D3A7021783F410099547D /* KEPEntryMultiPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5B21783F410099547D /* KEPEntryMultiPhotosView.m */; };
+		B60D3A7121783F410099547D /* KEPEntryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A5C21783F410099547D /* KEPEntryHeaderView.m */; };
+		B60D3A7221783F410099547D /* KEPBaseEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6821783F410099547D /* KEPBaseEntryCell.m */; };
+		B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */; };
+		B60D3A752178529C0099547D /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A742178529C0099547D /* FlexiblePageControl.swift */; };
 		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
 		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
 		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
@@ -39,6 +50,19 @@
 		B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBC2177677200C47258 /* TripDetailTableView.m */; };
 		B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */; };
 		B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */; };
+		D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */; };
+		D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2621776809002D1D99 /* PHPersonHandler.m */; };
+		D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2921777004002D1D99 /* Geohash.swift */; };
+		D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2B21777984002D1D99 /* PhotoHashData.swift */; };
+		D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2D2177832E002D1D99 /* DateUtil.swift */; };
+		D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF2F21781875002D1D99 /* Earth.mp4 */; };
+		D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */; };
+		D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */; };
+		D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF3A217821B2002D1D99 /* LoginView.storyboard */; };
+		D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3C217824E1002D1D99 /* LoginViewController.swift */; };
+		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
+		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
+		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
 		D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */; };
 		D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DED2176DBCD004F1A95 /* TripsViewController.swift */; };
 		D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8DE7DEF2176DBCD004F1A95 /* Main.storyboard */; };
@@ -88,6 +112,27 @@
 		B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewDataSource.m; sourceTree = "<group>"; };
 		B60D3A4721782BFD0099547D /* KEPRTActivityToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPRTActivityToggle.h; sourceTree = "<group>"; };
 		B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPRTActivityToggle.m; sourceTree = "<group>"; };
+		B60D3A4E217838E80099547D /* TripDetailBaseHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailBaseHeaderCell.h; sourceTree = "<group>"; };
+		B60D3A4F217838E80099547D /* TripDetailBaseHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailBaseHeaderCell.m; sourceTree = "<group>"; };
+		B60D3A5521783F410099547D /* KEPEntryPhotoAndVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPEntryPhotoAndVideoView.m; sourceTree = "<group>"; };
+		B60D3A5721783F410099547D /* KEPTimelineEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPTimelineEntryCell.m; sourceTree = "<group>"; };
+		B60D3A5821783F410099547D /* KEPEntryMetaAndCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPEntryMetaAndCardView.m; sourceTree = "<group>"; };
+		B60D3A5921783F410099547D /* KEPEntryTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPEntryTextView.m; sourceTree = "<group>"; };
+		B60D3A5A21783F410099547D /* KEPTimelineEntryCellHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPTimelineEntryCellHelper.m; sourceTree = "<group>"; };
+		B60D3A5B21783F410099547D /* KEPEntryMultiPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPEntryMultiPhotosView.m; sourceTree = "<group>"; };
+		B60D3A5C21783F410099547D /* KEPEntryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPEntryHeaderView.m; sourceTree = "<group>"; };
+		B60D3A5D21783F410099547D /* KEPEntryPhotoAndVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPEntryPhotoAndVideoView.h; sourceTree = "<group>"; };
+		B60D3A5E21783F410099547D /* KEPTimelineEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPTimelineEntryCell.h; sourceTree = "<group>"; };
+		B60D3A6021783F410099547D /* KEPEntryMultiPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPEntryMultiPhotosView.h; sourceTree = "<group>"; };
+		B60D3A6121783F410099547D /* KEPTimelineEntryCellHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPTimelineEntryCellHelper.h; sourceTree = "<group>"; };
+		B60D3A6221783F410099547D /* KEPEntryTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPEntryTextView.h; sourceTree = "<group>"; };
+		B60D3A6321783F410099547D /* KEPEntryMetaAndCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPEntryMetaAndCardView.h; sourceTree = "<group>"; };
+		B60D3A6421783F410099547D /* KEPEntryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPEntryHeaderView.h; sourceTree = "<group>"; };
+		B60D3A6621783F410099547D /* KEPBaseEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPBaseEntryCell.h; sourceTree = "<group>"; };
+		B60D3A6721783F410099547D /* KEPBaseEntryCell+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KEPBaseEntryCell+Helper.h"; sourceTree = "<group>"; };
+		B60D3A6821783F410099547D /* KEPBaseEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPBaseEntryCell.m; sourceTree = "<group>"; };
+		B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KEPBaseEntryCell+Helper.m"; sourceTree = "<group>"; };
+		B60D3A742178529C0099547D /* FlexiblePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
 		B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
 		B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
 		B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewModel.h; sourceTree = "<group>"; };
@@ -203,38 +248,107 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B6DFCEA221775E0C00C47258 /* TripDetail */ = {
+		B60D3A4A2178375A0099547D /* Carouse */ = {
 			isa = PBXGroup;
 			children = (
-				B60D3A4721782BFD0099547D /* KEPRTActivityToggle.h */,
-				B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */,
-				B6DFCEAA217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.h */,
-				B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */,
-				B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */,
-				B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */,
-				B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */,
-				B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */,
-				B6DFCEAC217762C400C47258 /* TripDetailMapViewModel.h */,
-				B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */,
+				B60D3A4C217838810099547D /* TableView */,
 				B6DFCEAF217764E700C47258 /* TripDetailCarouseView.h */,
 				B6DFCEB0217764E700C47258 /* TripDetailCarouseView.m */,
 				B6DFCEB22177652000C47258 /* TripDetailCarouseViewModel.h */,
 				B6DFCEB32177652000C47258 /* TripDetailCarouseViewModel.m */,
 				B6DFCEB8217765BF00C47258 /* TripPenetrateBaseViewModel.h */,
 				B6DFCEB9217765BF00C47258 /* TripPenetrateBaseViewModel.m */,
+				B60D3A4721782BFD0099547D /* KEPRTActivityToggle.h */,
+				B60D3A4821782BFD0099547D /* KEPRTActivityToggle.m */,
+				B6DFCEC3217776DE00C47258 /* UIView+KEP_OutdoorActivity.h */,
+				B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */,
+			);
+			path = Carouse;
+			sourceTree = "<group>";
+		};
+		B60D3A4B217837820099547D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B6DFCEAA217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.h */,
+				B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */,
+				B6DFCEAC217762C400C47258 /* TripDetailMapViewModel.h */,
+				B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B60D3A4C217838810099547D /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A5421783F410099547D /* Cell */,
+				B60D3A4D217838C10099547D /* Cells */,
 				B6DFCEBB2177677200C47258 /* TripDetailTableView.h */,
 				B6DFCEBC2177677200C47258 /* TripDetailTableView.m */,
 				B6DFCEBE217767A300C47258 /* TripDetailTableViewModel.h */,
 				B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */,
-				B6DFCEB52177656F00C47258 /* TripDetailModel.h */,
-				B6DFCEB62177656F00C47258 /* TripDetailModel.m */,
-				B6DFCEC12177757500C47258 /* TripDetailHeader.h */,
-				B6DFCEC3217776DE00C47258 /* UIView+KEP_OutdoorActivity.h */,
-				B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */,
 				B60D3A41217823D40099547D /* TripDetailTableViewBaseDataSource.h */,
 				B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */,
 				B60D3A44217824B60099547D /* TripDetailTableViewDataSource.h */,
 				B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		B60D3A4D217838C10099547D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B60D3A5421783F410099547D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A742178529C0099547D /* FlexiblePageControl.swift */,
+				B60D3A5E21783F410099547D /* KEPTimelineEntryCell.h */,
+				B60D3A5721783F410099547D /* KEPTimelineEntryCell.m */,
+				B60D3A6121783F410099547D /* KEPTimelineEntryCellHelper.h */,
+				B60D3A5A21783F410099547D /* KEPTimelineEntryCellHelper.m */,
+				B60D3A5D21783F410099547D /* KEPEntryPhotoAndVideoView.h */,
+				B60D3A5521783F410099547D /* KEPEntryPhotoAndVideoView.m */,
+				B60D3A6321783F410099547D /* KEPEntryMetaAndCardView.h */,
+				B60D3A5821783F410099547D /* KEPEntryMetaAndCardView.m */,
+				B60D3A6221783F410099547D /* KEPEntryTextView.h */,
+				B60D3A5921783F410099547D /* KEPEntryTextView.m */,
+				B60D3A6021783F410099547D /* KEPEntryMultiPhotosView.h */,
+				B60D3A5B21783F410099547D /* KEPEntryMultiPhotosView.m */,
+				B60D3A6421783F410099547D /* KEPEntryHeaderView.h */,
+				B60D3A5C21783F410099547D /* KEPEntryHeaderView.m */,
+				B60D3A6521783F410099547D /* Base */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B60D3A6521783F410099547D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A4E217838E80099547D /* TripDetailBaseHeaderCell.h */,
+				B60D3A4F217838E80099547D /* TripDetailBaseHeaderCell.m */,
+				B60D3A6621783F410099547D /* KEPBaseEntryCell.h */,
+				B60D3A6821783F410099547D /* KEPBaseEntryCell.m */,
+				B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */,
+				B60D3A6721783F410099547D /* KEPBaseEntryCell+Helper.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B6DFCEA221775E0C00C47258 /* TripDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A4B217837820099547D /* Map */,
+				B60D3A4A2178375A0099547D /* Carouse */,
+				B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */,
+				B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */,
+				B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */,
+				B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */,
+				B6DFCEB52177656F00C47258 /* TripDetailModel.h */,
+				B6DFCEB62177656F00C47258 /* TripDetailModel.m */,
+				B6DFCEC12177757500C47258 /* TripDetailHeader.h */,
 			);
 			path = TripDetail;
 			sourceTree = "<group>";
@@ -635,10 +749,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */,
 				D8DE7E272177386D004F1A95 /* PhotoMeta.swift in Sources */,
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
 				B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */,
 				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
+				B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
 				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
@@ -647,14 +763,18 @@
 				B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */,
 				B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */,
 				B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */,
+				B60D3A6D21783F410099547D /* KEPEntryMetaAndCardView.m in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
 				D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */,
 				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,
+				B60D3A6E21783F410099547D /* KEPEntryTextView.m in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
+				B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */,
 				B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */,
 				B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */,
+				B60D3A752178529C0099547D /* FlexiblePageControl.swift in Sources */,
 				B6DFCEB42177652000C47258 /* TripDetailCarouseViewModel.m in Sources */,
 				B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */,
 				B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */,
@@ -662,17 +782,21 @@
 				B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */,
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
+				B60D3A7221783F410099547D /* KEPBaseEntryCell.m in Sources */,
 				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
 				D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */,
+				B60D3A7121783F410099547D /* KEPEntryHeaderView.m in Sources */,
 				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
+				B60D3A7021783F410099547D /* KEPEntryMultiPhotosView.m in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 				B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */,
 				D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */,
-
+				B60D3A50217838E80099547D /* TripDetailBaseHeaderCell.m in Sources */,
+				B60D3A6A21783F410099547D /* KEPEntryPhotoAndVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

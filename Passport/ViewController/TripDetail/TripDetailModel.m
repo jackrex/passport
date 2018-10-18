@@ -14,7 +14,10 @@
     NSMutableArray *array = [NSMutableArray array];
     for (NSInteger i = 0; i < 5; i++) {
         TripDetailModel *model = [[TripDetailModel alloc] init];
-        model.index = i;
+        model.dayIndex = i;
+        model.cityName = [NSString stringWithFormat:@"city%ld", i];
+        model.dateText = @"adasdads";
+        model.text = @"aaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfaaaaasdasdasdasdasdasdasdasdasdadafasdasfsafasdfasfasfsafafsfa";
         [array addObject:model];
     }
     return [array copy];

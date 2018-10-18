@@ -6,9 +6,37 @@
 //  Copyright © 2018 Passport. All rights reserved.
 //
 
+#import <ReactiveObjC/ReactiveObjC.h>
 #import "TripDetailTableViewBaseDataSource.h"
 
 @implementation TripDetailTableViewBaseDataSource
+
+- (instancetype)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    @weakify(self);
+    [[RACObserve(self, sceneType) distinctUntilChanged] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        if (self.sceneType == KEPAthleticFieldSceneTypeSpecific) {
+            [self adjustTableViewContent];
+        } else {
+            [self addRoundCorner];
+        }
+    }];
+    return self;
+}
+
+
+- (void)addRoundCorner {
+    
+}
+
+- (void)adjustTableViewContent {
+    
+}
+
 
 #pragma mark - UITableView DataSource && Delegate
 

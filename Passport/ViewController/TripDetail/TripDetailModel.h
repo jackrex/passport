@@ -12,7 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TripDetailModel : KEPBaseJSONModel
 
-@property(nonatomic, assign) NSInteger index;
+@property(nonatomic, assign) NSInteger dayIndex;
+@property(nonatomic, copy) NSString *cityName;
+@property(nonatomic, strong) NSString *dateText;
+
+@property(nonatomic, strong) NSArray *pictures;
+@property(nonatomic, copy) NSString *text;
 
 + (NSArray *)testModels;
 

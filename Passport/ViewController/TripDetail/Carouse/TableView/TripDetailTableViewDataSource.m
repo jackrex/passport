@@ -6,12 +6,29 @@
 //  Copyright © 2018 Passport. All rights reserved.
 //
 
+#import "KEPTimelineEntryCell.h"
 #import "TripDetailTableViewDataSource.h"
+#import "KEPBaseEntryCell+Helper.h"
+
+@interface TripDetailTableViewDataSource ()
+
+@property(nonatomic, strong) KEPTimelineEntryCell *headerCell;
+
+@end
 
 @implementation TripDetailTableViewDataSource
 
 - (void)adjustTableViewContent {
-    
+    [self.headerCell adjustTableViewContent];
+}
+
+- (void)addRoundCorner {
+    [self.headerCell addRoundCorner];
+}
+
+- (void)setTripModel:(TripDetailModel *)tripModel {
+    _tripModel = tripModel;
+    [self.headerCell updateData:tripModel];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -23,18 +40,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 1000;
+    return [KEPBaseEntryCell cellHeightOfModel:self.tripModel];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", self.tripModel.index];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    return self.headerCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,5 +59,11 @@
     return nil;
 }
 
+- (KEPTimelineEntryCell *)headerCell {
+    if (!_headerCell) {
+        _headerCell = [[KEPTimelineEntryCell alloc] init];
+    }
+    return _headerCell;
+}
 
 @end

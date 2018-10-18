@@ -13,7 +13,7 @@
 #import "TripDetailModel.h"
 #import "TripDetailTableViewDataSource.h"
 
-@interface TripDetailTableView () <UITableViewDelegate, UITableViewDataSource>
+@interface TripDetailTableView ()
 
 @property(nonatomic, strong) TripDetailTableViewModel *viewModel;
 
@@ -104,6 +104,7 @@
     self.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
     self.backgroundColor = [UIColor clearColor];
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    [self kep_registerCells:[TripDetailHeaderCell class], nil];
 //    [self kep_registerCells:[KEPOutdoorActivityRouteTextTableCell class], [KEPOutdoorActivityRouteGalleryTableCell class],
 //     [KEPOutdoorActivityRouteLandlordTableCell class], [TrainingDetailAvatarTableViewCell class], [KEPOutdoorActivityRouteAuthorTableCell class], [KEPOutdoorActivityTextTableCell class], [KEPOutdoorActivityRouteBillboardTableCell class], [UITableViewCell class], [KEPOutdoorActivitySeparatorTextTableCell class], [KEPRTRoutePopularizationTableCell class],[KEPRTActivityTypeOccupationRatioCell class],[KEPRTRouteDetailAltitudeCell class], nil];
 //    [self registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
