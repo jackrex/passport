@@ -53,4 +53,36 @@ KEPJSONMODELPROTOCOL(TripMetaData)
 @end
 
 
+@interface TripGroupPoint: KEPBaseJSONModel
+
+@property(nonatomic, assign) CLLocationDegrees latitude;
+@property(nonatomic, assign) CLLocationDegrees longitude;
+
+@property(nonatomic, strong) NSArray <NSNumber *>*coordinates;
+
+@end
+
+@interface TripGroupPointPropeties: KEPBaseJSONModel
+
+@property(nonatomic, copy) NSString *userId;
+@property(nonatomic, copy) NSString *username;
+@property(nonatomic, copy) NSString *avatar;
+@property(nonatomic, copy) NSString *_hash;
+@property(nonatomic, copy) NSString *country;
+@property(nonatomic, copy) NSString *nationCode;
+@property(nonatomic, copy) NSString *province;
+@property(nonatomic, copy) NSString *city;
+@property(nonatomic, copy) NSString *cityCode;
+
+@end
+
+@interface TripGroupFeature: KEPBaseJSONModel
+
+@property(nonatomic, strong) TripGroupPoint *geometry;
+@property(nonatomic, strong) TripGroupPointPropeties *properties;
+
++ (NSArray <TripGroupFeature *> *)defaultFeatures;
+
+@end
+
 NS_ASSUME_NONNULL_END

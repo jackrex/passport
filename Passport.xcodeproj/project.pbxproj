@@ -45,6 +45,15 @@
 		B60D3A7321783F410099547D /* KEPBaseEntryCell+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A6921783F410099547D /* KEPBaseEntryCell+Helper.m */; };
 		B60D3A752178529C0099547D /* FlexiblePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A742178529C0099547D /* FlexiblePageControl.swift */; };
 		B60D3A812178BE590099547D /* TripDetailRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A802178BE590099547D /* TripDetailRequester.m */; };
+		B60D3A852178DAB60099547D /* group.plist in Resources */ = {isa = PBXBuildFile; fileRef = B60D3A842178DAB60099547D /* group.plist */; };
+		B60D3AA22178E1EA0099547D /* CKQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8B2178E1EA0099547D /* CKQuadTree.m */; };
+		B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8D2178E1EA0099547D /* CKClusterManager.m */; };
+		B60D3AA42178E1EA0099547D /* CKCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A8E2178E1EA0099547D /* CKCluster.m */; };
+		B60D3AA52178E1EA0099547D /* CKGridBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A912178E1EA0099547D /* CKGridBasedAlgorithm.m */; };
+		B60D3AA62178E1EA0099547D /* CKClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A922178E1EA0099547D /* CKClusterAlgorithm.m */; };
+		B60D3AA72178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A932178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m */; };
+		B60D3AAA2178E1EA0099547D /* MGLMapView+ClusterKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A9F2178E1EA0099547D /* MGLMapView+ClusterKit.m */; };
+		B60D3AAD2178EF460099547D /* MKAnnotation+TripDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */; };
 		B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */; };
 		B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA721775FFA00C47258 /* TripDetailViewModel.m */; };
 		B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */; };
@@ -175,6 +184,26 @@
 		B60D3A742178529C0099547D /* FlexiblePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexiblePageControl.swift; sourceTree = "<group>"; };
 		B60D3A7F2178BE590099547D /* TripDetailRequester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailRequester.h; sourceTree = "<group>"; };
 		B60D3A802178BE590099547D /* TripDetailRequester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailRequester.m; sourceTree = "<group>"; };
+		B60D3A842178DAB60099547D /* group.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = group.plist; sourceTree = "<group>"; };
+		B60D3A892178E1EA0099547D /* CKAnnotationTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAnnotationTree.h; sourceTree = "<group>"; };
+		B60D3A8A2178E1EA0099547D /* CKQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKQuadTree.h; sourceTree = "<group>"; };
+		B60D3A8B2178E1EA0099547D /* CKQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKQuadTree.m; sourceTree = "<group>"; };
+		B60D3A8C2178E1EA0099547D /* CKMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMap.h; sourceTree = "<group>"; };
+		B60D3A8D2178E1EA0099547D /* CKClusterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKClusterManager.m; sourceTree = "<group>"; };
+		B60D3A8E2178E1EA0099547D /* CKCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCluster.m; sourceTree = "<group>"; };
+		B60D3A902178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNonHierarchicalDistanceBasedAlgorithm.h; sourceTree = "<group>"; };
+		B60D3A912178E1EA0099547D /* CKGridBasedAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGridBasedAlgorithm.m; sourceTree = "<group>"; };
+		B60D3A922178E1EA0099547D /* CKClusterAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKClusterAlgorithm.m; sourceTree = "<group>"; };
+		B60D3A932178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNonHierarchicalDistanceBasedAlgorithm.m; sourceTree = "<group>"; };
+		B60D3A942178E1EA0099547D /* CKClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKClusterAlgorithm.h; sourceTree = "<group>"; };
+		B60D3A952178E1EA0099547D /* CKGridBasedAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGridBasedAlgorithm.h; sourceTree = "<group>"; };
+		B60D3A962178E1EA0099547D /* CKCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCluster.h; sourceTree = "<group>"; };
+		B60D3A972178E1EA0099547D /* CKClusterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKClusterManager.h; sourceTree = "<group>"; };
+		B60D3A9F2178E1EA0099547D /* MGLMapView+ClusterKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MGLMapView+ClusterKit.m"; sourceTree = "<group>"; };
+		B60D3AA02178E1EA0099547D /* MGLMapView+ClusterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MGLMapView+ClusterKit.h"; sourceTree = "<group>"; };
+		B60D3AA12178E1EA0099547D /* ClusterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterKit.h; sourceTree = "<group>"; };
+		B60D3AAB2178EF460099547D /* MKAnnotation+TripDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKAnnotation+TripDetail.h"; sourceTree = "<group>"; };
+		B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotation+TripDetail.m"; sourceTree = "<group>"; };
 		B6DFCEA321775FEA00C47258 /* TripDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewController.h; sourceTree = "<group>"; };
 		B6DFCEA421775FEA00C47258 /* TripDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripDetailViewController.m; sourceTree = "<group>"; };
 		B6DFCEA621775FFA00C47258 /* TripDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripDetailViewModel.h; sourceTree = "<group>"; };
@@ -412,10 +441,13 @@
 		B60D3A4B217837820099547D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				B60D3A862178E1E90099547D /* ClusterKit */,
 				B6DFCEAA217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.h */,
 				B6DFCEA9217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m */,
 				B6DFCEAC217762C400C47258 /* TripDetailMapViewModel.h */,
 				B6DFCEAD217762C400C47258 /* TripDetailMapViewModel.m */,
+				B60D3AAB2178EF460099547D /* MKAnnotation+TripDetail.h */,
+				B60D3AAC2178EF460099547D /* MKAnnotation+TripDetail.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -481,6 +513,62 @@
 			path = Requester;
 			sourceTree = "<group>";
 		};
+		B60D3A862178E1E90099547D /* ClusterKit */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A872178E1EA0099547D /* Core */,
+				B60D3A9E2178E1EA0099547D /* Mapbox */,
+				B60D3AA12178E1EA0099547D /* ClusterKit.h */,
+			);
+			path = ClusterKit;
+			sourceTree = "<group>";
+		};
+		B60D3A872178E1EA0099547D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A8F2178E1EA0099547D /* Algorithm */,
+				B60D3A882178E1EA0099547D /* Tree */,
+				B60D3A8C2178E1EA0099547D /* CKMap.h */,
+				B60D3A8D2178E1EA0099547D /* CKClusterManager.m */,
+				B60D3A8E2178E1EA0099547D /* CKCluster.m */,
+				B60D3A962178E1EA0099547D /* CKCluster.h */,
+				B60D3A972178E1EA0099547D /* CKClusterManager.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B60D3A882178E1EA0099547D /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A892178E1EA0099547D /* CKAnnotationTree.h */,
+				B60D3A8A2178E1EA0099547D /* CKQuadTree.h */,
+				B60D3A8B2178E1EA0099547D /* CKQuadTree.m */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
+		B60D3A8F2178E1EA0099547D /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A902178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.h */,
+				B60D3A912178E1EA0099547D /* CKGridBasedAlgorithm.m */,
+				B60D3A922178E1EA0099547D /* CKClusterAlgorithm.m */,
+				B60D3A932178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m */,
+				B60D3A942178E1EA0099547D /* CKClusterAlgorithm.h */,
+				B60D3A952178E1EA0099547D /* CKGridBasedAlgorithm.h */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		B60D3A9E2178E1EA0099547D /* Mapbox */ = {
+			isa = PBXGroup;
+			children = (
+				B60D3A9F2178E1EA0099547D /* MGLMapView+ClusterKit.m */,
+				B60D3AA02178E1EA0099547D /* MGLMapView+ClusterKit.h */,
+			);
+			path = Mapbox;
+			sourceTree = "<group>";
+		};
 		B6DFCEA221775E0C00C47258 /* TripDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +614,7 @@
 		D87DDF3521781CA7002D1D99 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B60D3A842178DAB60099547D /* group.plist */,
 				D84DC9622178BF2300BD0A73 /* hash.json */,
 				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
 				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
@@ -781,6 +870,7 @@
 				3E2FD4CD217877C300B7365B /* SF-Pro-Text-Regular.otf in Resources */,
 				3E2FD4CE217877C300B7365B /* SF-Pro-Text-Bold.otf in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
+				B60D3A852178DAB60099547D /* group.plist in Resources */,
 				3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */,
 				3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */,
 				3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -930,18 +1020,22 @@
 				B6DFCEB1217764E700C47258 /* TripDetailCarouseView.m in Sources */,
 				3E2FD4AA21783AF000B7365B /* StatsModel.m in Sources */,
 				3E2FD4A821783AF000B7365B /* StatsPoetryDistanceCell.swift in Sources */,
+				B60D3AAD2178EF460099547D /* MKAnnotation+TripDetail.m in Sources */,
 				B6DFCEAB217760C800C47258 /* KEPOutdoorActivitySummaryMGLMapView.m in Sources */,
 				D8DE7DEE2176DBCD004F1A95 /* TripsViewController.swift in Sources */,
 				B60D3A6C21783F410099547D /* KEPTimelineEntryCell.m in Sources */,
 				D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */,
 				3E2FD4A521783AF000B7365B /* StatsGazeWorldCell.swift in Sources */,
 				D87DDF2A21777004002D1D99 /* Geohash.swift in Sources */,
+				B60D3AA72178E1EA0099547D /* CKNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				D8DE7E1A2176DD08004F1A95 /* GroupsTableViewController.swift in Sources */,
+				B60D3AA22178E1EA0099547D /* CKQuadTree.m in Sources */,
 				B6DFCEA821775FFA00C47258 /* TripDetailViewModel.m in Sources */,
 				B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */,
 				B6DFCEBA217765BF00C47258 /* TripPenetrateBaseViewModel.m in Sources */,
 				B6DFCEB72177656F00C47258 /* TripDetailModel.m in Sources */,
 				B6DFCEA521775FEA00C47258 /* TripDetailViewController.m in Sources */,
+				B60D3AA62178E1EA0099547D /* CKClusterAlgorithm.m in Sources */,
 				B60D3A6D21783F410099547D /* KEPEntryMetaAndCardView.m in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
@@ -949,7 +1043,9 @@
 				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,
 				B60D3A6E21783F410099547D /* KEPEntryTextView.m in Sources */,
 				D8DE7E212176DD65004F1A95 /* WelcomeViewController.swift in Sources */,
+				B60D3AAA2178E1EA0099547D /* MGLMapView+ClusterKit.m in Sources */,
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
+				B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */,
 				B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */,
 				B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */,
 				B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */,
@@ -976,9 +1072,11 @@
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
 				3E2FD4A921783AF000B7365B /* StatsDataInsightCell.swift in Sources */,
 				D8C9989A2178638F00570F75 /* PrepareViewController.swift in Sources */,
+				B60D3AA52178E1EA0099547D /* CKGridBasedAlgorithm.m in Sources */,
 				D855BC19217899700028A8EE /* UploadData.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
 				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
+				B60D3AA42178E1EA0099547D /* CKCluster.m in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 				B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */,
 				D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */,

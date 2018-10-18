@@ -6,6 +6,8 @@
 //  Copyright © 2018 Passport. All rights reserved.
 //
 #import <DateTools/DateTools.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+
 #import "TripDetailModel.h"
 
 @implementation TripDetailModel
@@ -35,4 +37,38 @@
 @implementation TripPointModel
 
 
+@end
+
+@implementation TripGroupPoint
+
+- (CLLocationDegrees)latitude {
+    return [self.coordinates[1] doubleValue];
+}
+
+- (CLLocationDegrees)longitude {
+    return [self.coordinates[0] doubleValue];
+}
+
+@end
+
+@implementation TripGroupPointPropeties
+
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"_hash": @"hash"}];
+}
+
+@end
+
+@implementation TripGroupFeature
+
+
++ (NSArray <TripGroupFeature *> *)defaultFeatures {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"group" ofType:@"plist"];
+
+    NSArray *datas = [[NSArray alloc] initWithContentsOfFile:plistPath];
+    NSError *error = nil;
+    NSArray *features = [TripGroupFeature arrayOfModelsFromDictionaries:datas error:&error];
+    return features;
+}
 @end

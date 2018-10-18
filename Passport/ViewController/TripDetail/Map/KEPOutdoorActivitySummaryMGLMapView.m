@@ -37,9 +37,9 @@
 }
 
 - (void)addTap {
-    self.mapTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    self.mapTapGestureRecognizer.delegate = self;
-    [self addGestureRecognizer:self.mapTapGestureRecognizer];
+//    self.mapTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+//    self.mapTapGestureRecognizer.delegate = self;
+//    [self addGestureRecognizer:self.mapTapGestureRecognizer];
 }
 
 /*!

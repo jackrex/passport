@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import <Mapbox/Mapbox.h>
 #import "TripDetailHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,6 +18,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) KEPAthleticFieldFromType fromType;
 
 - (void)configureMapView:(nonnull __kindof UIView *)mapView;
+
+@end
+
+
+@interface MBXAnnotationView : MGLAnnotationView
+
+@property (nonatomic, strong) UIImageView *imageView;
+@property(nonatomic, strong) UIImageView *backgroundImageView;
+
+@end
+
+@interface MBXClusterView : MGLAnnotationView
+
+@property(nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
