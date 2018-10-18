@@ -21,6 +21,9 @@
 		D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3C217824E1002D1D99 /* LoginViewController.swift */; };
 		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
 		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
+		D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */; };
+		D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF462178399D002D1D99 /* HttpApi.swift */; };
+		D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF4821783ED0002D1D99 /* LoginData.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
 		B60D3A43217823D40099547D /* TripDetailTableViewBaseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A42217823D40099547D /* TripDetailTableViewBaseDataSource.m */; };
 		B60D3A46217824B60099547D /* TripDetailTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D3A45217824B60099547D /* TripDetailTableViewDataSource.m */; };
@@ -124,6 +127,9 @@
 		D87DDF3C217824E1002D1D99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUtil.swift; sourceTree = "<group>"; };
 		D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPicViewController.swift; sourceTree = "<group>"; };
+		D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyBoardExt.swift; path = Passport/Assets.xcassets/KeyBoardExt.swift; sourceTree = SOURCE_ROOT; };
+		D87DDF462178399D002D1D99 /* HttpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpApi.swift; sourceTree = "<group>"; };
+		D87DDF4821783ED0002D1D99 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppDelegate.swift; sourceTree = "<group>"; };
 		D8DE7DEB2176DBCD004F1A95 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 			children = (
 				D8DE7E262177386D004F1A95 /* PhotoMeta.swift */,
 				D87DDF2B21777984002D1D99 /* PhotoHashData.swift */,
+				D87DDF4821783ED0002D1D99 /* LoginData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -294,6 +301,8 @@
 				D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */,
 				D87DDF2D2177832E002D1D99 /* DateUtil.swift */,
 				D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */,
+				D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */,
+				D87DDF462178399D002D1D99 /* HttpApi.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -654,12 +663,16 @@
 				D8DE7E232176DD97004F1A95 /* CustomTabBarViewController.swift in Sources */,
 				D8DE7E1F2176DD29004F1A95 /* Dummy.m in Sources */,
 				D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */,
+				D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */,
 				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
 				D8DE7DEC2176DBCD004F1A95 /* StatsViewController.swift in Sources */,
 				D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */,
+				D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */,
 				D87DDF2E2177832E002D1D99 /* DateUtil.swift in Sources */,
 				B6DFCEBD2177677200C47258 /* TripDetailTableView.m in Sources */,
+				D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

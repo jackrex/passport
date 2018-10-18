@@ -10,21 +10,45 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loginBtn.layer.cornerRadius = 25
+        loginBtn.clipsToBounds = true
+        
+        phoneTextField.tintColor = .white
+        passwordField.tintColor = .white
+        
+        phoneTextField.attributedPlaceholder = NSAttributedString(string: "输入 Keep 手机号",
+                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        passwordField.attributedPlaceholder = NSAttributedString(string: "密码",
+                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+
+        self.hideKeyboardWhenTappedAround()
+        
     }
     
+    @IBAction func loginClick(_ sender: Any) {
+        
+        let phone = phoneTextField.text
+        let pwd = passwordField.text
+        HttpApi.login(phone!, pwd!) { (data) in
+            do {
+                let dataDict = try JSONDecoder().decode(Login.self, from: data)
+                print(dataDict)
+            }catch {
+                let nsError = error as NSError
+                print(nsError.debugDescription)
+            }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
+
 
 }
