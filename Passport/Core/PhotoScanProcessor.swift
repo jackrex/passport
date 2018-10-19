@@ -20,6 +20,7 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     public static let GEOHASH_LENGTH = 100
     
     public static var allPhotos:[(PhotoMeta)] = []
+    public static var allDateDict: [String: [PhotoMeta]]  = [:]
     
     public static func getAuthorized(view :UIView, _ block: @escaping ClosureBlock) {
         let authStatus = PHPhotoLibrary.authorizationStatus()
@@ -211,6 +212,9 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     }
 
     public static func getDatePhotos() -> [String: [PhotoMeta]] {
+        if allDateDict.count > 0 {
+            return allDateDict
+        }
         let photos = handleDuplicatePhotos()
         var dateDict: [String: [PhotoMeta]] = [:]
         for photo in photos {
@@ -225,6 +229,7 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
                 dateDict.updateValue(metas, forKey: key)
             }
         }
+        allDateDict = dateDict
         return dateDict
     }
     
@@ -252,32 +257,37 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     }
     
     public static func getRandomPhoto(_ date: Date, block: @escaping ImageBlock) {
-        let dict = getDatePhotos()
-        let metas = dict[DateUtil.date2Str(date: date)]
         
-        if metas == nil {
-            block(nil)
-            return
+        DispatchQueue.global().async {
+            let dict = getDatePhotos()
+            let metas = dict[DateUtil.date2Str(date: date)]
+            
+            if metas == nil {
+                block(nil)
+                return
+            }
+            
+            if (metas?.count)! <= 0 {
+                //TODO fix that
+                block(nil)
+                return
+            }
+            
+            let asset = metas![Int.random(in: 0..<metas!.count)].asset
+            
+            let scale = UIScreen.main.scale
+            let dimension = CGFloat(200.0)
+            let size = CGSize(width: dimension * scale, height: dimension * scale)
+            DispatchQueue.main.async {
+                MMAssetService.shared()?.requestImage(with: asset!, maxSize: size, handler: { (code, image, model) in
+                    block(image!)
+                }, progress: { (aa, err,c, a) in
+                    
+                })
+            }
         }
         
-        if (metas?.count)! <= 0 {
-            //TODO fix that
-            block(nil)
-            return
-        }
-        
-        let asset = metas![Int.random(in: 0..<metas!.count)].asset
-        
-        let scale = UIScreen.main.scale
-        let dimension = CGFloat(200.0)
-        let size = CGSize(width: dimension * scale, height: dimension * scale)
-        
-        
-        MMAssetService.shared()?.requestImage(with: asset!, maxSize: size, handler: { (code, image, model) in
-            block(image!)
-            }, progress: { (aa, err,c, a) in
-                
-        })
+
         
 
     }
