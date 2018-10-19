@@ -57,6 +57,7 @@ static CGSize const kAvatarSize = {35, 35};
         self.nameLabel.text = data.properties.username;
         self.timeLabel.text = [NSString stringWithFormat:@"%@", data.properties.country];
     } else {
+        self.avatarView.hidden = YES;
         self.dayIndexLabel.text = [NSString stringWithFormat:@"D%ld", model.dayIndex + 1];
         self.nameLabel.text = model.cityName;
         self.timeLabel.text = model.dateText;
@@ -119,6 +120,8 @@ static CGSize const kAvatarSize = {35, 35};
         _dayIndexLabel = [UILabel kep_createLabel];
         _dayIndexLabel.font = [UIFont kep_systemBoldSize:32];
         _dayIndexLabel.textAlignment = NSTextAlignmentCenter;
+        _dayIndexLabel.adjustsFontSizeToFitWidth = YES;
+        _dayIndexLabel.preferredMaxLayoutWidth = 50;
     }
     return _dayIndexLabel;
 }

@@ -33,6 +33,7 @@ KEPJSONMODELPROTOCOL(TripMetaData)
 
 @property(nonatomic, copy) NSString *type;
 @property(nonatomic, copy) NSString *text;
+@property(nonatomic, copy) NSString *imageName;
 
 - (TripMetaDataType)dataType;
 

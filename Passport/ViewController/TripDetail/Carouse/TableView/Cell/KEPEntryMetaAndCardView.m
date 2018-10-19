@@ -13,88 +13,54 @@
 #import "TripDetailModel.h"
 //#import "UIImage+SocialLoad.h"
 
-@interface KEPEntryMetaAndCardView ()
+
+@interface _MetaView : UIView
 
 @property(nonatomic, strong) UIImageView *typeIconImageView;
 @property(nonatomic, strong) UILabel *nameLabel;
-@property(nonatomic, strong) UIImageView *timeImageView;
-@property(nonatomic, strong) UILabel *timeLabel;
-@property(nonatomic, strong) UIImageView *calorieImageView;
-@property(nonatomic, strong) UILabel *calorieLabel;
+
 @end
 
-@implementation KEPEntryMetaAndCardView
+@implementation _MetaView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (!self) {
         return nil;
     }
-    [self _kep_setupSubviews];
+    [self _kep_setupSubivews];
     return self;
 }
 
-+ (BOOL)shouldDisplayForData:(TripDetailModel *)model {
-    return NO;
-}
-
-
-+ (CGFloat)viewHeight {
-    return 58;
-}
-
-- (void)updateData:(TripDetailModel *)model {
-//    self.nameLabel.text = [model.trainingDetail nameText];
-//    self.timeLabel.text = [NSString hourWithSecond:[model.trainingDetail.secondDuration integerValue]];
-//    self.calorieLabel.text = [model.trainingDetail.calorie stringValue];
-}
-
-#pragma mark - Private Methods
-
-- (void)_kep_setupSubviews {
-    self.backgroundColor = [UIColor kep_colorFromHex:0XfaFAFA];
+- (void)_kep_setupSubivews {
     [self addSubview:self.typeIconImageView];
     [self addSubview:self.nameLabel];
-    [self addSubview:self.timeImageView];
-    [self addSubview:self.timeLabel];
-    [self addSubview:self.calorieImageView];
-    [self addSubview:self.calorieLabel];
     
     [self.typeIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.mas_equalTo(self).inset(8);
-        make.top.mas_equalTo(self).inset(11);
+        make.top.mas_equalTo(self).inset(4);
         make.size.mas_equalTo(CGSizeMake(16, 16));
+        make.centerY.mas_equalTo(self);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.typeIconImageView);
         make.leading.mas_equalTo(self.typeIconImageView.mas_trailing).offset(4);
         make.trailing.mas_lessThanOrEqualTo(self).offset(-16);
     }];
-    [self.timeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.mas_equalTo(self).inset(29);
-        make.top.mas_equalTo(self).inset(35);
-    }];
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.timeImageView);
-        make.leading.mas_equalTo(self.timeImageView.mas_trailing).offset(5);
-    }];
-    [self.calorieImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.timeImageView);
-        make.leading.mas_equalTo(self.timeLabel.mas_trailing).offset(9.5);
-    }];
-    [self.calorieLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.timeImageView);
-        make.leading.mas_equalTo(self.calorieImageView.mas_trailing).offset(5);
-    }];
 }
 
-
-#pragma mark - Properties
+- (void)updateUIWithMeta:(TripMetaData *)metaData {
+    self.nameLabel.text = metaData.text;
+    if (metaData.dataType == TripMetaDataTypeStep) {
+        self.typeIconImageView.image = [UIImage imageNamed:@"ic_step"];
+    } else {
+        self.typeIconImageView.image = [UIImage imageNamed:@"ic_train"];
+    }
+}
 
 - (UIImageView *)typeIconImageView {
     if (!_typeIconImageView) {
         _typeIconImageView = [UIImageView kep_createImageView];
-//        _typeIconImageView.image = [UIImage sl_imageNamed:@"ic_activity_training"];
     }
     return _typeIconImageView;
 }
@@ -108,38 +74,65 @@
     return _nameLabel;
 }
 
-- (UIImageView *)timeImageView {
-    if (!_timeImageView) {
-        _timeImageView = [UIImageView kep_createImageView];
-//        _timeImageView.image = [UIImage sl_imageNamed:@"ic_activity_time"];
+
+
+@end
+@interface KEPEntryMetaAndCardView ()
+
+@property(nonatomic, strong) NSMutableArray <_MetaView *> *metaViews;
+@end
+
+@implementation KEPEntryMetaAndCardView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (!self) {
+        return nil;
     }
-    return _timeImageView;
+
+    return self;
 }
 
-- (UILabel *)timeLabel {
-    if (!_timeLabel) {
-        _timeLabel = [UILabel kep_createLabel];
-        _timeLabel.textColor = [KColorManager subFeedTextColor];
-        _timeLabel.font = [UIFont kep_systemRegularSize:12];
-    }
-    return _timeLabel;
++ (BOOL)shouldDisplayForData:(TripDetailModel *)model {
+    return model.keepDatas.count > 0;
 }
 
-- (UIImageView *)calorieImageView {
-    if (!_calorieImageView) {
-        _calorieImageView = [UIImageView kep_createImageView];
-//        _calorieImageView.image = [UIImage sl_imageNamed:@"ic_activity_calories"];
+- (void)updateData:(TripDetailModel *)model {
+    self.backgroundColor = [UIColor kep_colorFromHex:0XfaFAFA];
+    [self.metaViews enumerateObjectsUsingBlock:^(_MetaView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+    [self.metaViews removeAllObjects];
+    
+    for (NSInteger i = 0; i < model.keepDatas.count; i++) {
+        _MetaView *view = [[_MetaView alloc] init];
+        [view updateUIWithMeta:model.keepDatas[i]];
+        [self addSubview:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.trailing.mas_offset(0);
+            make.height.mas_equalTo(24);
+            if (i == 0) {
+                make.top.mas_offset(12);
+            } else {
+                make.top.mas_equalTo(self.metaViews.lastObject.mas_bottom);
+            }
+            if (i == model.keepDatas.count - 1) {
+                make.bottom.mas_offset(-12);
+            }
+        }];
+        [self.metaViews addObject:view];
     }
-    return _calorieImageView;
 }
 
-- (UILabel *)calorieLabel {
-    if (!_calorieLabel) {
-        _calorieLabel = [UILabel kep_createLabel];
-        _calorieLabel.textColor = [KColorManager subFeedTextColor];
-        _calorieLabel.font = [UIFont kep_systemRegularSize:12];
+
+- (NSMutableArray<_MetaView *> *)metaViews {
+    if (!_metaViews) {
+        _metaViews = [NSMutableArray array];
     }
-    return _calorieLabel;
+    return _metaViews;
 }
+
+
 
 @end

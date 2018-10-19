@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KEPEntryMetaAndCardView : UIView
 
-+ (CGFloat)viewHeight;
 + (BOOL)shouldDisplayForData:(TripDetailModel *)model;
 
 - (void)updateData:(TripDetailModel *)model;

@@ -42,21 +42,21 @@
         if (self.run > 0) {
             TripMetaData *data = [[TripMetaData alloc] init];
             data.type = @"running";
-            data.text = [NSString stringWithFormat:@"你完成了%.1f的跑步",self.run];
+            data.text = [NSString stringWithFormat:@"你完成了%.1fkm的跑步",self.run];
             [datas addObject:data];
         }
         
         if (self.cycling > 0) {
             TripMetaData *data = [[TripMetaData alloc] init];
             data.type = @"cycling";
-            data.text = [NSString stringWithFormat:@"你完成了%.1f的骑行",self.cycling];
+            data.text = [NSString stringWithFormat:@"你完成了%.1fkm的骑行",self.cycling];
             [datas addObject:data];
         }
         
         if (self.hiking > 0) {
             TripMetaData *data = [[TripMetaData alloc] init];
             data.type = @"hiking";
-            data.text = [NSString stringWithFormat:@"你完成了%.1f的行走",self.run];
+            data.text = [NSString stringWithFormat:@"你完成了%.1fkm的行走",self.hiking];
             [datas addObject:data];
         }
         

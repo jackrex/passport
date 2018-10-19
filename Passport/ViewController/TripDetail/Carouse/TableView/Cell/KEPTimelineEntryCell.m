@@ -166,10 +166,8 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         if (self.metaAndCardView.superview == nil) {
             [self.containerView addSubview:self.metaAndCardView];
         }
-        if (self.updateHeightOnly == NO) {
-            [self.metaAndCardView updateData:model];
-        }
-        SetFrameByHeight(self.metaAndCardView, bottomSpacing? 12 : 0, 16, [KEPEntryMetaAndCardView viewHeight]);
+        [self.metaAndCardView updateData:model];
+        SetViewFrame(self.metaAndCardView, bottomSpacing? 12 : 0, 16);
         bottomSpacing = YES;
     }
     
