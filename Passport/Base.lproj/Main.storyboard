@@ -269,6 +269,34 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="133" id="rNL-m1-314">
+                                        <rect key="frame" x="0.0" y="625" width="375" height="133"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rNL-m1-314" id="7YC-lv-SSe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group3" translatesAutoresizingMaskIntoConstraints="NO" id="hqT-es-NKQ">
+                                                    <rect key="frame" x="14" y="0.0" width="169" height="113"/>
+                                                    <color key="backgroundColor" red="0.60784313725490191" green="0.58039215686274515" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group4" translatesAutoresizingMaskIntoConstraints="NO" id="Vlg-Q7-WWa">
+                                                    <rect key="frame" x="192" y="0.0" width="169" height="113"/>
+                                                    <color key="backgroundColor" red="0.72156862745098038" green="0.87058823529411766" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Vlg-Q7-WWa" secondAttribute="bottom" constant="20" id="9Lf-Mb-W85"/>
+                                                <constraint firstItem="Vlg-Q7-WWa" firstAttribute="width" secondItem="hqT-es-NKQ" secondAttribute="width" id="JTa-1y-Ih2"/>
+                                                <constraint firstAttribute="bottom" secondItem="hqT-es-NKQ" secondAttribute="bottom" constant="20" id="Mnz-5S-aWr"/>
+                                                <constraint firstItem="Vlg-Q7-WWa" firstAttribute="top" secondItem="7YC-lv-SSe" secondAttribute="top" id="RIL-Tp-0lr"/>
+                                                <constraint firstItem="hqT-es-NKQ" firstAttribute="leading" secondItem="7YC-lv-SSe" secondAttribute="leading" constant="14" id="Rcz-9W-TD9"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vlg-Q7-WWa" secondAttribute="trailing" constant="14" id="TVB-wR-bch"/>
+                                                <constraint firstItem="hqT-es-NKQ" firstAttribute="top" secondItem="7YC-lv-SSe" secondAttribute="top" id="hKT-Wq-dMn"/>
+                                                <constraint firstItem="Vlg-Q7-WWa" firstAttribute="leading" secondItem="hqT-es-NKQ" secondAttribute="trailing" constant="9" id="xa5-WW-VSn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -445,6 +473,8 @@
     <resources>
         <image name="group1" width="686" height="407"/>
         <image name="group2" width="686" height="407"/>
+        <image name="group3" width="686" height="452"/>
+        <image name="group4" width="686" height="452"/>
         <image name="ic_tab_group" width="24" height="24"/>
         <image name="ic_tab_group_disabled" width="24" height="24"/>
         <image name="ic_tab_stats" width="24" height="24"/>
