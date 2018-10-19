@@ -41,7 +41,27 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     }
     
     public static func fetchAlbumsCollections() ->  PHFetchResult<PHAssetCollection> {
-        let userCollections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: nil)
+        
+//        let momentLists = PHCollectionList.fetchMomentLists(with: .smartFolderFaces, options: nil)
+//        if momentLists.count > 0 {
+//            for index in 0...momentLists.count - 1 {
+//                let a = momentLists[index]
+//                print(index, a.localizedTitle ?? "--", a.localizedLocationNames)
+//            }
+//        } else {
+//            print("-- No moment lists! --")
+//        }
+//
+        let userCollections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+        if userCollections.count > 0 {
+            for index in 0...userCollections.count - 1 {
+                let a = userCollections[index]
+                print(index, a.localizedTitle ?? "--", a.localizedLocationNames)
+            }
+        } else {
+            print("-- No moment lists! --")
+        }
+        
         return userCollections
         
     }
@@ -124,33 +144,33 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         
         
         // speed remove
-        var index = 0
-        dupIds.removeAll()
-        var standMeta: PhotoMeta = indenpentPhoto[0]
-        for photo in indenpentPhoto {
-            if (index + 1 < data.count) {
-                let nextPhotoMeta = data[index + 1]
-                let interval = nextPhotoMeta.time?.timeIntervalSince(standMeta.time!)
-                let distance = nextPhotoMeta.location?.distance(from: standMeta.location!)
-                let speed = distance! / interval!
-                if speed > 200{
-                    dupIds.append(nextPhotoMeta.identifier)
-                }else {
-                    standMeta = photo
-                }
-            }
-            index = index + 1
-        }
+//        var index = 0
+//        dupIds.removeAll()
+//        var standMeta: PhotoMeta = indenpentPhoto[0]
+//        for photo in indenpentPhoto {
+//            if (index + 1 < data.count) {
+//                let nextPhotoMeta = data[index + 1]
+//                let interval = nextPhotoMeta.time?.timeIntervalSince(standMeta.time!)
+//                let distance = nextPhotoMeta.location?.distance(from: standMeta.location!)
+//                let speed = distance! / interval!
+//                if speed > 200{
+//                    dupIds.append(nextPhotoMeta.identifier)
+//                }else {
+//                    standMeta = photo
+//                }
+//            }
+//            index = index + 1
+//        }
+//
+//
+//        var resultPhoto: [PhotoMeta] = []
+//        for meta in indenpentPhoto {
+//            if !dupIds.contains(meta.identifier) {
+//                resultPhoto.append(meta)
+//            }
+//        }
         
-        
-        var resultPhoto: [PhotoMeta] = []
-        for meta in indenpentPhoto {
-            if !dupIds.contains(meta.identifier) {
-                resultPhoto.append(meta)
-            }
-        }
-        
-        return resultPhoto
+        return indenpentPhoto
         
     }
     
