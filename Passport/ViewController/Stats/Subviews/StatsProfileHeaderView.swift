@@ -83,8 +83,9 @@ class StatsProfileHeaderView: UIView {
         userNameLabel.text = stats.profile.username
         ageLabel.text = stats.profile.birthday
         avatarImageView.sd_setImage(with: URL(string: stats.profile.avatar))
-//        DateUtil.increaseDate { (time) in
-//            self.ageLabel.text = time
-//        }
+        DateUtil.increaseDate(stats.profile.birthday) { (time) in
+            self.ageLabel.text = time + " 岁"
+        }
+
     }
 }

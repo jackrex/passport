@@ -19,17 +19,27 @@ class DateUtil {
         return ymd
     }
     
-    public static func increaseDate(_ block: @escaping TimeBlock){
-        let birth = stringConvertDate(string: "1993-01-29 00:00:00")
+    public static func str2Date(string:String, dateFormat:String="yyyy-MM-dd") -> Date {
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: string)
+        return date!
+    }
+    
+    public static func increaseDate(_ date: String, _ block: @escaping TimeBlock){
+        var birthStr = date
+        birthStr.insert("-", at: String.Index.init(encodedOffset: 4))
+        birthStr.insert("-", at: String.Index.init(encodedOffset: 7))
+        birthStr = birthStr + " 00:00:00"
+        let birth = stringConvertDate(string: birthStr)
         let now = birth.timeIntervalSinceNow
         let year =  -now / (365 * 24 * 60 * 60)
-        let timeInterval = 0.00001
-        let yearStr = String(format:"%.5f", year)
+        let timeInterval = 0.0000001
+        let yearStr = String(format:"%.7f", year)
         var trueYear = Double.init(yearStr)
-        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
             trueYear = trueYear! + timeInterval
-            print(String(format:"%.5f", trueYear!))
-            block(String(format:"%.5f", trueYear!))
+            block(String(format:"%.7f", trueYear!))
         }
         return
     }

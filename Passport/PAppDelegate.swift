@@ -29,6 +29,9 @@ class PAppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         }
         
+        
+        UITabBar.appearance().tintColor = UIColor.init(rgb: 0x584f60)
+        
         return true
     }
     

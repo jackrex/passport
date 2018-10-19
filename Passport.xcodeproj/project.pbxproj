@@ -74,7 +74,6 @@
 		B6DFCEC0217767A300C47258 /* TripDetailTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEBF217767A300C47258 /* TripDetailTableViewModel.m */; };
 		B6DFCEC4217776DE00C47258 /* UIView+KEP_OutdoorActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DFCEC2217776DE00C47258 /* UIView+KEP_OutdoorActivity.m */; };
 		D84DC9612178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84DC9602178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m */; };
-		D84DC9632178BF2300BD0A73 /* hash.json in Resources */ = {isa = PBXBuildFile; fileRef = D84DC9622178BF2300BD0A73 /* hash.json */; };
 		D84DC9652178BF8E00BD0A73 /* HashCityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DC9642178BF8E00BD0A73 /* HashCityData.swift */; };
 		D855BC19217899700028A8EE /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855BC18217899700028A8EE /* UploadData.swift */; };
 		D87DDF2421774D6F002D1D99 /* PhotoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */; };
@@ -110,6 +109,7 @@
 		D8DE7E29217738DC004F1A95 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E28217738DC004F1A95 /* Photos.framework */; };
 		D8DE7E2B217738E0004F1A95 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E2A217738E0004F1A95 /* PhotosUI.framework */; };
 		D8DE7E2D217738E6004F1A95 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E2C217738E6004F1A95 /* CoreLocation.framework */; };
+		D8F031FF217992060014551C /* hash.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F031FE217992060014551C /* hash.json */; };
 		F395DA038C0E0B0FA582096E /* Pods_Passport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA47B98829EE2FB5FB7FEB14 /* Pods_Passport.framework */; };
 /* End PBXBuildFile section */
 
@@ -249,7 +249,6 @@
 		D81ED50558BD9F19085B2840 /* Pods-Passport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.release.xcconfig"; sourceTree = "<group>"; };
 		D84DC95F2178B6CB00BD0A73 /* KPESchduleConfirmProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPESchduleConfirmProgressView.h; sourceTree = "<group>"; };
 		D84DC9602178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPESchduleConfirmProgressView.m; sourceTree = "<group>"; };
-		D84DC9622178BF2300BD0A73 /* hash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hash.json; sourceTree = "<group>"; };
 		D84DC9642178BF8E00BD0A73 /* HashCityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashCityData.swift; sourceTree = "<group>"; };
 		D855BC18217899700028A8EE /* UploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
 		D87DDF2321774D6F002D1D99 /* PhotoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +295,7 @@
 		D8DE7E28217738DC004F1A95 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		D8DE7E2A217738E0004F1A95 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		D8DE7E2C217738E6004F1A95 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8F031FE217992060014551C /* hash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hash.json; sourceTree = "<group>"; };
 		DA75463309D45B247FA54779 /* Pods-Passport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.debug.xcconfig"; sourceTree = "<group>"; };
 		E31A6E945B6B96DAF96654F0 /* Pods-PassportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportTests/Pods-PassportTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -648,8 +648,8 @@
 		D87DDF3521781CA7002D1D99 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D8F031FE217992060014551C /* hash.json */,
 				B60D3AAE2178FE040099547D /* group.plist */,
-				D84DC9622178BF2300BD0A73 /* hash.json */,
 				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
 				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
 				D8DE7E1D2176DD29004F1A95 /* Dummy.h */,
@@ -902,7 +902,6 @@
 				3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */,
 				D8DE7DF32176DBCF004F1A95 /* Assets.xcassets in Resources */,
 				3E2FD4D0217877C300B7365B /* Keeprun_font_mac.ttf in Resources */,
-				D84DC9632178BF2300BD0A73 /* hash.json in Resources */,
 				D87DDF3021781875002D1D99 /* Earth.mp4 in Resources */,
 				3E2FD4CB217877C300B7365B /* Padaloma-Italic.ttf in Resources */,
 				3E2FD4CD217877C300B7365B /* SF-Pro-Text-Regular.otf in Resources */,
@@ -911,6 +910,7 @@
 				3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */,
 				3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */,
 				3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */,
+				D8F031FF217992060014551C /* hash.json in Resources */,
 				D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */,
 				3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */,
 			);
@@ -1303,7 +1303,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1326,7 +1326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6AJL6H6UF5;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

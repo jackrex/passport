@@ -38,10 +38,12 @@ class PrepareViewController: UIViewController {
                     }
                 } catch {
                     // handle error
+                    
                 }
                 
                 self.hashList = PhotoScanProcessor.getHashList()
                 self.countries = self.mergeHashData()
+                print(self.countries)
 
             }
             

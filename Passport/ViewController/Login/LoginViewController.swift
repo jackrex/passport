@@ -12,7 +12,7 @@ public protocol LoginViewDelegate {
     func loginFinish()
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -29,6 +29,9 @@ class LoginViewController: UIViewController {
         
         phoneTextField.tintColor = .white
         passwordField.tintColor = .white
+        
+        phoneTextField.delegate = self
+        passwordField.delegate = self
         
         phoneTextField.attributedPlaceholder = NSAttributedString(string: "输入 Keep 手机号",
                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
@@ -53,7 +56,6 @@ class LoginViewController: UIViewController {
             return
         }
         self.delegate.loginFinish()
-        return
         HttpApi.login(phone!, pwd!) { (data) in
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)
@@ -72,4 +74,13 @@ class LoginViewController: UIViewController {
     }
 
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.phoneTextField {
+            self.passwordField.becomeFirstResponder()
+        }else if textField == self.passwordField {
+            self.view.endEditing(true)
+            self.loginClick(UIButton.init())
+        }
+        return true
+    }
 }

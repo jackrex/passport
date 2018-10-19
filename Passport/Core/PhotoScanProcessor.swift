@@ -56,11 +56,29 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     public static func fetchAllPhotosGPSInfo() -> [(PhotoMeta)] {
         let result = fetchAllPhotos()
         var gpsInfo: [PhotoMeta] = []
+        let screenShotWidths = [200, 272, 312,320, 640, 750, 1242, 1536, 2048, 1668, 768, 826, 1125, 1242]
+
         for i in 0..<result.count {
             let asset: PHAsset = result.object(at: i)
             if asset.location == nil {
                 continue
             }
+            
+            //filter screenshots
+            if asset.mediaSubtypes == .photoScreenshot {
+                continue
+            }
+            
+            // remove litte pixel
+            if asset.pixelWidth < 200 {
+                continue
+            }
+            
+            // remove screenshots
+            if screenShotWidths.contains(asset.pixelWidth){
+                continue
+            }
+            
             var meta = PhotoMeta.init(identifier: asset.localIdentifier, location: asset.location, time: asset.creationDate, type: asset.mediaType)
             meta.asset = asset
             gpsInfo.append(meta)
@@ -79,12 +97,15 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         var dupIds: [String] = []
         for (index, meta) in data.enumerated() {
             let photoMeta = meta
+            
             for i in 1..<COMPARE_NUM {
                 if (index + i) >= data.count {
                     continue
                 }
                 let compareMeta = data[index + i]
                 let timeInterval = Int((compareMeta.time?.timeIntervalSince1970)! * 1000.0 ) - Int((photoMeta.time?.timeIntervalSince1970)! * 1000.0)
+                
+                // filter dup pic
                 if timeInterval < Int(DUP_INTERVAL * 1000.0) {
                     dupIds.append(compareMeta.identifier)
                 }
@@ -101,7 +122,35 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
             }
         }
         
-        return indenpentPhoto
+        
+        // speed remove
+        var index = 0
+        dupIds.removeAll()
+        var standMeta: PhotoMeta = indenpentPhoto[0]
+        for photo in indenpentPhoto {
+            if (index + 1 < data.count) {
+                let nextPhotoMeta = data[index + 1]
+                let interval = nextPhotoMeta.time?.timeIntervalSince(standMeta.time!)
+                let distance = nextPhotoMeta.location?.distance(from: standMeta.location!)
+                let speed = distance! / interval!
+                if speed > 200{
+                    dupIds.append(nextPhotoMeta.identifier)
+                }else {
+                    standMeta = photo
+                }
+            }
+            index = index + 1
+        }
+        
+        
+        var resultPhoto: [PhotoMeta] = []
+        for meta in indenpentPhoto {
+            if !dupIds.contains(meta.identifier) {
+                resultPhoto.append(meta)
+            }
+        }
+        
+        return resultPhoto
         
     }
     
@@ -158,6 +207,7 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         return dateDict
     }
     
+
     public static func getPicFromDate (_ date: Date, _ location: CLLocation) -> [PHAsset]? {
         let dict = getDatePhotos()
         let metas = dict[DateUtil.date2Str(date: date)]
@@ -236,4 +286,13 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         return userDict
     }
     
+    
+    static func exifInfo(_ asset: PHAsset) -> Void {
+        let options = PHContentEditingInputRequestOptions()
+        options.isNetworkAccessAllowed = true //download asset metadata from iCloud if needed
+        asset.requestContentEditingInput(with: options) { (contentEditingInput: PHContentEditingInput?, _) -> Void in
+            let fullImage = CIImage(contentsOf: contentEditingInput!.fullSizeImageURL!)
+            print(fullImage!.properties)
+        }
+    }
 }
