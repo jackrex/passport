@@ -145,11 +145,11 @@
             </objects>
             <point key="canvasLocation" x="1076" y="1540.4797601199402"/>
         </scene>
-        <!--社交-->
+        <!--小队-->
         <scene sceneID="J1e-cM-cv9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aky-fW-ZzL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="社交" image="ic_tab_group_disabled" selectedImage="ic_tab_group" id="yZF-9g-0zT"/>
+                    <tabBarItem key="tabBarItem" title="小队" image="ic_tab_group_disabled" selectedImage="ic_tab_group" id="yZF-9g-0zT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cyD-pB-8p7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
