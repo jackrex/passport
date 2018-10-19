@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger dayCount;
 @property(nonatomic, assign) NSInteger countryCount;
 @property(nonatomic, assign) NSInteger longestTripDayCount;
-@property(nonatomic, assign) NSInteger beatRate;
+@property(nonatomic, assign) double beatRate;
 @property(nonatomic, copy) NSArray<TripsClipModel> *trips;
 
 @end

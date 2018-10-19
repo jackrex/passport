@@ -20,6 +20,12 @@ class GroupsTableViewController: UITableViewController {
         button2.layer.cornerRadius = 17
         group1.layer.cornerRadius = 5
         group2.layer.cornerRadius = 5
+        automaticallyAdjustsScrollViewInsets = false
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            // Fallback on earlier versions
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

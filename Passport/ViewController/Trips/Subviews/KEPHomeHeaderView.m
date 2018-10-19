@@ -71,7 +71,7 @@ static CGFloat const FoldDataViewHeight = 92;
     self.totalMinLabel.text = [NSString stringWithFormat:@"%ld", trips.dayCount];
     self.trainingDayLabel.text = [NSString stringWithFormat:@"%ld", trips.countryCount];
     self.longestStreakLabel.text = [NSString stringWithFormat:@"%ld", trips.longestTripDayCount];
-    self.insightLabel.attributedText = [self _kep_beatTextWithPercentage:trips.beatRate];
+    self.insightLabel.attributedText = [self _kep_beatTextWithPercentage:(trips.beatRate * 100)];
     [self updateFrameWithProgress:self.progress];
 }
 
