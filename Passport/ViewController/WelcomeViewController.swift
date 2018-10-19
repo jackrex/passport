@@ -34,29 +34,24 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
         self.prepareView.view.alpha = 0
         
         PhotoScanProcessor.getAuthorized(view: self.view) {
-            
+            self.prepareView.processData()
         }
-        
-
-        
-        
-//        let vm = TripDetailViewModel()
-//        vm.fromType = .group
-//        let vc = TripDetailViewController.init(viewModel: vm)
-//        navigationController?.pushViewController(vc, animated: false)
 
     }
     
     func loginFinish() {
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
-            self.loginView.view.alpha = 0
-        }) { (finished) in
-            self.loginView.view.removeFromSuperview()
-            self.loginView.removeFromParent()
-            
-            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
-                self.scanView.view.alpha = 1
+        
+        PhotoScanProcessor.getAuthorized(view: self.view) {
+            UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
+                self.loginView.view.alpha = 0
             }) { (finished) in
+                self.loginView.view.removeFromSuperview()
+                self.loginView.removeFromParent()
+                
+                UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
+                    self.scanView.view.alpha = 1
+                }) { (finished) in
+                }
             }
         }
  

@@ -30,7 +30,7 @@ class StatsProfileHeaderView: UIView {
     }
     let ageLabel = UILabel().then {
         $0.textColor = UIColor.kep_color(fromHex: 0x999999)
-        $0.font = UIFont.kep_SFProDisplayRegular(withSize: 14)
+        $0.font = UIFont.kep_fontForKeep(withSize: 14)
     }
     
     let tagImageView = UIImageView().then {

@@ -28,30 +28,6 @@ class PrepareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.global().async {
-            if let path = Bundle.main.path(forResource: "hash", ofType: "json") {
-                do {
-                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                    let dataDict = try JSONDecoder().decode(HashCity.self, from: data)
-                    for data in dataDict.data {
-                        self.hashCityList.updateValue(data, forKey: data.hash)
-                    }
-                } catch {
-                    // handle error
-                    
-                }
-                
-                self.hashList = PhotoScanProcessor.getHashList()
-                self.countries = self.mergeHashData()
-                print(self.countries)
-
-            }
-            
-            DispatchQueue.main.async {
-                
-            }
-        }
-        
         
         progressView = KPESchduleConfirmProgressView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
         progressView.alpha = 0
@@ -82,6 +58,33 @@ class PrepareViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
 
+    }
+    
+    public func processData() -> Void {
+        DispatchQueue.global().async {
+            if let path = Bundle.main.path(forResource: "hash", ofType: "json") {
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                    let dataDict = try JSONDecoder().decode(HashCity.self, from: data)
+                    for data in dataDict.data {
+                        self.hashCityList.updateValue(data, forKey: data.hash)
+                    }
+                } catch {
+                    // handle error
+                    
+                }
+                
+                self.hashList = PhotoScanProcessor.getHashList()
+                self.countries = self.mergeHashData()
+                print(self.countries)
+                
+            }
+            
+            DispatchQueue.main.async {
+                
+            }
+        }
+        
     }
     
     func mergeHashData() -> [String] {

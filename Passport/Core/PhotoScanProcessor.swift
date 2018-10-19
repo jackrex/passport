@@ -28,13 +28,13 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
                 if status == PHAuthorizationStatus.authorized {
                     block()
                 }else if status == PHAuthorizationStatus.denied {
-                    view.makeToast("Deny")
+                    view.makeToast("Deny and Can not Use")
                 }
             }
         }else if authStatus == PHAuthorizationStatus.authorized {
                  block()
         }else {
-            view.makeToast("Deny")
+            view.makeToast("Deny and Can not Use")
         }
    
         
