@@ -64,7 +64,7 @@ static CGFloat const Inset = 60;
         [self _kep_setupDefaultZoomLevel:NO];
     } else {
         [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.9087, 116.3975) animated:NO];
-        self.mapView.minimumZoomLevel = TripDetailDefaultMinLevel;
+        [self.mapView setZoomLevel:3];
         [self _kep_setClusterManager];
     }
     
@@ -88,7 +88,22 @@ static CGFloat const Inset = 60;
         }];
     }];
     [self.mapView addAnnotations:annotations];
+    [self _kep_addShapeSource];
+ 
+}
+
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    [self _kep_addShapeSource];
+}
+
+- (void)_kep_addShapeSource {
     
+    if (self.mapView.annotations.count == 0 || self.fromType != KEPAthleticFieldFromTypeTrip) {
+        return;
+    }
+    
+    KEPMethodLockReturn();
+    NSArray *annotations = self.mapView.annotations;
     
     NSInteger count = annotations.count;
     CLLocationCoordinate2D routeCoords[count];
