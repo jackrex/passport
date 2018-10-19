@@ -197,7 +197,7 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         farthestPlaceView.dateLabel.text = formatDateString(stats.poetryDistance.day)
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.cnCity
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.cnCity
-        farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.distance) + "米"
+        farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.to.distance/1000) + "KM"
         if let placeImage = stats.poetryDistance.cacheImage {
             self.farthestPlaceView.photoImageView.image = placeImage
         } else {
