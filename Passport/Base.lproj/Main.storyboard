@@ -91,11 +91,11 @@
             </objects>
             <point key="canvasLocation" x="-508" y="594"/>
         </scene>
-        <!--Stats-->
+        <!--数据-->
         <scene sceneID="hCr-mR-06m">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PLC-kP-UrT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stats" image="ic_tab_stats_disabled" selectedImage="ic_tab_stats" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="数据" image="ic_tab_stats_disabled" selectedImage="ic_tab_stats" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FWv-DO-EfN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -110,11 +110,11 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Trips-->
+        <!--旅途-->
         <scene sceneID="E3C-1q-6jg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GLR-JH-Imy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trips" image="ic_tab_trips_disabled" selectedImage="ic_tab_trips" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="旅途" image="ic_tab_trips_disabled" selectedImage="ic_tab_trips" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3bi-do-wx4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -145,11 +145,11 @@
             </objects>
             <point key="canvasLocation" x="1076" y="1540.4797601199402"/>
         </scene>
-        <!--Group-->
+        <!--社交-->
         <scene sceneID="J1e-cM-cv9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aky-fW-ZzL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Group" image="ic_tab_group_disabled" selectedImage="ic_tab_group" id="yZF-9g-0zT"/>
+                    <tabBarItem key="tabBarItem" title="社交" image="ic_tab_group_disabled" selectedImage="ic_tab_group" id="yZF-9g-0zT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cyD-pB-8p7">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
