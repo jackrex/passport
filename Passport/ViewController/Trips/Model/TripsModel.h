@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TripsClipModel : KEPBaseJSONModel
 
 @property(nonatomic, copy) NSString *_id;
-@property(nonatomic, copy) NSString *cityTitle;
+@property(nonatomic, copy) NSString *cnCity;
+@property(nonatomic, copy) NSString *cnCountry;
+@property(nonatomic, copy) NSString *city;
+@property(nonatomic, assign) NSInteger dayCount;
 @property(nonatomic, copy) NSString *pic;
-@property(nonatomic, copy) NSString *startDay;
-@property(nonatomic, copy) NSString *endDay;
+@property(nonatomic, copy) NSString *beginDate;
+@property(nonatomic, copy) NSString *endDate;
 
 
 @end
@@ -32,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger countryCount;
 @property(nonatomic, assign) NSInteger longestTripDayCount;
 @property(nonatomic, assign) NSInteger beatRate;
-@property(nonatomic, copy) NSArray<TripsClipModel> *clips;
+@property(nonatomic, copy) NSArray<TripsClipModel> *trips;
 
 @end
 

@@ -10,6 +10,11 @@
 
 @implementation TripsClipModel
 
++ (JSONKeyMapper *)keyMapper {
+    JSONKeyMapper *mapper = [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id" }];
+    return mapper;
+}
+
 @end
 
 @implementation TripsModel

@@ -105,13 +105,13 @@ class TripsClipTagView: UIView {
     }
     
     @objc public func updateUI(tripsClip: TripsClipModel!) {
-        let startDate = convertToDate(tripsClip.startDay)
-        let endDate = convertToDate(tripsClip.endDay)
+        let startDate = convertToDate(tripsClip.beginDate)
+        let endDate = convertToDate(tripsClip.endDate)
         let calendar = Calendar.init(identifier: .gregorian)
         let comp = calendar.dateComponents([.day], from: startDate, to: endDate)
         tagView.isHidden = comp.day! < 5
         descLabel.text = "\(comp.day!)日行程"
-        cityTitleLabel.text = tripsClip.cityTitle
+        cityTitleLabel.text = tripsClip.cnCountry + tripsClip.cnCity
         if tripsClip.pic.characters.count > 0 {
             bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
         } else {

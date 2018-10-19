@@ -38,6 +38,20 @@ class GroupsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 5
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 1) || (indexPath.row == 2) {
+            gotoTripDetail()
+        }
+    }
+    
+    @objc func gotoTripDetail() {
+        let vm = TripDetailViewModel()
+        vm.fromType = .group
+        let vc = TripDetailViewController.init(viewModel: vm)
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: false)
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

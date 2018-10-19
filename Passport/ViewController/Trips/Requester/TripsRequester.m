@@ -15,7 +15,7 @@
 + (void)fetchTripsInfoWithCallback:(void (^)(BOOL success, NSDictionary *dic))callback {
     KEPRequest *request = [[KEPRequest alloc] init];
     request.requestMethod = KEPRequestMethodGET;
-    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/trips/v1/home";
+    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/box/hackday/trips";
     [request startWithBlock:^(__kindof KEPRequest * _Nonnull request) {
         NSDictionary *data = [request.responseDictionary objectForKey:kResultData];
         TripsModel *trips = [[TripsModel alloc] initWithDictionary:data error:nil];

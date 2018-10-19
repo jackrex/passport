@@ -15,6 +15,8 @@
 #import <KEPIntlNetwork/KEPNetwork.h>
 #import "TripsModel.h"
 #import "Passport-Swift.h"
+#import "TripDetailViewController.h"
+#import "TripDetailViewModel.h"
 
 @interface TripsViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -105,7 +107,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.trips.clips.count;
+    return self.trips.trips.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -113,9 +115,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TripsClipCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TripsClipCell class]) forIndexPath:indexPath];
-    TripsClipModel *clip = [self.trips.clips objectAtIndex:indexPath.row];
+    TripsClipModel *clip = [self.trips.trips objectAtIndex:indexPath.row];
     [cell updateUIWithTripsClip:clip];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TripsClipModel *trip = [self.trips.trips objectAtIndex:indexPath.row];
+    TripDetailViewModel *vm = [[TripDetailViewModel alloc] init];
+    vm.fromType = KEPAthleticFieldFromTypeTrip;
+    vm.requetId = trip._id;
+    TripDetailViewController *vc = [[TripDetailViewController alloc] initWithViewModel:vm];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
