@@ -34,10 +34,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.navigationBar.translucent = NO;
     [self.homeView.tableView registerClass:[TripsClipCell class] forCellReuseIdentifier:NSStringFromClass([TripsClipCell class])];
-    [TripsRequester fetchTripsInfoWithCallback:^(BOOL success, NSDictionary * _Nonnull dic) {
-        self.trips = [dic objectForKey:kResultData];
-        [self _kep_reloadTableView];
-    }];
+    [self fetchTripsInfo];
 }
 
 
@@ -56,6 +53,13 @@
 
 - (BOOL)hideNavigationBar {
     return YES;
+}
+
+- (void)fetchTripsInfo {
+    [TripsRequester fetchTripsInfoWithCallback:^(BOOL success, NSDictionary * _Nonnull dic) {
+        self.trips = [dic objectForKey:kResultData];
+        [self _kep_reloadTableView];
+    }];
 }
 
 #pragma mark - property

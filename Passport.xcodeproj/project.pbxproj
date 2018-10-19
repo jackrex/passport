@@ -32,7 +32,6 @@
 		3E79D21D2178C82000049C16 /* TripsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2162178C82000049C16 /* TripsRequester.m */; };
 		3E79D2202178C82000049C16 /* TripsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D21C2178C82000049C16 /* TripsModel.m */; };
 		3E79D2232178C93B00049C16 /* TripsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2222178C93B00049C16 /* TripsViewController.m */; };
-		3E79D2272178C97000049C16 /* TripsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2252178C97000049C16 /* TripsHeaderView.swift */; };
 		3E79D2282178C97000049C16 /* TripsClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2262178C97000049C16 /* TripsClipCell.swift */; };
 		3E79D22E2178C9CA00049C16 /* KEPHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D22D2178C9CA00049C16 /* KEPHomeView.m */; };
 		3E79D2312178C9FD00049C16 /* KEPHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2302178C9FD00049C16 /* KEPHomeHeaderView.m */; };
@@ -164,7 +163,6 @@
 		3E79D21C2178C82000049C16 /* TripsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsModel.m; sourceTree = "<group>"; };
 		3E79D2212178C93B00049C16 /* TripsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripsViewController.h; sourceTree = "<group>"; };
 		3E79D2222178C93B00049C16 /* TripsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripsViewController.m; sourceTree = "<group>"; };
-		3E79D2252178C97000049C16 /* TripsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsHeaderView.swift; sourceTree = "<group>"; };
 		3E79D2262178C97000049C16 /* TripsClipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsClipCell.swift; sourceTree = "<group>"; };
 		3E79D22C2178C9CA00049C16 /* KEPHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEPHomeView.h; sourceTree = "<group>"; };
 		3E79D22D2178C9CA00049C16 /* KEPHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPHomeView.m; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 				3E79D2302178C9FD00049C16 /* KEPHomeHeaderView.m */,
 				3E79D22C2178C9CA00049C16 /* KEPHomeView.h */,
 				3E79D22D2178C9CA00049C16 /* KEPHomeView.m */,
-				3E79D2252178C97000049C16 /* TripsHeaderView.swift */,
 				3E79D2262178C97000049C16 /* TripsClipCell.swift */,
 			);
 			path = Subviews;
@@ -1081,7 +1078,6 @@
 				B60D3AA62178E1EA0099547D /* CKClusterAlgorithm.m in Sources */,
 				B60D3A6D21783F410099547D /* KEPEntryMetaAndCardView.m in Sources */,
 				D8DE7E252176E014004F1A95 /* PhotoScanProcessor.swift in Sources */,
-				3E79D2272178C97000049C16 /* TripsHeaderView.swift in Sources */,
 				D87DDF2721776809002D1D99 /* PHPersonHandler.m in Sources */,
 				D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */,
 				D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */,

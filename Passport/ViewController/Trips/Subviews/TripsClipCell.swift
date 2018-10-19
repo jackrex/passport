@@ -108,11 +108,19 @@ class TripsClipTagView: UIView {
         let startDate = convertToDate(tripsClip.startDay)
         let endDate = convertToDate(tripsClip.endDay)
         let calendar = Calendar.init(identifier: .gregorian)
-        let comp = calendar.dateComponents([.day], from: endDate, to: startDate)
+        let comp = calendar.dateComponents([.day], from: startDate, to: endDate)
         tagView.isHidden = comp.day! < 5
         descLabel.text = "\(comp.day!)日行程"
         cityTitleLabel.text = tripsClip.cityTitle
-        bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
+        if tripsClip.pic.characters.count > 0 {
+            bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
+        } else {
+            DispatchQueue.global().async {
+                PhotoScanProcessor.getRandomPhoto(endDate) { [weak self](image) in
+                    self!.bgImageView.image = image
+                }
+            }
+        }
     }
     
     func convertToDate(_ string: String) -> Date {
