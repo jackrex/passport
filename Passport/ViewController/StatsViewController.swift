@@ -94,6 +94,17 @@ class StatsViewController: BaseUIViewController {
             SVProgressHUD.dismiss()
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        tableHeaderView.updateContentOffsetY(scrollView.contentOffset.y)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        tableHeaderView.updateContentOffsetY(scrollView.contentOffset.y)
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        tableHeaderView.updateContentOffsetY(scrollView.contentOffset.y)
+    }
 }
 
 extension StatsViewController: UITableViewDelegate, UITableViewDataSource,UIViewControllerPreviewingDelegate {

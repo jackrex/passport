@@ -56,17 +56,19 @@ class StatsProfileHeaderView: UIView {
         addSubview(userNameLabel)
         addSubview(ageLabel)
         addSubview(tagImageView)
-        mapImageView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview()
-            make.height.equalTo(160)
-        }
         avatarImageView.snp.makeConstraints { (make) in
             make.width.equalTo(84)
             make.height.equalTo(84)
-            make.centerY.equalTo(mapImageView.snp.bottom)
+            make.centerY.equalTo(160)
             make.centerX.equalToSuperview()
         }
+        
+        mapImageView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(avatarImageView.snp.centerY)
+        }
+        
         userNameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(avatarImageView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
@@ -100,5 +102,13 @@ class StatsProfileHeaderView: UIView {
 //
 //            self.mapImageView.layer.transform = CATransform3DMakeRotation(CGFloat(10 * M_PI / 180), CGFloat(acceleration.x) - CGFloat(self.originAcceleration!.x), CGFloat(acceleration.y) - CGFloat(self.originAcceleration!.y),CGFloat(acceleration.z) - CGFloat(self.originAcceleration!.z))
 //        })
+    }
+    
+    func updateContentOffsetY(_ offsetY: CGFloat) {
+        mapImageView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(offsetY)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(avatarImageView.snp.centerY)
+        }
     }
 }
