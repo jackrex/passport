@@ -20,14 +20,14 @@
 
 - (NSDate *)timeDate {
     if (!_timeDate) {
-        _timeDate =  [NSDate dateWithString:self.date formatString:@"yyyyMMdd"];
+        _timeDate =  [NSDate dateWithString:self.date formatString:@"yyyyMMdd" timeZone:[NSTimeZone systemTimeZone]];
     }
     return _timeDate;
 }
 
 - (NSString *)dateText {
     if (!_dateText) {
-        _dateText = [self.timeDate formattedDateWithFormat:@"yyyy.MM.dd"];
+        _dateText = [self.timeDate formattedDateWithFormat:@"yyyy.MM.dd" timeZone:[NSTimeZone systemTimeZone]];
     }
     return _dateText;
 }

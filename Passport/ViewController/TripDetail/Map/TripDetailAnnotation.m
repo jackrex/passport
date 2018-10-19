@@ -33,7 +33,6 @@
         [self addSubview:self.backgroundView];
         self.frame = self.backgroundView.frame;
         
-        self.centerOffset = CGVectorMake(0, -CGRectGetHeight(self.frame)/2);
         
         self.label = [UILabel kep_createLabel];
         self.label.font = [UIFont kep_systemBoldSize:13];

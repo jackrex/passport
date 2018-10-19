@@ -62,8 +62,12 @@
 
 - (void)fetchTripsInfo {
     [TripsRequester fetchTripsInfoWithCallback:^(BOOL success, NSDictionary * _Nonnull dic) {
-        self.trips = [dic objectForKey:kResultData];
-        [self _kep_reloadTableView];
+        if (success) {
+            self.trips = [dic objectForKey:kResultData];
+            [self _kep_reloadTableView];
+        } else {
+            
+        }
     }];
 }
 
