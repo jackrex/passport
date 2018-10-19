@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <KEPIntlJSONModel/KEPBaseJSONModel.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *beginDate;
 @property(nonatomic, copy) NSString *endDate;
 
+// custom
+@property(nonatomic, strong, nullable) UIImage *cacheImage;
 
 @end
 

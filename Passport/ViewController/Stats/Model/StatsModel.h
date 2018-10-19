@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatsProfile : KEPBaseJSONModel
 
-@property(nonatomic, copy) NSString *uname;
+@property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *avatar;
 @property(nonatomic, copy) NSString *birthday;
 

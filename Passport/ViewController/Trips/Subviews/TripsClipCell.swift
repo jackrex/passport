@@ -112,12 +112,17 @@ class TripsClipTagView: UIView {
         tagView.isHidden = comp.day! < 5
         descLabel.text = "\(comp.day!)日行程"
         cityTitleLabel.text = tripsClip.cnCountry + tripsClip.cnCity
-        if tripsClip.pic.characters.count > 0 {
-            bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
+        if let image = tripsClip.cacheImage {
+            self.bgImageView.image = image
         } else {
-            DispatchQueue.global().async {
-                PhotoScanProcessor.getRandomPhoto(endDate) { [weak self](image) in
-                    self!.bgImageView.image = image
+            if tripsClip.pic.characters.count > 0 {
+                bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
+            } else {
+                DispatchQueue.global().async {
+                    PhotoScanProcessor.getRandomPhoto(endDate) { [weak self](image) in
+                        self!.bgImageView.image = image
+                        tripsClip.cacheImage = image
+                    }
                 }
             }
         }

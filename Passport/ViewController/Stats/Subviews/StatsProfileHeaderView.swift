@@ -80,7 +80,7 @@ class StatsProfileHeaderView: UIView {
     }
     
     func updateUIWithData(_ stats: StatsModel) {
-        userNameLabel.text = stats.profile.uname
+        userNameLabel.text = stats.profile.username
         ageLabel.text = stats.profile.birthday
         avatarImageView.sd_setImage(with: URL(string: stats.profile.avatar))
 //        DateUtil.increaseDate { (time) in

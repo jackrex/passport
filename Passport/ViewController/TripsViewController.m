@@ -86,6 +86,7 @@
     [self.homeView.tableView reloadData];
     [self.homeView.tableView setNeedsLayout];
     [self.homeView.tableView layoutIfNeeded];
+    [self.homeView.homeHeaderView updateUIWithModel:self.trips];
     CGFloat height = self.homeView.tableView.frame.size.height - self.homeView.tableView.contentSize.height + ([KEPHomeHeaderView viewHeight] - [KEPHomeHeaderView foldViewHeight]) - self.homeView.tableView.contentInset.bottom;
     if (height == 0 || (height < 0 && self.homeView.tableView.tableFooterView.height == 0)) {
         return;
@@ -95,7 +96,6 @@
     [self.homeView.tableView layoutIfNeeded];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, MAX(0, self.homeView.tableView.frame.size.height - self.homeView.tableView.contentSize.height + ([KEPHomeHeaderView viewHeight] - [KEPHomeHeaderView foldViewHeight]) - self.homeView.tableView.contentInset.bottom))];
     self.homeView.tableView.tableFooterView = view;
-    [self.homeView.homeHeaderView updateUIWithModel:self.trips];
 }
 
 #pragma mark - UITableViewDelegate
