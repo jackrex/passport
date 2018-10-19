@@ -16,8 +16,8 @@
 + (void)fetchStatsInfoWithCallback:(void (^)(BOOL success, NSDictionary *dic))callback {
     KEPRequest *request = [[KEPRequest alloc] init];
     request.requestMethod = KEPRequestMethodPOST;
-//    request.requestUrl = @"http://api.pre.gotokeep.com/box/hackday/stats";
-    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/box/hackday/stats";
+    request.requestUrl = @"http://api.pre.gotokeep.com/box/hackday/stats";
+//    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/box/hackday/stats";
     NSString *userId = [AccountManager getUserId];
     if (userId.length == 0) {
         return;

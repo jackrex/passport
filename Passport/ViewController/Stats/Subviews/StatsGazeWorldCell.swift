@@ -201,7 +201,13 @@ class StatsGazeWorldCell: StatsBaseCell {
     func updateUIWithData(_ stats: StatsModel) {
         countryView.valueLabel.text = String(stats.gazeWorld.countryCount)
         countryView.imageView.image = UIImage(named: "country")
-        unlockView.valueLabel.text = stats.gazeWorld.unlockRate
+        let rate = stats.gazeWorld.unlockRate * 100
+        if rate < 1 {
+            unlockView.valueLabel.text = String(format: "%.1f%%", rate)
+        } else {
+            unlockView.valueLabel.text = "\(Int(rate))%"
+        }
+        
         unlockView.imageView.image = UIImage(named: "mist")
         mapView.updateUIWithData(stats)
     }

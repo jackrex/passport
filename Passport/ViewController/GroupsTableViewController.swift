@@ -10,9 +10,16 @@ import UIKit
 
 class GroupsTableViewController: UITableViewController {
 
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var group1: UITableViewCell!
+    @IBOutlet weak var group2: UITableViewCell!
+    @IBOutlet weak var button2: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        button1.layer.cornerRadius = 17
+        button2.layer.cornerRadius = 17
+        group1.layer.cornerRadius = 5
+        group2.layer.cornerRadius = 5
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,12 +31,12 @@ class GroupsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 4
     }
 
     /*

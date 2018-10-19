@@ -198,34 +198,39 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.city
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.city
         farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.distance) + "米"
-        let farthestPlaceDate = convertToDate(stats.poetryDistance.day)
-        PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
-            DispatchQueue.global().async {
-                self!.farthestPlaceView.photoImageView.image = image
-            }
-        })
+        if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
+            PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
+                DispatchQueue.global().async {
+                    self!.farthestPlaceView.photoImageView.image = image
+                }
+            })
+        }
+        
         farthestDayView.dateLabel.text = formatDateString(stats.poetryDistance.farthestWalkedDay.day)
         farthestDayView.stepCountLabel.text = String(stats.poetryDistance.farthestWalkedDay.steps)
-        let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day)
-        PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
-            DispatchQueue.global().async {
-                self!.farthestDayView.photoImageView.image = image
-            }
-        })
+        if let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day) {
+            PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
+                DispatchQueue.global().async {
+                    self!.farthestDayView.photoImageView.image = image
+                }
+            })
+        }
     }
     
-    func convertToDate(_ string: String) -> Date {
+    func convertToDate(_ string: String) -> Date? {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyyMMdd"
         let date = dateFormatter .date(from: string)
-        return date!
+        return date
     }
     
-    func formatDateString(_ string: String) -> String {
-        let date = convertToDate(string)
-        let dateFormatter = DateFormatter.init()
-        dateFormatter.locale = Locale.init(identifier: "zh-CN")
-        dateFormatter.dateStyle = .full
-        return dateFormatter.string(from: date)
+    func formatDateString(_ string: String) -> String? {
+        if let date = convertToDate(string) {
+            let dateFormatter = DateFormatter.init()
+            dateFormatter.locale = Locale.init(identifier: "zh-CN")
+            dateFormatter.dateStyle = .full
+            return dateFormatter.string(from: date)
+        }
+        return nil
     }
 }

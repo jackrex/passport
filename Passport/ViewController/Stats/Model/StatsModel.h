@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StatsGazeWorld : KEPBaseJSONModel
 
 @property(nonatomic, assign) NSInteger countryCount;
-@property(nonatomic, copy) NSString *unlockRate;
+@property(nonatomic, assign) double unlockRate;
 @property(nonatomic, copy) NSArray<NSString *> *continents;
 
 @end
