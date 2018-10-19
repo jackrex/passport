@@ -21,6 +21,7 @@ class GroupsTableViewController: UITableViewController {
         group1.layer.cornerRadius = 5
         group2.layer.cornerRadius = 5
         automaticallyAdjustsScrollViewInsets = false
+        edgesForExtendedLayout = []
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
         } else {

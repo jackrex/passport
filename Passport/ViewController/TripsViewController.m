@@ -34,7 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.translucent = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.homeView.tableView registerClass:[TripsClipCell class] forCellReuseIdentifier:NSStringFromClass([TripsClipCell class])];
     [self fetchTripsInfo];
 }

@@ -24,8 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *city;
 @property(nonatomic, assign) NSInteger dayCount;
 @property(nonatomic, copy) NSString *pic;
-@property(nonatomic, copy) NSString *beginDate;
-@property(nonatomic, copy) NSString *endDate;
+@property(nonatomic, copy, nullable) NSString *beginDate;
+@property(nonatomic, copy, nullable) NSString *endDate;
 
 // custom
 @property(nonatomic, strong, nullable) UIImage *cacheImage;

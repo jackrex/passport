@@ -195,25 +195,40 @@ class StatsPoetryDistanceCell: StatsBaseCell {
     
     func updateUIWithData(_ stats: StatsModel) {
         farthestPlaceView.dateLabel.text = formatDateString(stats.poetryDistance.day)
-        farthestPlaceView.fromLabel.text = stats.poetryDistance.from.city
-        farthestPlaceView.toLabel.text = stats.poetryDistance.to.city
+        farthestPlaceView.fromLabel.text = stats.poetryDistance.from.cnCity
+        farthestPlaceView.toLabel.text = stats.poetryDistance.to.cnCity
         farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.distance) + "米"
-        if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
-            PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
-                DispatchQueue.global().async {
-                    self!.farthestPlaceView.photoImageView.image = image
-                }
-            })
+        if let placeImage = stats.poetryDistance.cacheImage {
+            self.farthestPlaceView.photoImageView.image = placeImage
+        } else {
+            if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
+                PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
+                    DispatchQueue.main.async {
+                        self!.farthestPlaceView.photoImageView.image = image
+                        stats.poetryDistance.cacheImage = image
+                    }
+                })
+            }
         }
-        
         farthestDayView.dateLabel.text = formatDateString(stats.poetryDistance.farthestWalkedDay.day)
-        farthestDayView.stepCountLabel.text = String(stats.poetryDistance.farthestWalkedDay.steps)
-        if let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day) {
-            PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
-                DispatchQueue.global().async {
-                    self!.farthestDayView.photoImageView.image = image
-                }
-            })
+//        if stats.poetryDistance.farthestWalkedDay.steps > 10000 {
+//            farthestDayView.stepCountLabel.text = "\(stats.poetryDistance.farthestWalkedDay.steps/10000)万"
+//        } else {
+            farthestDayView.stepCountLabel.text = "\(stats.poetryDistance.farthestWalkedDay.steps)"
+//        }
+        
+        if let dayImage = stats.poetryDistance.farthestWalkedDay.cacheImage {
+            self.farthestDayView.photoImageView.image = dayImage
+        } else {
+            
+            if let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day) {
+                PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
+                    DispatchQueue.main.async {
+                        self!.farthestDayView.photoImageView.image = image
+                        stats.poetryDistance.farthestWalkedDay.cacheImage = image
+                    }
+                })
+            }
         }
     }
     

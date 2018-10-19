@@ -47,6 +47,10 @@ class TripsClipTagView: UIView {
         $0.clipsToBounds = true
     }
     
+    let maskBGView = UIView().then {
+        $0.backgroundColor = UIColor.kep_color(fromHex: 0x584F60, alpha: 0.5)
+    }
+    
     let descLabel = UILabel().then {
         $0.textColor = UIColor.white
         $0.font = UIFont.kep_SFProDisplaySemibold(withSize: 12)
@@ -59,6 +63,11 @@ class TripsClipTagView: UIView {
         $0.layer.cornerRadius = 2
         $0.layer.masksToBounds = true
         $0.setGradientLayer([UIColor.kep_color(fromHex: 0x9564C3)!.cgColor,UIColor.kep_color(fromHex: 0xC25FA7)!.cgColor], locations: [NSNumber.init(value: 0),NSNumber.init(value: 1)], start: .zero, end: CGPoint(x: 1, y: 1))
+    }
+    
+    let dateLabel = UILabel().then {
+        $0.textColor = UIColor.white
+        $0.font = UIFont.kep_SFProDisplaySemibold(withSize: 16)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -74,9 +83,11 @@ class TripsClipTagView: UIView {
         selectionStyle = .none
         contentView.addSubview(containView)
         containView.addSubview(bgImageView)
+        containView.addSubview(maskBGView)
         containView.addSubview(descLabel)
         containView.addSubview(cityTitleLabel)
         containView.addSubview(tagView)
+        containView.addSubview(dateLabel)
         containView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(14)
             make.left.equalToSuperview().offset(16)
@@ -86,14 +97,19 @@ class TripsClipTagView: UIView {
         bgImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        maskBGView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         descLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(26)
             make.left.equalToSuperview().offset(33)
+            make.right.equalToSuperview().offset(-33)
             make.height.equalTo(17)
         }
         cityTitleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(descLabel.snp.bottom)
             make.left.equalTo(descLabel)
+            make.right.equalTo(descLabel)
             make.height.equalTo(42)
         }
         tagView.snp.makeConstraints { (make) in
@@ -102,15 +118,19 @@ class TripsClipTagView: UIView {
             make.height.equalTo(21)
             make.width.equalTo(78)
         }
+        dateLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(cityTitleLabel.snp.bottom).offset(5)
+            make.left.right.equalTo(cityTitleLabel)
+        }
     }
     
     @objc public func updateUI(tripsClip: TripsClipModel!) {
         let startDate = convertToDate(tripsClip.beginDate)
         let endDate = convertToDate(tripsClip.endDate)
         let calendar = Calendar.init(identifier: .gregorian)
-        let comp = calendar.dateComponents([.day], from: startDate, to: endDate)
-        tagView.isHidden = comp.day! < 5
-        descLabel.text = "\(comp.day!)日行程"
+        let comp = calendar.dateComponents([.day], from: startDate!, to: endDate!)
+        tagView.isHidden = comp.day! < 4
+        descLabel.text = "\(comp.day! + 1)日行程"
         cityTitleLabel.text = tripsClip.cnCountry + tripsClip.cnCity
         if let image = tripsClip.cacheImage {
             self.bgImageView.image = image
@@ -118,20 +138,33 @@ class TripsClipTagView: UIView {
             if tripsClip.pic.characters.count > 0 {
                 bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
             } else {
-                DispatchQueue.global().async {
-                    PhotoScanProcessor.getRandomPhoto(endDate) { [weak self](image) in
+                PhotoScanProcessor.getRandomPhoto(endDate!) { [weak self](image) in
+                    DispatchQueue.main.async {
                         self!.bgImageView.image = image
                         tripsClip.cacheImage = image
                     }
                 }
             }
         }
+        if let beiginDate = tripsClip.beginDate, let endDate = tripsClip.endDate {
+            dateLabel.text = formatDateString(beiginDate)! + "-" + formatDateString(endDate)!
+        }
     }
     
-    func convertToDate(_ string: String) -> Date {
+    func convertToDate(_ string: String?) -> Date? {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyyMMdd"
-        let date = dateFormatter.date(from: string)
+        let date = dateFormatter.date(from: string!)
         return date!
+    }
+    
+    func formatDateString(_ string: String) -> String? {
+        if let date = convertToDate(string) {
+            let dateFormatter = DateFormatter.init()
+            dateFormatter.locale = Locale.init(identifier: "zh-CN")
+            dateFormatter.dateStyle = .medium
+            return dateFormatter.string(from: date)
+        }
+        return nil
     }
 }

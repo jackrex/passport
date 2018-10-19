@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <KEPIntlJSONModel/KEPBaseJSONModel.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,8 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatsPlace : KEPBaseJSONModel
 
-@property(nonatomic, copy) NSString *city;
+@property(nonatomic, copy) NSString *cnCity;
 @property(nonatomic, copy) NSString *country;
+@property(nonatomic, assign) long long distance;
 
 @end
 
@@ -72,6 +74,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSString *day;
 @property(nonatomic, assign) long long steps;
+
+// custom
+@property(nonatomic, strong, nullable) UIImage *cacheImage;
 
 @end
 
@@ -83,14 +88,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) long long distance;
 @property(nonatomic, strong) StatsFarthestWalkedDay *farthestWalkedDay;
 
+// custom
+@property(nonatomic, strong, nullable) UIImage *cacheImage;
+
 @end
 
 @interface StatsdDtaInsight : KEPBaseJSONModel
 
-@property(nonatomic, copy) NSString *tripsCount;
-@property(nonatomic, copy) NSString *beenToCity;
-@property(nonatomic, copy) NSString *totalSteps;
-@property(nonatomic, copy) NSString *totalDistance;
+@property(nonatomic, assign) long long tripsCount;
+@property(nonatomic, assign) long long beenToCity;
+@property(nonatomic, assign) long long totalSteps;
+@property(nonatomic, assign) long long totalDistance;
 
 @end
 

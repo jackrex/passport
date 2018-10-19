@@ -72,6 +72,9 @@ class StatsDestinationView: UIView {
         $0.layer.masksToBounds = true
         $0.titleLabel?.font = UIFont.kep_regularPingFangSC(withSize: 12)
     }
+    let maskBGView = UIView().then {
+        $0.backgroundColor = UIColor.kep_color(fromHex: 0x584F60, alpha: 0.5)
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -85,12 +88,18 @@ class StatsDestinationView: UIView {
         layer.cornerRadius = 5
         layer.masksToBounds = true
         addSubview(bgImageView)
+        addSubview(maskBGView)
         addSubview(descLabel)
         addSubview(titleLabel)
         addSubview(button)
         bgImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        maskBGView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
         descLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(21)
             make.left.equalToSuperview().offset(31)

@@ -116,22 +116,33 @@ class StatsDataInsightCell: StatsBaseCell {
     func updateUIWithData(_ stats: StatsModel) {
         tripsCountView.iconImageView.image = UIImage(named: "journeys")
         tripsCountView.titleLabel.text = "旅程数"
-        tripsCountView.valueLabel.text = stats.dataInsight.tripsCount
+        tripsCountView.valueLabel.text = "\(stats.dataInsight.tripsCount)"
         tripsCountView.unitLabel.text = "个"
         
         beenToCityView.iconImageView.image = UIImage(named: "cities")
         beenToCityView.titleLabel.text = "去过的城市"
-        beenToCityView.valueLabel.text = stats.dataInsight.beenToCity
-        beenToCityView.unitLabel.text = "公里"
+        beenToCityView.valueLabel.text = "\(stats.dataInsight.beenToCity)"
+        beenToCityView.unitLabel.text = "个"
         
         totalStepsView.iconImageView.image = UIImage(named: "steps2")
         totalStepsView.titleLabel.text = "行走步数"
-        totalStepsView.valueLabel.text = stats.dataInsight.totalSteps
-        totalStepsView.unitLabel.text = "步"
+        if stats.dataInsight.totalSteps > 10000 {
+            totalStepsView.valueLabel.text = "\(stats.dataInsight.totalSteps/10000)"
+            totalStepsView.unitLabel.text = "万步"
+        } else {
+            totalStepsView.valueLabel.text = "\(stats.dataInsight.totalSteps)"
+            totalStepsView.unitLabel.text = "步"
+        }
         
         totalDistanceView.iconImageView.image = UIImage(named: "distance")
         totalDistanceView.titleLabel.text = "出行距离"
-        totalDistanceView.valueLabel.text = stats.dataInsight.totalDistance
-        totalDistanceView.unitLabel.text = "公里"
+        if stats.dataInsight.totalDistance > 10000 {
+            totalDistanceView.valueLabel.text = "\(stats.dataInsight.totalDistance/10000)"
+            totalDistanceView.unitLabel.text = "万公里"
+        } else {
+            totalDistanceView.valueLabel.text = "\(stats.dataInsight.totalDistance)"
+            totalDistanceView.unitLabel.text = "公里"
+        }
+       
     }
 }
