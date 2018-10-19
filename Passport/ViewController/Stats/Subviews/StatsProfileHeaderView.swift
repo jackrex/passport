@@ -33,6 +33,11 @@ class StatsProfileHeaderView: UIView {
         $0.font = UIFont.kep_SFProDisplayRegular(withSize: 14)
     }
     
+    let tagImageView = UIImageView().then {
+        $0.image = UIImage(named: "profile_tag")
+        $0.contentMode = .scaleAspectFit
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -47,6 +52,7 @@ class StatsProfileHeaderView: UIView {
         addSubview(avatarImageView)
         addSubview(userNameLabel)
         addSubview(ageLabel)
+        addSubview(tagImageView)
         mapImageView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.left.right.equalToSuperview()
@@ -65,6 +71,11 @@ class StatsProfileHeaderView: UIView {
         ageLabel.snp.makeConstraints { (make) in
             make.top.equalTo(userNameLabel.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
+        }
+        tagImageView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-20)
+            make.right.equalTo(-20)
+            make.width.height.equalTo(84)
         }
     }
     
