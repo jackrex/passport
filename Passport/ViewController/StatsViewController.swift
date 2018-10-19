@@ -82,6 +82,7 @@ class StatsViewController: BaseUIViewController {
     }
 
     func fetchStatsInfo() {
+        SVProgressHUD.show(withStatus: "Loading..")
         StatsRequester.fetchStatsInfo { [weak self] (success, dict) in
             if success {
                 guard let _ = self, let dictionary = dict as? Dictionary<String, Any> else {return}
@@ -89,6 +90,7 @@ class StatsViewController: BaseUIViewController {
                 self!.tableHeaderView.updateUIWithData(self!.stats!)
                 self!.tableView.reloadData()
             }
+            SVProgressHUD.dismiss()
         }
     }
 }

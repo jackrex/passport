@@ -139,6 +139,9 @@ class TripsClipTagView: UIView {
                 bgImageView.sd_setImage(with: URL(string: tripsClip.pic))
             } else {
                 PhotoScanProcessor.getRandomPhoto(endDate!) { [weak self](image) in
+                    if image == nil {
+                        return
+                    }
                     self!.bgImageView.image = image
                     tripsClip.cacheImage = image
                 }

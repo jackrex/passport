@@ -23,20 +23,26 @@
         return;
     }
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"userId":userId}];
-    [dict addEntriesFromDictionary:[PhotoScanProcessor generateJSON]];
-    request.requestArgument = dict;
-    [request startWithBlock:^(__kindof KEPRequest * _Nonnull request) {
-        NSDictionary *data = [request.responseDictionary objectForKey:kResultData];
-        if ([data isKindOfClass:[NSDictionary class]]) {
-            StatsModel *stats = [[StatsModel alloc] initWithDictionary:data error:nil];
-            NSDictionary *dict = stats ? @{kResultData:stats} : nil;
-            callback(YES, dict);
-        } else {
-            callback(NO,nil);
-        }
-    } failure:^(__kindof KEPRequest * _Nonnull request) {
-        callback(NO, request.responseDictionary);
-    }];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [dict addEntriesFromDictionary:[PhotoScanProcessor generateJSON]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            request.requestArgument = dict;
+            [request startWithBlock:^(__kindof KEPRequest * _Nonnull request) {
+                NSDictionary *data = [request.responseDictionary objectForKey:kResultData];
+                if ([data isKindOfClass:[NSDictionary class]]) {
+                    StatsModel *stats = [[StatsModel alloc] initWithDictionary:data error:nil];
+                    NSDictionary *dict = stats ? @{kResultData:stats} : nil;
+                    callback(YES, dict);
+                } else {
+                    callback(NO,nil);
+                }
+            } failure:^(__kindof KEPRequest * _Nonnull request) {
+                callback(NO, request.responseDictionary);
+            }];
+            
+        });
+        
+    });
 }
 
 @end

@@ -55,7 +55,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             SVProgressHUD.showInfo(withStatus: "请输入密码")
             return
         }
-        self.delegate.loginFinish()
         HttpApi.login(phone!, pwd!) { (data) in
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)

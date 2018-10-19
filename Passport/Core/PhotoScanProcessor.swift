@@ -170,6 +170,7 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
 //            }
 //        }
         
+        self.allPhotos = indenpentPhoto
         return indenpentPhoto
         
     }
