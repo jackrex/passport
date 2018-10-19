@@ -158,12 +158,21 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         return dateDict
     }
     
+    public static func getPicFromDate (_ date: Date, _ location: CLLocation) -> [PHAsset]? {
+        let dict = getDatePhotos()
+        let metas = dict[DateUtil.date2Str(date: date)]
+        var assets:[PHAsset] = []
+        for meta in metas! {
+            if meta.location!.distance(from: location) < 20 * 1000 {
+                assets.append(meta.asset!)
+            }
+            
+        }
+        return assets
+        
+    }
+    
     public static func getRandomPhoto(_ date: Date, block: @escaping ImageBlock) {
-//        let options = PHFetchOptions.init()
-//        options.sortDescriptors = [NSSortDescriptor.init(key: "creationDate", ascending: true)]
-//        options.predicate = NSPredicate.init(format: "creationDate == %@", "2015-03-05")
-//        let allPhotos = PHAsset.fetchAssets(with: options)
-//        let asset = allPhotos.object(at: Int.random(in: 0..<allPhotos.count))
         let dict = getDatePhotos()
         let metas = dict[DateUtil.date2Str(date: date)]
         
@@ -200,13 +209,21 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         var upload: Upload = Upload.init(0, uploadList)
         for (date, metas) in datePhotos {
             var hashList: [String] = []
+            var hashDateList: [Double: String] = [:]
             for meta in metas {
                 let hash = Geohash.encode(latitude: (meta.location?.coordinate.latitude)!, longitude: (meta.location?.coordinate.longitude)!, precision: Geohash.Precision.twentyKilometers)
                 
                 if !hashList.contains(hash) {
                     hashList.append(hash)
+                    hashDateList.updateValue(hash, forKey: meta.time!.timeIntervalSince1970)
                 }
-                
+            }
+            
+            let keys = hashDateList.keys
+            let result = keys.sorted()
+            hashList.removeAll()
+            for timestamp in result {
+                hashList.append(hashDateList[timestamp]!)
             }
             let uploadData = UploadData.init(date, hashList)
             uploadList.append(uploadData)
