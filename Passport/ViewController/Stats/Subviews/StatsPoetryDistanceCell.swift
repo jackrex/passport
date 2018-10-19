@@ -71,11 +71,11 @@ class StatsFarthestPlaceView: UIView {
         fromLabel.snp.makeConstraints { (make) in
             make.bottom.equalTo(earthImageView.snp.top).offset(-4)
             make.height.equalTo(19)
-            make.centerX.equalTo(earthImageView)
+            make.centerX.equalTo(earthImageView).offset(5)
         }
         toLabel.snp.makeConstraints { (make) in
             make.top.equalTo(earthImageView.snp.bottom).offset(4)
-            make.centerX.equalTo(earthImageView)
+            make.centerX.equalTo(earthImageView).offset(5)
             make.height.equalTo(19)
         }
         distanceLabel.snp.makeConstraints { (make) in
