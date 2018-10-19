@@ -17,6 +17,7 @@
     KEPRequest *request = [[KEPRequest alloc] init];
     request.requestMethod = KEPRequestMethodGET;
     request.requestUrl = @"http://api.pre.gotokeep.com/box/hackday/trips";
+//    request.requestUrl = @"https://kapi.sre.gotokeep.com/mock/125/box/hackday/trips";
     NSString *userId = [AccountManager getUserId];
     if (userId.length == 0) {
         return;

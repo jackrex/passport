@@ -17,8 +17,9 @@
 #import "Passport-Swift.h"
 #import "TripDetailViewController.h"
 #import "TripDetailViewModel.h"
+#import "ForchTouchManager.h"
 
-@interface TripsViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface TripsViewController () <UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate>
 
 @property(nonatomic, strong) KEPHomeView *homeView;
 @property(nonatomic, strong) TripsModel *trips;
@@ -38,6 +39,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.homeView.tableView registerClass:[TripsClipCell class] forCellReuseIdentifier:NSStringFromClass([TripsClipCell class])];
     [self fetchTripsInfo];
+    [ForchTouchManager add3DTouch:self view:self.homeView.tableView];
 }
 
 
@@ -122,6 +124,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self gotoTripDetail:indexPath];
+}
+
+- (void)gotoTripDetail:(NSIndexPath *)indexPath {
     TripsClipModel *trip = [self.trips.trips objectAtIndex:indexPath.row];
     TripDetailViewModel *vm = [[TripDetailViewModel alloc] init];
     vm.fromType = KEPAthleticFieldFromTypeTrip;
@@ -129,6 +135,36 @@
     TripDetailViewController *vc = [[TripDetailViewController alloc] initWithViewModel:vm];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    // previewingContext.sourceView: 触发Peek & Pop操作的视图
+    // previewingContext.sourceRect: 设置触发操作的视图的不被虚化的区域
+    
+    NSIndexPath * indexPath =[self.homeView.tableView indexPathForRowAtPoint:location];
+    
+    UITableViewCell * cell = [self.homeView.tableView cellForRowAtIndexPath:indexPath];
+    //以上得到你点击的哪一行的cell
+    if (!cell) {
+        return nil;
+    }
+
+    TripsClipModel *trip = [self.trips.trips objectAtIndex:indexPath.row];
+    TripDetailViewModel *vm = [[TripDetailViewModel alloc] init];
+    vm.fromType = KEPAthleticFieldFromTypeTrip;
+    vm.requetId = trip._id;
+    TripDetailViewController *vc = [[TripDetailViewController alloc] initWithViewModel:vm];
+    vc.hidesBottomBarWhenPushed = YES;
+    // 预览区域大小(可不设置)
+    vc.preferredContentSize = CGSizeMake(0, 300);
+    return vc;
+}
+
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self.navigationController pushViewController:viewControllerToCommit animated:NO];
 }
 
 @end

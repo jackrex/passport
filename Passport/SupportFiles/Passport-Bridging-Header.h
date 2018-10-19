@@ -20,6 +20,7 @@
 #import <KEPIntlCommonUI/KCircleView.h>
 #import <KEPSVProgressHUD/SVProgressHUD.h>
 #import "LYMotionManager.h"
+#import "ForchTouchManager.h"
 
 // Stats
 #import "StatsModel.h"

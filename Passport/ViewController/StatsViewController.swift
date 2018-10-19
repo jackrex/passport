@@ -72,6 +72,7 @@ class StatsViewController: BaseUIViewController {
     
     func setupActions() {
         shareButton.addTarget(self, action: #selector(clickShareButton), for: .touchUpInside)
+        ForchTouchManager.add3DTouch(self, view: tableView)
     }
     
     @objc func clickShareButton() {
@@ -95,7 +96,7 @@ class StatsViewController: BaseUIViewController {
     }
 }
 
-extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
+extension StatsViewController: UITableViewDelegate, UITableViewDataSource,UIViewControllerPreviewingDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: StatsGazeWorldCell.self), for: indexPath) as! StatsGazeWorldCell
@@ -142,6 +143,32 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
             return 652 + 100
         }
         return 0
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//        [self.navigationController pushViewController:viewControllerToCommit animated:NO];
+        navigationController?.pushViewController(viewControllerToCommit, animated: false)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        // previewingContext.sourceView: 触发Peek & Pop操作的视图
+        // previewingContext.sourceRect: 设置触发操作的视图的不被虚化的区域
+        if let indexPath = tableView.indexPathForRow(at: location) {
+            if let _ = tableView.cellForRow(at: indexPath) {
+                //
+                //        TripsClipModel *trip = [self.trips.trips objectAtIndex:indexPath.row];
+                //        TripDetailViewModel *vm = [[TripDetailViewModel alloc] init];
+                //        vm.fromType = KEPAthleticFieldFromTypeTrip;
+                //        vm.requetId = trip._id;
+                //        TripDetailViewController *vc = [[TripDetailViewController alloc] initWithViewModel:vm];
+                //        vc.hidesBottomBarWhenPushed = YES;
+                //        // 预览区域大小(可不设置)
+                //        vc.preferredContentSize = CGSizeMake(0, 300);
+                //        return vc;
+                
+            }
+        }
+        return nil
     }
 }
 

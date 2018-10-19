@@ -48,17 +48,9 @@
         //获取加速度
         CMAcceleration acceleration = accelerometerData.acceleration;
         NSLog(@"加速度 == x:%f, y:%f, z:%f", fabs(acceleration.x), fabs(acceleration.y), fabs(acceleration.z));
-        
-        //值越大说明摇动的幅度越大
-        double num = 1.5f;
-        if (fabs(acceleration.x) > num || fabs(acceleration.y) > num ||fabs(acceleration.z) > num) {
-            //停止更新
-            [self stopAccelerometerUpdates];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                handler(acceleration, error);
-            });
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            handler(acceleration, error);
+        });
     }];
 }
 

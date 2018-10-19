@@ -38,9 +38,12 @@ class StatsProfileHeaderView: UIView {
         $0.contentMode = .scaleAspectFit
     }
     
+    var originAcceleration: CMAcceleration?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
+        shakeMap()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,6 +89,16 @@ class StatsProfileHeaderView: UIView {
         DateUtil.increaseDate(stats.profile.birthday) { (time) in
             self.ageLabel.text = time + " 岁"
         }
-
+    }
+    
+    func shakeMap() {
+        
+//        LYMotionManager.default()?.startAccelerometerUpdates(handler: {(acceleration, error) in
+//            if (self.originAcceleration == nil) {
+//                self.originAcceleration = acceleration
+//            }
+//
+//            self.mapImageView.layer.transform = CATransform3DMakeRotation(CGFloat(10 * M_PI / 180), CGFloat(acceleration.x) - CGFloat(self.originAcceleration!.x), CGFloat(acceleration.y) - CGFloat(self.originAcceleration!.y),CGFloat(acceleration.z) - CGFloat(self.originAcceleration!.z))
+//        })
     }
 }
