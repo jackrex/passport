@@ -48,10 +48,6 @@ class StatsViewController: BaseUIViewController {
         super.viewDidLoad()
         setupSubviews()
         edgesForExtendedLayout = []
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         fetchStatsInfo()
         setupActions()
     }

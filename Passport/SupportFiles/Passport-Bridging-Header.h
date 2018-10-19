@@ -19,6 +19,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <KEPIntlCommonUI/KCircleView.h>
 #import <KEPSVProgressHUD/SVProgressHUD.h>
+#import "LYMotionManager.h"
 
 // Stats
 #import "StatsModel.h"

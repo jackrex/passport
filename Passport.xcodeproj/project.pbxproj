@@ -26,6 +26,7 @@
 		3E2FD4D0217877C300B7365B /* Keeprun_font_mac.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */; };
 		3E2FD4D1217877C300B7365B /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */; };
 		3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */; };
+		3E3F9D472179B0A400B319AF /* LYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F9D452179B0A400B319AF /* LYMotionManager.m */; };
 		3E690D722178E256004B7094 /* StatsBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D712178E256004B7094 /* StatsBaseCell.swift */; };
 		3E690D742178EE78004B7094 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D732178EE78004B7094 /* AccountManager.swift */; };
 		3E690D762178F8FF004B7094 /* iPhoneX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D752178F8FF004B7094 /* iPhoneX.swift */; };
@@ -154,6 +155,8 @@
 		3E2FD4C4217877C300B7365B /* Keeprun_font_mac.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Keeprun_font_mac.ttf; sourceTree = "<group>"; };
 		3E2FD4C5217877C300B7365B /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoNarrow-Bold.otf"; sourceTree = "<group>"; };
+		3E3F9D452179B0A400B319AF /* LYMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYMotionManager.m; sourceTree = "<group>"; };
+		3E3F9D462179B0A400B319AF /* LYMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYMotionManager.h; sourceTree = "<group>"; };
 		3E690D712178E256004B7094 /* StatsBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBaseCell.swift; sourceTree = "<group>"; };
 		3E690D732178EE78004B7094 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		3E690D752178F8FF004B7094 /* iPhoneX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneX.swift; sourceTree = "<group>"; };
@@ -397,6 +400,15 @@
 				3E2FD4C6217877C300B7365B /* ArchivoNarrow-Bold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		3E3F9D442179B0A400B319AF /* LYMotionManager */ = {
+			isa = PBXGroup;
+			children = (
+				3E3F9D452179B0A400B319AF /* LYMotionManager.m */,
+				3E3F9D462179B0A400B319AF /* LYMotionManager.h */,
+			);
+			path = LYMotionManager;
 			sourceTree = "<group>";
 		};
 		3E79D2132178C82000049C16 /* Trips */ = {
@@ -662,6 +674,7 @@
 		D87DDF3621781D55002D1D99 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3E3F9D442179B0A400B319AF /* LYMotionManager */,
 				D8DE7E242176E014004F1A95 /* PhotoScanProcessor.swift */,
 				D87DDF2921777004002D1D99 /* Geohash.swift */,
 				D87DDF282177687F002D1D99 /* PHPerson.h */,
@@ -1087,6 +1100,7 @@
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
 				B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */,
 				3E690D742178EE78004B7094 /* AccountManager.swift in Sources */,
+				3E3F9D472179B0A400B319AF /* LYMotionManager.m in Sources */,
 				B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */,
 				B60D3A4921782BFD0099547D /* KEPRTActivityToggle.m in Sources */,
 				B6DFCEAE217762C400C47258 /* TripDetailMapViewModel.m in Sources */,
@@ -1303,7 +1317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HG2SE2YJ8W;
+				DEVELOPMENT_TEAM = 6AJL6H6UF5;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1326,7 +1340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HG2SE2YJ8W;
+				DEVELOPMENT_TEAM = 6AJL6H6UF5;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
