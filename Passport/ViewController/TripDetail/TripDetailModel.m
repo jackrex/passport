@@ -12,15 +12,63 @@
 
 @implementation TripDetailModel
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{@"_id": @"id",
+                                                                  @"cityName": @"city"
+                                                                  }];
+}
+
+- (NSDate *)timeDate {
+    if (!_timeDate) {
+        _timeDate =  [NSDate dateWithString:self.date formatString:@"yyyyMMdd"];
+    }
+    return _timeDate;
+}
+
 - (NSString *)dateText {
     if (!_dateText) {
-        _dateText = [[NSDate dateWithTimeIntervalSince1970:self.date] formattedDateWithFormat:@"yyyy.MM.dd"];;
+        _dateText = [self.timeDate formattedDateWithFormat:@"yyyy.MM.dd"];
     }
     return _dateText;
 }
 
 - (BOOL)isGroupData {
     return NO;
+}
+
+- (NSArray<TripMetaData *> *)keepDatas {
+    if (!_keepDatas) {
+        NSMutableArray *datas = [NSMutableArray array];
+        if (self.run > 0) {
+            TripMetaData *data = [[TripMetaData alloc] init];
+            data.type = @"running";
+            data.text = [NSString stringWithFormat:@"你完成了%.1f的跑步",self.run];
+            [datas addObject:data];
+        }
+        
+        if (self.cycling > 0) {
+            TripMetaData *data = [[TripMetaData alloc] init];
+            data.type = @"cycling";
+            data.text = [NSString stringWithFormat:@"你完成了%.1f的骑行",self.cycling];
+            [datas addObject:data];
+        }
+        
+        if (self.hiking > 0) {
+            TripMetaData *data = [[TripMetaData alloc] init];
+            data.type = @"hiking";
+            data.text = [NSString stringWithFormat:@"你完成了%.1f的行走",self.run];
+            [datas addObject:data];
+        }
+        
+        if (self.steps > 0) {
+            TripMetaData *data = [[TripMetaData alloc] init];
+            data.type = @"steps";
+            data.text = [NSString stringWithFormat:@"你走了%ld步",self.steps];
+            [datas addObject:data];
+        }
+        _keepDatas = [datas copy];
+    }
+    return _keepDatas;
 }
 
 @end
@@ -32,6 +80,8 @@
         return TripMetaDataTypeRunning;
     } else if ([self.type isEqualToString:@"cycling"]) {
         return TripMetaDataTypeCycling;
+    } else if ([self.type isEqualToString:@"hiking"]) {
+        return TripMetaDataTypeHiking;
     }
     return TripMetaDataTypeStep;
 }

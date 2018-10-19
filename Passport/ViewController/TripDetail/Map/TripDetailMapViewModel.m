@@ -7,6 +7,8 @@
 //
 
 @import MapKit;
+@import CoreMotion;
+
 #import <Mapbox/Mapbox.h>
 
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -18,13 +20,18 @@
 #import "ClusterKit.h"
 #import "MGLMapView+ClusterKit.h"
 #import "MKAnnotation+TripDetail.h"
+#import "TripDetailAnnotation.h"
 
 static NSTimeInterval const FlyCameraDuration = .35;
-static CGFloat const Inset = 40;
+static CGFloat const Inset = 60;
 
 @interface TripDetailMapViewModel () <MGLMapViewDelegate>
 
 @property (nonatomic, weak, nullable) MGLMapView *mapView;
+
+@property(nonatomic, strong) CMMotionManager *manager;
+
+@property(nonatomic, assign) MGLCoordinateBounds tripBounds;
 
 @end
 
@@ -54,26 +61,82 @@ static CGFloat const Inset = 40;
     self.mapView.showsUserLocation = NO;
     [self.mapView setUserTrackingMode:MGLUserTrackingModeNone];
     if (self.fromType == KEPAthleticFieldFromTypeTrip) {
-        self.mapView.minimumZoomLevel = 8;
         [self _kep_setupDefaultZoomLevel:NO];
     } else {
+        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.9087, 116.3975) animated:NO];
         self.mapView.minimumZoomLevel = TripDetailDefaultMinLevel;
-        [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(39.9087, 116.3975) animated:YES];
         [self _kep_setClusterManager];
     }
+    
+}
 
+- (void)setTripModels:(NSArray<TripDetailModel *> *)tripModels {
+    _tripModels = tripModels;
+
+    NSMutableArray *annotations = [NSMutableArray array];
+    [tripModels enumerateObjectsUsingBlock:^(TripDetailModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.points enumerateObjectsUsingBlock:^(TripPointModel * _Nonnull point, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (annotations.count == 0) {
+                self.tripBounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(point.latitude, point.longitude), CLLocationCoordinate2DMake(point.latitude, point.longitude));
+            } else {
+                self.tripBounds =  MGLCoordinateIncludingCoordinate(self.tripBounds, CLLocationCoordinate2DMake(point.latitude, point.longitude));
+            }
+            TripDetailAnnotation *annotation = [[TripDetailAnnotation alloc] init];
+            annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude);
+            annotation.currentModel = obj;
+            [annotations addObject:annotation];
+        }];
+    }];
+    [self.mapView addAnnotations:annotations];
+    
+    
+    NSInteger count = annotations.count;
+    CLLocationCoordinate2D routeCoords[count];
+    for (NSInteger i = 0; i < count; i++) {
+        MGLPointAnnotation *annotation = annotations[i];
+        routeCoords[i] = annotation.coordinate;
+    }
+    MGLPolylineFeature *polyline = nil;
+    @try {
+        //这里保护下 mapbox 会有crash
+        polyline = [MGLPolylineFeature polylineWithCoordinates:routeCoords count:count];
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+    MGLShapeSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"aaa"
+                                                               features:@[polyline]
+                                                                options:nil];
+    [self.mapView.style addSource:source];
+    source.shape = polyline;
+    MGLLineStyleLayer *layer = [self _kep_styleLayerWithIdentifier:@"aaaa"
+                                                        isSelected:YES
+                                                            source:source];
+    [self.mapView.style addLayer:layer];
+}
+
+- (MGLLineStyleLayer *)_kep_styleLayerWithIdentifier:(NSString *)identifier
+                                          isSelected:(BOOL)isSelected
+                                              source:(MGLSource *)source {
+    MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:identifier source:source];
+    layer.lineJoin = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineJoin:MGLLineJoinRound]];
+    layer.lineCap = [NSExpression expressionForConstantValue:[NSValue valueWithMGLLineCap:MGLLineCapRound]];
+    layer.lineColor = [NSExpression expressionForConstantValue:[KColorManager buttonGreenTitleColor]];
+    layer.lineWidth = [NSExpression expressionForConstantValue:@4];
+    layer.lineOpacity = [NSExpression expressionForConstantValue:@1];
+    layer.lineDashPattern = [NSExpression expressionForConstantValue:@[@0, @1.5]];
+    return layer;
 }
 
 - (void)setCurrentModel:(TripDetailModel *)currentModel {
     _currentModel = currentModel;
     if (self.fromType == KEPAthleticFieldFromTypeTrip) {
-        [self.mapView removeAnnotations:self.mapView.annotations];
-        for (TripPointModel *model in self.currentModel.points) {
-            MGLPointAnnotation *annotation = [[MGLPointAnnotation alloc] init];
-            annotation.coordinate = CLLocationCoordinate2DMake(model.latitude, model.longitude);
-            [self.mapView addAnnotation:annotation];
-        }
-        
+        [self.mapView.annotations enumerateObjectsUsingBlock:^(TripDetailAnnotation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.currentModel.selected = obj.currentModel.dayIndex == currentModel.dayIndex;
+        }];
     }
 }
 
@@ -85,7 +148,7 @@ static CGFloat const Inset = 40;
                 completionHandler:^{
                 }];
     }
-   
+    
 }
 
 - (void)adjustMapForRespective {
@@ -96,32 +159,25 @@ static CGFloat const Inset = 40;
                 completionHandler:^{
                 }];
     }
-
+    
 }
 
 - (MGLMapCamera *)_kep_cameraForType:(KEPAthleticFieldSceneType)type {
     MGLMapCamera *camera = nil;
-    TripPointModel *model = self.currentModel.points.firstObject;
-    
-    MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(model.latitude, model.longitude), CLLocationCoordinate2DMake(model.latitude, model.longitude));
-    
-    for (TripPointModel *annotation in self.currentModel.points) {
-        bounds = MGLCoordinateIncludingCoordinate(bounds, CLLocationCoordinate2DMake(annotation.latitude + (self.currentModel.points.count == 1 ? 0.00001 : 0), annotation.longitude));
-    }
-    
+
     if (KEPAthleticFieldSceneTypeSpecific == type) {
-        camera = [self.mapView cameraThatFitsCoordinateBounds:bounds
-                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, _specificBottomPoint + 2 * Inset, Inset)];
+        camera = [self.mapView cameraThatFitsCoordinateBounds:self.tripBounds
+                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, _specificBottomPoint + Inset / 2, Inset)];
         camera.pitch = 0;
         camera.heading = 0;
         return camera;
         
     }
     else if (KEPAthleticFieldSceneTypeRespective == type) {
-        camera = [self.mapView cameraThatFitsCoordinateBounds:bounds
-                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, Inset + _respectiveBottomPoint, Inset)];
-        camera.pitch = 35;
-        camera.heading = 8;
+        camera = [self.mapView cameraThatFitsCoordinateBounds:self.tripBounds
+                                                  edgePadding:UIEdgeInsetsMake(Inset, Inset, _respectiveBottomPoint + Inset / 2, Inset)];
+        camera.pitch = 0;
+        camera.heading = 0;
         return camera;
     }
     return camera;
@@ -158,7 +214,7 @@ static CGFloat const Inset = 40;
 #pragma mark <MGLMapViewDelegate>
 
 - (void)mapViewDidFinishLoadingMap:(MGLMapView *)mapView {
- 
+    
 }
 
 
@@ -190,11 +246,13 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
         return view;
     }
     else if (self.fromType == KEPAthleticFieldFromTypeTrip) {
-        MBXClusterView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
+        TripDetailAnnotation *a = (TripDetailAnnotation *)annotation;
+        TripDetailAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
         if (!view) {
-            view = [[MBXClusterView alloc] initWithAnnotation:annotation reuseIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
+            view = [[TripDetailAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:MBXMapViewDefaultClusterAnnotationViewReuseIdentifier];
         }
-        view.label.text = [NSString stringWithFormat:@"%ld", 1];
+        view.currentModel = a.currentModel;
+        view.label.text = [NSString stringWithFormat:@"%ld", a.currentModel.dayIndex + 1];
         return view;
     }
     
@@ -220,7 +278,7 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
     if (self.fromType == KEPAthleticFieldFromTypeGroup) {
         CKCluster *cluster = (CKCluster *)annotation;
-        UIEdgeInsets edgePadding = UIEdgeInsetsMake(Inset, Inset, _respectiveBottomPoint + Inset, Inset);
+        UIEdgeInsets edgePadding = UIEdgeInsetsMake(2 * Inset + iPhoneXTopOffsetY, Inset, _respectiveBottomPoint + Inset, Inset);
         MGLMapCamera *camera = [mapView cameraThatFitsCluster:cluster edgePadding:edgePadding];
         if (cluster.count > 1) {
             [mapView setCamera:camera animated:YES];
@@ -231,6 +289,10 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
                 
             }];
         }
+    }
+    else if (self.fromType == KEPAthleticFieldFromTypeTrip) {
+        TripDetailAnnotation *a = (TripDetailAnnotation *)annotation;
+        !self.didClickTripAction ?: self.didClickTripAction(a.currentModel);
     }
     [mapView deselectAnnotation:annotation animated:NO];
 }
@@ -257,7 +319,7 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
         self.frame = CGRectMake(0, 0, 44, 50);
         self.backgroundImageView.frame = self.frame;
         [self addSubview:self.backgroundImageView];
-        self.centerOffset = CGVectorMake(0.5, 1);
+        self.centerOffset = CGVectorMake(0, -CGRectGetHeight(self.frame)/2);
         
         self.imageView = [[UIImageView alloc] init];
         [self addSubview:self.imageView];
@@ -286,7 +348,7 @@ NSString * const MBXMapViewDefaultClusterAnnotationViewReuseIdentifier = @"clust
         [self addSubview:self.imageView];
         self.frame = self.imageView.frame;
         
-        self.centerOffset = CGVectorMake(0.5, 1);
+        self.centerOffset = CGVectorMake(0, -CGRectGetHeight(self.frame)/2);
         
         self.label = [UILabel kep_createLabel];
         self.label.font = [UIFont kep_systemBoldSize:13];

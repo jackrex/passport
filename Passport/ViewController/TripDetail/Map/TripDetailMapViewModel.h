@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) KEPAthleticFieldSceneType sceneType;
 @property(nonatomic, assign) KEPAthleticFieldFromType fromType;
 
+@property (nonatomic, strong, nullable) NSArray <TripDetailModel *> *tripModels;
+
 @property(nonatomic, strong) TripDetailModel *currentModel;
 
 @property(nonatomic, copy) void (^didClickTripAction)(TripDetailModel *model);

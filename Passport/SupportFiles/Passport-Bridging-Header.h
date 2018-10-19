@@ -28,3 +28,4 @@
 // Trips
 #import "TripsModel.h"
 #import "TripsRequester.h"
+#import "MMAssetService.h"

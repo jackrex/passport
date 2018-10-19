@@ -11,12 +11,12 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import <KEPIntlCommonUI/KCircleView.h>
-#import <KEPIntlCommonUI/KEPPreviewDircter.h>
+#import "KEPPreviewDircter.h"
 
 #import "KEPEntryPhotoAndVideoView.h"
 
 #import "KEPBaseEntryCell+Helper.h"
-
+#import "MMAssetService.h"
 @interface KEPEntryPhotoAndVideoView ()
 
 @property (nonatomic, strong) UIImageView *photoImageView;
@@ -59,7 +59,6 @@
     if (!_refreshBtn) {
         _refreshBtn = [[UIButton alloc] init];
         _refreshBtn.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
-//        [_refreshBtn setBackgroundImage:[UIImage sl_imageNamed:@"icon_timeline_refresh"] forState:UIControlStateNormal];
         [_refreshBtn addTarget:self action:@selector(reloadImage:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _refreshBtn;
@@ -107,14 +106,26 @@
 
 
 - (void)handleImage:(TripDetailModel *)model {
-    NSString *photo = model.pictures.firstObject;
+    id photo = model.pictures.firstObject;
     
     [self removeRefreshButton];
     [self configureGesture];
     
     [self configureProgressView];
     
-    [self handleNormalImage:photo];
+    if ([photo isKindOfClass:[NSString class]]) {
+        [self handleNormalImage:photo];
+    } else if ([photo isKindOfClass:[PHAsset class]]) {
+        PHAsset *asset = (PHAsset *)photo;
+        KEPWeak(self);
+        [self removeProgressView];
+        [[MMAssetService service] requestImageWithAsset:asset
+                                                handler:^(MMAssetErrorCode errorCode, UIImage *image, MMAssetExtraInfoModel *extraInfoModel) {
+                                                    KEPStrong_return_as_nil(self);
+                                                    self.photoImageView.image = image;
+                                                } progress:^(double progress, NSError * _Nullable error, BOOL *stop, NSDictionary * _Nullable info) {
+                                                }];
+    }
 }
 
 //正常entry的图片处理

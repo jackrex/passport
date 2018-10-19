@@ -13,7 +13,8 @@
 #import "TripDetailModel.h"
 #import "KEPEntryMultiPhotosView.h"
 #import "Passport-Swift.h"
-
+#import "MMImagesPreviewView.h"
+#import "KEPPreviewDircter.h"
 
 @interface KEPEntryMultiPhotosView () <MMImagesPreviewViewDelegate>
 

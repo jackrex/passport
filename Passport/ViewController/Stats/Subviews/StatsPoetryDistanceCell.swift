@@ -12,6 +12,8 @@ import Foundation
 class StatsFarthestPlaceView: UIView {
     let photoImageView = UIImageView().then {
         $0.backgroundColor = UIColor.kep_color(fromHex: 0x333333, alpha: 0.3)
+        $0.contentMode = .scaleAspectFill
+        $0.layer.masksToBounds = true
     }
     let dateLabel = UILabel().then {
         $0.font = UIFont.kep_regularPingFangSC(withSize: 14)
@@ -93,6 +95,8 @@ class StatsFarthestDayView: UIView {
     }
     let photoImageView = UIImageView().then {
         $0.backgroundColor = UIColor.kep_color(fromHex: 0x333333, alpha: 0.3)
+        $0.contentMode = .scaleAspectFill
+        $0.layer.masksToBounds = true
     }
     let dateLabel = UILabel().then {
         $0.font = UIFont.kep_regularPingFangSC(withSize: 14)

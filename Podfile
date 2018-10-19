@@ -19,13 +19,14 @@ target 'Passport' do
   pod 'iCarousel', '1.8.3'
   pod 'Masonry','1.1.0.1'
   pod 'KEPSVProgressHUD', '0.0.4.1'
-  pod 'KEPIntlCommonUI', '0.0.65'
+  pod 'KEPIntlCommonUI',  :git => 'ssh://git@phab.gotokeep.com/diffusion/400/kepintlcommonui.git', :tag => '0.0.1-pass'
   pod 'GZIP', '0.0.3.1'
   pod 'SnapKit', '4.0.1'
   pod 'Then'
   pod 'AFNetworking','3.1.0-rc.1.1.1'
   pod 'KEPIntlNetwork','0.0.2.1'
   pod 'SDWebImage','3.7.2-rc1'
+
 
   target 'PassportTests' do
     inherit! :search_paths

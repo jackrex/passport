@@ -126,7 +126,7 @@ static CGSize const kAvatarSize = {35, 35};
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [UILabel kep_createLabel];
-        _nameLabel.font = [UIFont kep_systemBoldSize:23];
+        _nameLabel.font = [UIFont kep_systemBoldSize:26];
         _nameLabel.textColor = [KColorManager commonBlackTextColor];
     }
     return _nameLabel;

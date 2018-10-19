@@ -42,10 +42,12 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
     KEPEntryCellResuseMaskNone = 0,
     KEPEntryCellResuseMaskPhoto = 1 << 0,
     KEPEntryCellResuseMaskPhotos = 1 << 1,
-    KEPEntryCellResuseMaskMeta = 1 << 2,
-    KEPEntryCellResuseMaskText = 1 << 3,
+    KEPEntryCellResuseMaskNoPhotos = 1 << 2,
+    KEPEntryCellResuseMaskMeta = 1 << 3,
+    KEPEntryCellResuseMaskText = 1 << 4,
+    KEPEntryCellResuseMaskNoText = 1 << 5,
     
-    KEPEntryCellResuseMaskALL = 0b11111
+    KEPEntryCellResuseMaskALL = 0b1111111
 };
 
 
@@ -58,6 +60,9 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
 @property (nonatomic, strong) KEPEntryPhotoAndVideoView *photoVideoView;
 @property (nonatomic, strong) KEPEntryMultiPhotosView *photosView;
 @property (nonatomic, strong) KEPEntryMetaAndCardView *metaAndCardView;
+@property(nonatomic, strong) UIImageView *noPhotoView;
+@property(nonatomic, strong) UIImageView *noTextView;
+
 @property (nonatomic) CGFloat cellHeight;
 @end
 
@@ -140,17 +145,22 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         }
         SetFrameByHeight(self.photosView, 0, 0, [KEPTimelineEntryCellHelper photoHeight:model]);
         bottomSpacing = NO;
-    }
-    
-    if (model.text.length > 0) {
-        if (self.textView.superview == nil) {
-            [self.containerView addSubview:self.textView];
+    } else {
+        if (self.noPhotoView.superview == nil) {
+            self.noPhotoView = [UIImageView kep_createImageView];
+            self.noPhotoView.image = [UIImage imageNamed:@"no_photo"];
+            self.noPhotoView.contentMode = UIViewContentModeScaleAspectFit;
+            [self.contentView addSubview:self.noPhotoView];
+            [self.noPhotoView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.mas_equalTo(self);
+                make.width.mas_equalTo(316);
+                make.height.mas_equalTo(178);
+                make.top.mas_offset(originY);
+            }];
         }
-        [self.textView updateData:model];
-        SetViewFrame(self.textView, bottomSpacing ? 12 : 0, 0);
+        SetFrameByHeight(self.noPhotoView, 0, 14, 178);
         bottomSpacing = YES;
     }
-    
     
     if ([KEPEntryMetaAndCardView shouldDisplayForData:model]) {
         if (self.metaAndCardView.superview == nil) {
@@ -162,6 +172,37 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         SetFrameByHeight(self.metaAndCardView, bottomSpacing? 12 : 0, 16, [KEPEntryMetaAndCardView viewHeight]);
         bottomSpacing = YES;
     }
+    
+    if (model.text.length > 0) {
+        if (self.textView.superview == nil) {
+            [self.containerView addSubview:self.textView];
+        }
+        [self.textView updateData:model];
+        SetViewFrame(self.textView, bottomSpacing ? 12 : 0, 0);
+        bottomSpacing = YES;
+    } else {
+        if (self.noTextView.superview == nil) {
+            self.noTextView = [UIImageView kep_createImageView];
+            self.noTextView.image = [UIImage imageNamed:@"no_text"];
+            self.noTextView.contentMode = UIViewContentModeScaleAspectFit;
+            [self.contentView addSubview:self.noTextView];
+            [self.noTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.leading.mas_offset(12);
+                make.width.mas_equalTo(283);
+                make.height.mas_equalTo(38);
+                make.top.mas_offset(originY + (bottomSpacing ? 24 : 12));
+            }];
+        } else {
+            [self.noTextView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_offset(originY + (bottomSpacing ? 24 : 12));
+            }];
+        }
+        SetFrameByHeight(self.noTextView, bottomSpacing ? 24 : 0, 30, 38);
+        bottomSpacing = NO;
+    }
+    
+    
+
 
 
     CGFloat bottomSpaceViewHeight = 12;
@@ -194,12 +235,16 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
         mask = mask | KEPEntryCellResuseMaskPhoto;
     } else if ([KEPEntryMultiPhotosView shouldDisplayForData:model]) {
         mask = mask | KEPEntryCellResuseMaskPhotos;
+    } else {
+        mask = mask | KEPEntryCellResuseMaskNoPhotos;
     }
     if ([KEPEntryMetaAndCardView shouldDisplayForData:model]) {
         mask = mask | KEPEntryCellResuseMaskMeta;
     }
     if (model.text.length > 0) {
         mask = mask | KEPEntryCellResuseMaskText;
+    } else {
+        mask = mask | KEPEntryCellResuseMaskNoText;
     }
     return [self reuseIDByMask:mask];
 }
@@ -251,6 +296,8 @@ typedef NS_OPTIONS(NSUInteger, KEPEntryCellResuseMask) {
     } else if (self.updateHeightOnly == NO) {
         [self.photosView removeFromSuperview];
     }
+    [self.noPhotoView removeFromSuperview];
+    [self.noTextView removeFromSuperview];
     if ([KEPEntryMetaAndCardView shouldDisplayForData:model]) {
         if (self.metaAndCardView == nil) {
             self.metaAndCardView = [[KEPEntryMetaAndCardView alloc] init];

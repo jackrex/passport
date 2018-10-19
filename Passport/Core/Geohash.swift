@@ -54,7 +54,7 @@ struct Geohash {
         return (latRange, lonRange)
     }
     
-    static func encode(latitude: Double, longitude: Double, length: Int) -> String {
+    public static func encode(latitude: Double, longitude: Double, length: Int) -> String {
         // For example: (latitude, longitude) = (57.6491106301546, 10.4074396938086)
         
         func combiner(array a: (min: Double, max: Double, array: [String]), value: Double) -> (Double, Double, [String]) {

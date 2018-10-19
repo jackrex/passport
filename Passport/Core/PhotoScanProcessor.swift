@@ -207,14 +207,22 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         return dateDict
     }
     
-
-    public static func getPicFromDate (_ date: Date, _ location: CLLocation) -> [PHAsset]? {
+    @objc public static func getPicFromDate (_ date: Date, _ location: CLLocation) -> [PHAsset]? {
         let dict = getDatePhotos()
         let metas = dict[DateUtil.date2Str(date: date)]
         var assets:[PHAsset] = []
-        for meta in metas! {
-            if meta.location!.distance(from: location) < 20 * 1000 {
-                assets.append(meta.asset!)
+        
+        var hashArray:[String] = []
+        
+        for meta in metas ?? [] {
+            if let metaLocation = meta.location {
+                if metaLocation.distance(from: location) < 30 * 1000 {
+                    let hash = meta.asset?.location?.coordinate.geohash(precision:  Geohash.Precision.twentyFourHundredMeters)
+                    if hashArray.contains(hash!) == false {
+                        assets.append(meta.asset!)
+                        hashArray.append(hash!)
+                    }
+                }
             }
             
         }
@@ -239,18 +247,18 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
         
         let asset = metas![Int.random(in: 0..<metas!.count)].asset
         
-        let requestOptions = PHImageRequestOptions()
-        requestOptions.resizeMode = .exact
-        
         let scale = UIScreen.main.scale
         let dimension = CGFloat(200.0)
         let size = CGSize(width: dimension * scale, height: dimension * scale)
         
-        PHImageManager.default().requestImage(for: asset!, targetSize: size, contentMode: .aspectFill, options: requestOptions) { (image, info) in
-            DispatchQueue.main.async {
-                block(image!)
-            }
-        }
+        
+        MMAssetService.shared()?.requestImage(with: asset!, maxSize: size, handler: { (code, image, model) in
+            block(image!)
+            }, progress: { (aa, err,c, a) in
+                
+        })
+        
+
     }
     
     @objc public static func generateJSON() -> NSDictionary? {

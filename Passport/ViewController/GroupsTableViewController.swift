@@ -57,7 +57,7 @@ class GroupsTableViewController: UITableViewController {
         vm.fromType = .group
         let vc = TripDetailViewController.init(viewModel: vm)
         vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     /*

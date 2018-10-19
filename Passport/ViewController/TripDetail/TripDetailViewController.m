@@ -130,11 +130,15 @@ static CGSize const IconSize = {24, 24};
         @weakify(self);
         _mapViewModel.didClickTripAction = ^(TripDetailModel * _Nonnull model) {
             @strongify(self);
-            NSArray *datas = @[model];
-            self.viewModel.tripModels = datas;
-            self.carouselView.viewModel.tripModels = datas;
-            [self _kep_scrollTableViewVisible];
-            
+            if (self.viewModel.fromType == KEPAthleticFieldFromTypeGroup) {
+                NSArray *datas = @[model];
+                self.viewModel.tripModels = datas;
+                self.carouselView.viewModel.tripModels = datas;
+                [self _kep_scrollTableViewVisible];
+            } else {
+                [self.carouselView scrollToPage:model.dayIndex animated:YES];
+            }
+        
         };
     }
     return _mapViewModel;
@@ -311,10 +315,11 @@ static CGSize const IconSize = {24, 24};
                 NSArray <TripDetailModel *> *datas = dic[kResultData];
                 self.viewModel.tripModels = datas;
                 self.carouselView.viewModel.tripModels = datas;
+                self.mapViewModel.tripModels = datas;
                 self.mapViewModel.currentModel = datas.firstObject;
                 [self _kep_scrollTableViewVisible];
             } else {
-                [SVProgressHUD showWithStatus:dic[kResultData]];
+                [SVProgressHUD showInfoWithStatus:dic[kResultData]];
             }
         }];
     }
@@ -363,9 +368,6 @@ static CGSize const IconSize = {24, 24};
         @strongify(self);
         TripDetailModel *model = self.carouselView.viewModel.currentTripModel;
         self.mapViewModel.currentModel = model;
-        if (self.viewModel.sceneType == KEPAthleticFieldSceneTypeRespective) {
-            [self.mapViewModel adjustMapForRespective];
-        }
     }];
 
 

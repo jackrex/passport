@@ -8,12 +8,14 @@
 
 #import <KEPIntlJSONModel/KEPBaseJSONModel.h>
 @import CoreLocation;
+@import Photos;
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, TripMetaDataType) {
     TripMetaDataTypeRunning,
     TripMetaDataTypeCycling,
+    TripMetaDataTypeHiking,
     TripMetaDataTypeStep
 };
 
@@ -41,13 +43,22 @@ KEPJSONMODELPROTOCOL(TripMetaData)
 @property(nonatomic, copy) NSString *_id;
 @property(nonatomic, assign) NSInteger dayIndex;
 @property(nonatomic, copy) NSString *cityName;
-@property(nonatomic, assign) NSTimeInterval date;
+@property(nonatomic, copy) NSString *country;
+@property(nonatomic, copy) NSString *date;
 @property(nonatomic, copy) NSString *text;
 @property(nonatomic, strong) NSArray *pictures;
 @property(nonatomic, strong) NSArray <TripPointModel> *points;
-@property(nonatomic, strong) NSArray <TripMetaData> *keepDatas;
+@property(nonatomic, assign) CGFloat run;
+@property(nonatomic, assign) CGFloat cycling;
+@property(nonatomic, assign) CGFloat hiking;
+@property(nonatomic, assign) NSInteger steps;
 
+@property(nonatomic, strong) NSArray <TripMetaData *> *keepDatas;
+
+@property(nonatomic, strong) NSDate *timeDate;
 @property(nonatomic, copy) NSString *dateText;
+
+@property(nonatomic, assign) BOOL selected;
 
 - (BOOL)isGroupData;
 

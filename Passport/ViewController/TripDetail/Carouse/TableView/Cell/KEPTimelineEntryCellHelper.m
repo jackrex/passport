@@ -42,6 +42,10 @@ static KEPTimelineEntryCell *gCell = nil;
         return height;
     }
     
+    if ([model.pictures.firstObject isKindOfClass:[PHAsset class]]) {
+        return [KEPDeviceManager manager].horizontalLength - [self leadingMargin] - [self tailingMargin];
+    }
+    
     CGSize size = [KEPBaseEntryCell handleImageWidthAndHeight:model.pictures.firstObject];
     if (size.width == size.height) {
         return [KEPDeviceManager manager].horizontalLength - [self leadingMargin] - [self tailingMargin];
