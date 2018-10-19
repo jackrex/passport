@@ -170,6 +170,9 @@ class StatsPoetryDistanceCell: StatsBaseCell {
     let farthestPlaceView = StatsFarthestPlaceView()
     let farthestDayView = StatsFarthestDayView()
     
+    var image1: UIImage!
+    var image2: UIImage!
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -202,17 +205,19 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.cnCity
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.cnCity
         farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.to.distance/1000) + "KM"
-        if let placeImage = stats.poetryDistance.cacheImage {
-            self.farthestPlaceView.photoImageView.image = placeImage
-        } else {
-            if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
-                PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
-                    DispatchQueue.main.async {
+        if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
+            PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
+                DispatchQueue.main.async {
+                     self!.farthestPlaceView.photoImageView.alpha = 0
+                    UIView.animate(withDuration: 1, delay: 0.5, options: .transitionFlipFromLeft, animations: {
+                         self!.farthestPlaceView.photoImageView.alpha = 1
                         self!.farthestPlaceView.photoImageView.image = image
-                        stats.poetryDistance.cacheImage = image
+                        
+                    }) { (finished) in
                     }
-                })
-            }
+                   
+                }
+            })
         }
         farthestDayView.dateLabel.text = formatDateString(stats.poetryDistance.farthestWalkedDay.day)
 //        if stats.poetryDistance.farthestWalkedDay.steps > 10000 {
