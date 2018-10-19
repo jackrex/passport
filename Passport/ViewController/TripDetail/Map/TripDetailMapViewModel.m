@@ -33,6 +33,8 @@ static CGFloat const Inset = 60;
 
 @property(nonatomic, assign) MGLCoordinateBounds tripBounds;
 
+@property(nonatomic, assign) BOOL loadingFininsh;
+
 @end
 
 @implementation TripDetailMapViewModel
@@ -93,12 +95,13 @@ static CGFloat const Inset = 60;
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+    self.loadingFininsh = YES;
     [self _kep_addShapeSource];
 }
 
 - (void)_kep_addShapeSource {
     
-    if (self.mapView.annotations.count == 0 || self.fromType != KEPAthleticFieldFromTypeTrip) {
+    if (self.mapView.annotations.count == 0 || self.fromType != KEPAthleticFieldFromTypeTrip || !self.loadingFininsh) {
         return;
     }
     
