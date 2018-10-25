@@ -200,22 +200,27 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         }
     }
     
-    func updateUIWithData(_ stats: StatsModel) {
+    func updateUIWithData(_ stats: StatsModel, snapShot: Bool) {
         farthestPlaceView.dateLabel.text = formatDateString(stats.poetryDistance.day)
         farthestPlaceView.fromLabel.text = stats.poetryDistance.from.cnCity
         farthestPlaceView.toLabel.text = stats.poetryDistance.to.cnCity
         farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.to.distance/1000) + "KM"
         if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
             PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in
-                DispatchQueue.main.async {
-                     self!.farthestPlaceView.photoImageView.alpha = 0
-                    UIView.animate(withDuration: 1, delay: 0.5, options: .transitionFlipFromLeft, animations: {
-                         self!.farthestPlaceView.photoImageView.alpha = 1
-                        self!.farthestPlaceView.photoImageView.image = image
+                if snapShot {
+                    self!.farthestPlaceView.photoImageView.image = image
+                } else {
+                    DispatchQueue.main.async {
+                        self!.farthestPlaceView.photoImageView.alpha = 0
+                        UIView.animate(withDuration: 1, delay: 0.5, options: .transitionFlipFromLeft, animations: {
+                            self!.farthestPlaceView.photoImageView.alpha = 1
+                            self!.farthestPlaceView.photoImageView.image = image
+                            
+                        }) { (finished) in
+                        }
                         
-                    }) { (finished) in
+                        
                     }
-                   
                 }
             })
         }

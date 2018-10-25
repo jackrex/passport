@@ -12,6 +12,9 @@ import SnapKit
 
 class StatsViewController: BaseUIViewController {
     
+    var snapShotTableView: UITableView?
+    var snapShot = false
+    
     var stats: StatsModel?
     let shareButton = UIButton.init(type: UIButton.ButtonType.custom).then {
         $0.setImage(UIImage(named: "icon_share"), for: .normal)
@@ -96,6 +99,7 @@ class StatsViewController: BaseUIViewController {
     }
     
     @objc func clickShareButton() {
+        self.snapShot = true
         let tableView = StatsViewController.createTableView()
         let headerView = StatsViewController.createHeaderView()
         tableView.delegate = self
@@ -109,7 +113,7 @@ class StatsViewController: BaseUIViewController {
         let scale = min(2, UIScreen.main.scale)
         UIGraphicsBeginImageContextWithOptions(tableView.frame.size, false, scale)
         let context = UIGraphicsGetCurrentContext()
-        
+        self.snapShotTableView = tableView
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else {return}
             tableView.layer.render(in: context!)
@@ -119,7 +123,7 @@ class StatsViewController: BaseUIViewController {
             let items = [image]
             let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
             strongSelf.present(ac, animated: true)
-            
+            strongSelf.snapShot = false
         }
         
     }
@@ -171,7 +175,7 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource,UIView
             return cell
         } else if (indexPath.row == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: StatsPoetryDistanceCell.self), for: indexPath) as! StatsPoetryDistanceCell
-            cell.updateUIWithData(stats!)
+            cell.updateUIWithData(stats!, snapShot: snapShot)
             return cell
         } else if (indexPath.row == 2) {
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: StatsDataInsightCell.self), for: indexPath) as! StatsDataInsightCell
