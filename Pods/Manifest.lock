@@ -40,6 +40,7 @@ PODS:
   - SnapKit (4.0.1)
   - Then (2.4.0)
   - Toast-Swift (4.0.0)
+  - UMengAnalytics (4.2.4)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0-rc.1.1.1)
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - SnapKit (= 4.0.1)
   - Then
   - Toast-Swift (~> 4.0.0)
+  - UMengAnalytics
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -67,6 +69,7 @@ SPEC REPOS:
     - SnapKit
     - Then
     - Toast-Swift
+    - UMengAnalytics
   "ssh://git@phab.gotokeep.com/source/iOS_third_framework.git":
     - AFNetworking
     - Aspects
@@ -123,7 +126,8 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   Toast-Swift: 594b5c5e5129f15438e410207e43287f027b3c00
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
 
-PODFILE CHECKSUM: a326f4a91d9bd2c80d7aa0f90fb790ea388fe60c
+PODFILE CHECKSUM: efeeb1712e5277b988244abd14a1df5ad2b31ba5
 
 COCOAPODS: 1.5.3

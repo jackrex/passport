@@ -19,21 +19,31 @@ class StatsViewController: BaseUIViewController {
     let moreButton = UIButton.init(type: UIButton.ButtonType.custom).then {
         $0.setImage(UIImage(named: "icon_more"), for: .normal)
     }
-    let tableView = UITableView(frame: .zero, style: .plain).then {
-        $0.showsVerticalScrollIndicator = false
-        $0.separatorStyle = .none
-        $0.register(StatsGazeWorldCell.self, forCellReuseIdentifier: String(describing: StatsGazeWorldCell.self))
-        $0.register(StatsPoetryDistanceCell.self, forCellReuseIdentifier: String(describing: StatsPoetryDistanceCell.self))
-        $0.register(StatsDataInsightCell.self, forCellReuseIdentifier: String(describing: StatsDataInsightCell.self))
-        $0.register(StatsTomorrowCell.self, forCellReuseIdentifier: String(describing: StatsTomorrowCell.self))
-        if #available(iOS 11.0, *) {
-            $0.contentInsetAdjustmentBehavior = .never
-        } else {
-            // Fallback on earlier versions
+    let tableView = StatsViewController.createTableView()
+    let tableHeaderView = StatsViewController.createHeaderView()
+    
+    static func createTableView() -> UITableView {
+        return UITableView(frame: .zero, style: .plain).then {
+            $0.showsVerticalScrollIndicator = false
+            $0.separatorStyle = .none
+            $0.register(StatsGazeWorldCell.self, forCellReuseIdentifier: String(describing: StatsGazeWorldCell.self))
+            $0.register(StatsPoetryDistanceCell.self, forCellReuseIdentifier: String(describing: StatsPoetryDistanceCell.self))
+            $0.register(StatsDataInsightCell.self, forCellReuseIdentifier: String(describing: StatsDataInsightCell.self))
+            $0.register(StatsTomorrowCell.self, forCellReuseIdentifier: String(describing: StatsTomorrowCell.self))
+            if #available(iOS 11.0, *) {
+                $0.contentInsetAdjustmentBehavior = .never
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     
-    let tableHeaderView = StatsProfileHeaderView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 280))
+    static func createHeaderView() -> StatsProfileHeaderView {
+        return StatsProfileHeaderView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 280))
+    }
+    
+    
+    
     
     override func hideNavigationBar() -> Bool {
         return true
@@ -46,7 +56,7 @@ class StatsViewController: BaseUIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -86,6 +96,31 @@ class StatsViewController: BaseUIViewController {
     }
     
     @objc func clickShareButton() {
+        let tableView = StatsViewController.createTableView()
+        let headerView = StatsViewController.createHeaderView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableHeaderView = headerView
+        tableView.separatorStyle = .none
+        tableView.reloadData()
+        tableView.setNeedsLayout()
+        tableView.layoutIfNeeded()
+        tableView.frame = CGRect.init(x: 0, y: 0, width: self.tableView.width, height: self.tableView.contentSize.height)
+        let scale = min(2, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(tableView.frame.size, false, scale)
+        let context = UIGraphicsGetCurrentContext()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {return}
+            tableView.layer.render(in: context!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            let items = [image]
+            let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+            strongSelf.present(ac, animated: true)
+            
+        }
         
     }
     
@@ -102,7 +137,7 @@ class StatsViewController: BaseUIViewController {
         alertSheet.addAction(cacelAction)
         KEPUIAlertController.showActionSheet(alertSheet, arrowDirection: .up, sender: nil, controller: self)
     }
-
+    
     func fetchStatsInfo() {
         SVProgressHUD.show(withStatus: "Loading..")
         StatsRequester.fetchStatsInfo { [weak self] (success, dict) in
@@ -178,7 +213,7 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource,UIView
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-//        [self.navigationController pushViewController:viewControllerToCommit animated:NO];
+        //        [self.navigationController pushViewController:viewControllerToCommit animated:NO];
         navigationController?.pushViewController(viewControllerToCommit, animated: false)
     }
     

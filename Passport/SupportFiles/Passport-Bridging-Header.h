@@ -19,6 +19,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <KEPIntlCommonUI/KCircleView.h>
 #import <KEPSVProgressHUD/SVProgressHUD.h>
+#import <UMMobClick/MobClick.h>
+
 #import "LYMotionManager.h"
 #import "ForchTouchManager.h"
 

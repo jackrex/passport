@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+
 @UIApplicationMain
 
 class PAppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,12 @@ class PAppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tabbarController
             window?.makeKeyAndVisible()
         }
+        
+
+        UMAnalyticsConfig.sharedInstance()?.appKey = "5bd16411f1f556029200001f"
+        UMAnalyticsConfig.sharedInstance()?.channelId = "Beta"
+        MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
+        
         
         
         UITabBar.appearance().tintColor = UIColor.init(rgb: 0x584f60)

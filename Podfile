@@ -26,7 +26,7 @@ target 'Passport' do
   pod 'AFNetworking','3.1.0-rc.1.1.1'
   pod 'KEPIntlNetwork','0.0.2.1'
   pod 'SDWebImage','3.7.2-rc1'
-
+pod 'UMengAnalytics'
 
   target 'PassportTests' do
     inherit! :search_paths
