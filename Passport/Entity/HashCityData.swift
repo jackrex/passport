@@ -11,11 +11,7 @@ import Foundation
 struct HashCityData: Decodable {
     
     var hash: String
-    var city: String
-    var country: String
-    var cnCity: String
-    var cnCountry: String
-    var iso2: String
+    var flag: String
 }
 
 struct HashCity: Decodable {

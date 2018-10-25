@@ -13,7 +13,7 @@ import Alamofire
 
 class HttpApi: NSObject {
 
-    public static let HOST = "https://api.pre.gotokeep.com"
+    public static let HOST = "http://api.pre.gotokeep.com"
     public static let headers: HTTPHeaders = [
         "Accept": "application/json"
     ]

@@ -21,7 +21,7 @@ class PrepareViewController: UIViewController {
     public var hashCityList: [String: HashCityData] = [:]
     public var hashList: [String] = []
     public var countries: [String] = []
-    public var cities: [String] = []
+    public var hashes: [String] = []
     
     public let tabbar: CustomTabBarViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "CustomTabBarViewController") as! CustomTabBarViewController
     
@@ -91,12 +91,12 @@ class PrepareViewController: UIViewController {
         var countries: [String] = []
         for hash in hashList {
             if let cityData = hashCityList[hash] {
-                if !countries.contains(cityData.iso2) {
-                    countries.append(cityData.iso2)
+                if !countries.contains(cityData.flag) {
+                    countries.append(cityData.flag)
                 }
                 
-                if !cities.contains(cityData.city) {
-                    cities.append(cityData.city)
+                if !hashes.contains(cityData.hash) {
+                    hashes.append(cityData.hash)
                 }
                 
             }else {
@@ -125,7 +125,7 @@ class PrepareViewController: UIViewController {
             i = i + 1
             if i >= 100 {
                 timer.invalidate()
-                self.percentMemoryLabel.text = "你踏足过 \(self.countries.count) 个国度 \(self.cities.count) 座城"
+                self.percentMemoryLabel.text = "你踏足过 \(self.countries.count) 个国度 \(self.hashes.count) 座城"
                 return
             }
             self.percentMemoryLabel.text = "回忆覆盖度 \(i)%"

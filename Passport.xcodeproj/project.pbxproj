@@ -100,6 +100,7 @@
 		D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */; };
 		D87DDF472178399D002D1D99 /* HttpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF462178399D002D1D99 /* HttpApi.swift */; };
 		D87DDF4921783ED0002D1D99 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF4821783ED0002D1D99 /* LoginData.swift */; };
+		D88F420221808EA5003E0665 /* hash.json in Resources */ = {isa = PBXBuildFile; fileRef = D88F420121808EA5003E0665 /* hash.json */; };
 		D8C9989A2178638F00570F75 /* PrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C998992178638F00570F75 /* PrepareViewController.swift */; };
 		D8C9989E21786A8E00570F75 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9989D21786A8E00570F75 /* ColorUtils.swift */; };
 		D8DE7DEA2176DBCD004F1A95 /* PAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE7DE92176DBCD004F1A95 /* PAppDelegate.swift */; };
@@ -118,7 +119,6 @@
 		D8DE7E29217738DC004F1A95 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E28217738DC004F1A95 /* Photos.framework */; };
 		D8DE7E2B217738E0004F1A95 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E2A217738E0004F1A95 /* PhotosUI.framework */; };
 		D8DE7E2D217738E6004F1A95 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DE7E2C217738E6004F1A95 /* CoreLocation.framework */; };
-		D8F031FF217992060014551C /* hash.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F031FE217992060014551C /* hash.json */; };
 		F395DA038C0E0B0FA582096E /* Pods_Passport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA47B98829EE2FB5FB7FEB14 /* Pods_Passport.framework */; };
 /* End PBXBuildFile section */
 
@@ -296,6 +296,7 @@
 		D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyBoardExt.swift; path = Passport/Assets.xcassets/KeyBoardExt.swift; sourceTree = SOURCE_ROOT; };
 		D87DDF462178399D002D1D99 /* HttpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpApi.swift; sourceTree = "<group>"; };
 		D87DDF4821783ED0002D1D99 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		D88F420121808EA5003E0665 /* hash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hash.json; sourceTree = "<group>"; };
 		D8C998992178638F00570F75 /* PrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareViewController.swift; sourceTree = "<group>"; };
 		D8C9989D21786A8E00570F75 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		D8DE7DE62176DBCD004F1A95 /* Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passport.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +323,6 @@
 		D8DE7E28217738DC004F1A95 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		D8DE7E2A217738E0004F1A95 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		D8DE7E2C217738E6004F1A95 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		D8F031FE217992060014551C /* hash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hash.json; sourceTree = "<group>"; };
 		DA75463309D45B247FA54779 /* Pods-Passport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passport/Pods-Passport.debug.xcconfig"; sourceTree = "<group>"; };
 		E31A6E945B6B96DAF96654F0 /* Pods-PassportTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PassportTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PassportTests/Pods-PassportTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -714,7 +714,7 @@
 		D87DDF3521781CA7002D1D99 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				D8F031FE217992060014551C /* hash.json */,
+				D88F420121808EA5003E0665 /* hash.json */,
 				B60D3AAE2178FE040099547D /* group.plist */,
 				D87DDF2F21781875002D1D99 /* Earth.mp4 */,
 				D8DE7DF42176DBCF004F1A95 /* LaunchScreen.storyboard */,
@@ -977,9 +977,9 @@
 				3E2FD4CE217877C300B7365B /* SF-Pro-Text-Bold.otf in Resources */,
 				D8DE7DF12176DBCD004F1A95 /* Main.storyboard in Resources */,
 				3E2FD4C8217877C300B7365B /* SF-Pro-Display-Regular.otf in Resources */,
+				D88F420221808EA5003E0665 /* hash.json in Resources */,
 				3E2FD4C9217877C300B7365B /* SF-Pro-Display-Bold.otf in Resources */,
 				3E2FD4CC217877C300B7365B /* SF-Pro-Display-Semibold.otf in Resources */,
-				D8F031FF217992060014551C /* hash.json in Resources */,
 				D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */,
 				3E2FD4D2217877C300B7365B /* ArchivoNarrow-Bold.otf in Resources */,
 			);
@@ -1381,7 +1381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C62TJ4568H;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1404,7 +1404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C62TJ4568H;
+				DEVELOPMENT_TEAM = HG2SE2YJ8W;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
