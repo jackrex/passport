@@ -16,6 +16,9 @@ class StatsViewController: BaseUIViewController {
     let shareButton = UIButton.init(type: UIButton.ButtonType.custom).then {
         $0.setImage(UIImage(named: "icon_share"), for: .normal)
     }
+    let moreButton = UIButton.init(type: UIButton.ButtonType.custom).then {
+        $0.setImage(UIImage(named: "icon_more"), for: .normal)
+    }
     let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.showsVerticalScrollIndicator = false
         $0.separatorStyle = .none
@@ -60,26 +63,44 @@ class StatsViewController: BaseUIViewController {
         tableView.separatorStyle = .none
         view.addSubview(tableView)
         view.addSubview(shareButton)
+        view.addSubview(moreButton)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        shareButton.snp.makeConstraints { (make) in
+        moreButton.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(UIDevice.current.isX ? (SafeArea.iPhoneXInsets.top + 32) : 32)
             make.right.equalToSuperview().offset(-15)
+            make.width.height.equalTo(24)
+        }
+        shareButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(UIDevice.current.isX ? (SafeArea.iPhoneXInsets.top + 32) : 32)
+            make.right.equalTo(moreButton.snp.left).offset(-15)
             make.width.height.equalTo(24)
         }
     }
     
     func setupActions() {
         shareButton.addTarget(self, action: #selector(clickShareButton), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(clickMoreButton), for: .touchUpInside)
         ForchTouchManager.add3DTouch(self, view: tableView)
     }
     
     @objc func clickShareButton() {
-        AccountManager.logout()
-        SVProgressHUD.showInfo(withStatus: "账号已退出")
-        let welcomeViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "PassportNavigationController") as! UINavigationController
-        UIApplication.shared.delegate?.window?!.rootViewController = welcomeViewController
+        
+    }
+    
+    @objc func clickMoreButton() {
+        let alertSheet = KEPUIAlertController.actionSheet(withTitle: nil)
+        let alertAction = UIAlertAction(title: "删除账号", style: .default) { (action) in
+            AccountManager.logout()
+            SVProgressHUD.showInfo(withStatus: "账号已退出")
+            let welcomeViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "PassportNavigationController") as! UINavigationController
+            UIApplication.shared.delegate?.window?!.rootViewController = welcomeViewController
+        }
+        let cacelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertSheet.addAction(alertAction)
+        alertSheet.addAction(cacelAction)
+        KEPUIAlertController.showActionSheet(alertSheet, arrowDirection: .up, sender: nil, controller: self)
     }
 
     func fetchStatsInfo() {
