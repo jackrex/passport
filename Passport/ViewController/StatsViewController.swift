@@ -9,6 +9,7 @@
 import UIKit
 import Then
 import SnapKit
+import Toast_Swift
 
 class StatsViewController: BaseUIViewController {
     
@@ -99,22 +100,29 @@ class StatsViewController: BaseUIViewController {
     }
     
     @objc func clickShareButton() {
+        SVProgressHUD.show()
+        
         self.snapShot = true
         let tableView = StatsViewController.createTableView()
         let headerView = StatsViewController.createHeaderView()
+        if let stats = self.stats {
+            headerView.updateUIWithData(stats)
+        }
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = headerView
         tableView.separatorStyle = .none
+        tableView.frame = CGRect.init(x: 0, y: 0, width: self.tableView.width, height: self.tableView.contentSize.height)
         tableView.reloadData()
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
-        tableView.frame = CGRect.init(x: 0, y: 0, width: self.tableView.width, height: self.tableView.contentSize.height)
         let scale = min(2, UIScreen.main.scale)
         UIGraphicsBeginImageContextWithOptions(tableView.frame.size, false, scale)
         let context = UIGraphicsGetCurrentContext()
         self.snapShotTableView = tableView
-        DispatchQueue.main.async { [weak self] in
+        
+        let deadlineTime = DispatchTime.now() + .milliseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
             guard let strongSelf = self else {return}
             tableView.layer.render(in: context!)
             let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -124,6 +132,7 @@ class StatsViewController: BaseUIViewController {
             let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
             strongSelf.present(ac, animated: true)
             strongSelf.snapShot = false
+            SVProgressHUD.dismiss()
         }
         
     }

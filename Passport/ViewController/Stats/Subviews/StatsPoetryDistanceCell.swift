@@ -233,15 +233,20 @@ class StatsPoetryDistanceCell: StatsBaseCell {
         
         if let farthestDayDate = convertToDate(stats.poetryDistance.farthestWalkedDay.day) {
             PhotoScanProcessor.getRandomPhoto(farthestDayDate, block: { [weak self](image) in
-                DispatchQueue.main.async {
-                    self!.farthestDayView.photoImageView.alpha = 0
-                    UIView.animate(withDuration: 1, delay: 0.3, options: .transitionFlipFromLeft, animations: {
-                        self!.farthestDayView.photoImageView.alpha = 1
-                        self!.farthestDayView.photoImageView.image = image
-                        
-                    }) { (finished) in
+                if snapShot {
+                    self!.farthestDayView.photoImageView.image = image
+                } else {
+                    DispatchQueue.main.async {
+                        self!.farthestDayView.photoImageView.alpha = 0
+                        UIView.animate(withDuration: 1, delay: 0.3, options: .transitionFlipFromLeft, animations: {
+                            self!.farthestDayView.photoImageView.alpha = 1
+                            self!.farthestDayView.photoImageView.image = image
+                            
+                        }) { (finished) in
+                        }
                     }
                 }
+               
             })
         }
     }
