@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             do {
                 let dataDict = try JSONDecoder().decode(Login.self, from: data)
                 print(dataDict)
-                if let userId = dataDict.data.id {
+                if let userId = POSTSecuritySign.generateUID(dataDict.data.token) {
                     AccountManager.saveUserId(userId)
                 }
                 self.delegate.loginFinish()

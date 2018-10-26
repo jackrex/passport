@@ -13,15 +13,16 @@ import Alamofire
 
 class HttpApi: NSObject {
 
-    public static let HOST = "http://api.pre.gotokeep.com"
-    public static let headers: HTTPHeaders = [
-        "Accept": "application/json"
-    ]
-    
+    public static let HOST = "http://api.gotokeep.com"
     public static func login(_ phone: String, _ pwd: String, _ completion: @escaping (Data) -> ()) -> Void {
-        
         let parms = ["mobile": phone, "password": pwd]
-        Alamofire.request(HOST + "/box/hackday/login", method: .post, parameters: parms, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300).responseData { (response) in
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+//            "sign":POSTSecuritySign.sign((HOST + "/account/v3/login/password"), body: parms)
+        ]
+        Alamofire.request(HOST + "/account/v2/login", method: .post, parameters: parms, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300).responseData { (response) in
             switch response.result {
             case .success:
                 print(String.init(data: response.result.value!, encoding: String.Encoding.utf8)!)

@@ -10,16 +10,18 @@ import UIKit
 
 struct LoginData: Decodable {
 
-    var id: String?
-    var username: String
-    var avatar: String
-    var birthday: CLongLong
-    var cityCode: String?
+//    var id: String?
+//    var username: String
+//    var avatar: String
+//    var birthday: CLongLong
+//    var cityCode: String?
+    var level: Int
+    var goal: Int
     var gender: String
+    var token: String?
 }
 
 struct Login: Decodable {
-    var errorCode: Int
-    var text: String
+    var errorCode: String
     var data: LoginData
 }

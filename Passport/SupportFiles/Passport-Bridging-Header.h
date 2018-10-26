@@ -23,6 +23,7 @@
 
 #import "LYMotionManager.h"
 #import "ForchTouchManager.h"
+#import "POSTSecuritySign.h"
 
 // Stats
 #import "StatsModel.h"
