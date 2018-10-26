@@ -202,8 +202,8 @@ class StatsPoetryDistanceCell: StatsBaseCell {
     
     func updateUIWithData(_ stats: StatsModel, snapShot: Bool) {
         farthestPlaceView.dateLabel.text = formatDateString(stats.poetryDistance.day)
-        farthestPlaceView.fromLabel.text = stats.poetryDistance.from.cnCity
-        farthestPlaceView.toLabel.text = stats.poetryDistance.to.cnCity
+        farthestPlaceView.fromLabel.text = "\(stats.poetryDistance.from.country)\(stats.poetryDistance.from.city)"
+        farthestPlaceView.toLabel.text = "\(stats.poetryDistance.to.country)\(stats.poetryDistance.to.city)"
         farthestPlaceView.distanceLabel.text = String(stats.poetryDistance.to.distance/1000) + "KM"
         if let farthestPlaceDate = convertToDate(stats.poetryDistance.day) {
             PhotoScanProcessor.getRandomPhoto(farthestPlaceDate, block: { [weak self](image) in

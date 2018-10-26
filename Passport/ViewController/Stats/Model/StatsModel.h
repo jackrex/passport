@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatsPlace : KEPBaseJSONModel
 
-@property(nonatomic, copy) NSString *cnCity;
+@property(nonatomic, copy) NSString *city;
 @property(nonatomic, copy) NSString *country;
 @property(nonatomic, assign) long long distance;
 
