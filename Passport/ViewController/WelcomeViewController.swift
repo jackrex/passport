@@ -27,10 +27,10 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
         self.addChild(prepareView)
         loginView.delegate = self
         scanView.delegate = self
-        self.view.addSubview(loginView.view!)
+//        self.view.addSubview(loginView.view!)
         self.view.addSubview(scanView.view)
         self.view.addSubview(prepareView.view)
-        self.scanView.view.alpha = 0
+        self.scanView.view.alpha = 1
         self.prepareView.view.alpha = 0
         
         PhotoScanProcessor.getAuthorized(view: self.view) {

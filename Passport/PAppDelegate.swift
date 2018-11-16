@@ -35,8 +35,7 @@ class PAppDelegate: UIResponder, UIApplicationDelegate {
         UMAnalyticsConfig.sharedInstance()?.channelId = "Beta"
         MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
         
-        
-        
+    
         UITabBar.appearance().tintColor = UIColor.init(rgb: 0x584f60)
         
         return true
