@@ -63,7 +63,7 @@ DEPENDENCIES:
   - UMengAnalytics
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Mapbox-iOS-SDK
     - SnapKit
@@ -130,4 +130,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: efeeb1712e5277b988244abd14a1df5ad2b31ba5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3

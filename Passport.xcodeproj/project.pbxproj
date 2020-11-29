@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,7 +29,6 @@
 		3E3F9D472179B0A400B319AF /* LYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F9D452179B0A400B319AF /* LYMotionManager.m */; };
 		3E3F9D4A2179C24600B319AF /* ForchTouchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F9D492179C24600B319AF /* ForchTouchManager.m */; };
 		3E690D722178E256004B7094 /* StatsBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D712178E256004B7094 /* StatsBaseCell.swift */; };
-		3E690D742178EE78004B7094 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D732178EE78004B7094 /* AccountManager.swift */; };
 		3E690D762178F8FF004B7094 /* iPhoneX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E690D752178F8FF004B7094 /* iPhoneX.swift */; };
 		3E79D21D2178C82000049C16 /* TripsRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D2162178C82000049C16 /* TripsRequester.m */; };
 		3E79D2202178C82000049C16 /* TripsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E79D21C2178C82000049C16 /* TripsModel.m */; };
@@ -95,7 +94,6 @@
 		D87DDF3321781C64002D1D99 /* KEPWelcomeVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */; };
 		D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */; };
 		D87DDF3B217821B2002D1D99 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87DDF3A217821B2002D1D99 /* LoginView.storyboard */; };
-		D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3C217824E1002D1D99 /* LoginViewController.swift */; };
 		D87DDF3F2178252D002D1D99 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */; };
 		D87DDF42217825C7002D1D99 /* ScanPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */; };
 		D87DDF45217836B4002D1D99 /* KeyBoardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */; };
@@ -169,7 +167,6 @@
 		3E3F9D482179C24600B319AF /* ForchTouchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForchTouchManager.h; sourceTree = "<group>"; };
 		3E3F9D492179C24600B319AF /* ForchTouchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForchTouchManager.m; sourceTree = "<group>"; };
 		3E690D712178E256004B7094 /* StatsBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsBaseCell.swift; sourceTree = "<group>"; };
-		3E690D732178EE78004B7094 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		3E690D752178F8FF004B7094 /* iPhoneX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneX.swift; sourceTree = "<group>"; };
 		3E79D2152178C82000049C16 /* TripsRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsRequester.h; sourceTree = "<group>"; };
 		3E79D2162178C82000049C16 /* TripsRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsRequester.m; sourceTree = "<group>"; };
@@ -293,7 +290,6 @@
 		D87DDF3221781C63002D1D99 /* KEPWelcomeVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEPWelcomeVideoView.m; sourceTree = "<group>"; };
 		D87DDF3821781DA7002D1D99 /* ScreenUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenUtil.swift; sourceTree = "<group>"; };
 		D87DDF3A217821B2002D1D99 /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
-		D87DDF3C217824E1002D1D99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D87DDF3E2178252D002D1D99 /* ResourceUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceUtil.swift; sourceTree = "<group>"; };
 		D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPicViewController.swift; sourceTree = "<group>"; };
 		D87DDF44217836B4002D1D99 /* KeyBoardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyBoardExt.swift; path = Passport/Assets.xcassets/KeyBoardExt.swift; sourceTree = SOURCE_ROOT; };
@@ -773,10 +769,8 @@
 			children = (
 				D84DC95F2178B6CB00BD0A73 /* KPESchduleConfirmProgressView.h */,
 				D84DC9602178B6CB00BD0A73 /* KPESchduleConfirmProgressView.m */,
-				D87DDF3C217824E1002D1D99 /* LoginViewController.swift */,
 				D87DDF41217825C7002D1D99 /* ScanPicViewController.swift */,
 				D8C998992178638F00570F75 /* PrepareViewController.swift */,
-				3E690D732178EE78004B7094 /* AccountManager.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1030,23 +1024,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-resources.sh",
-				"${PODS_ROOT}/DateTools/DateTools/Assets/DateTools.bundle",
-				"${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPGradientNavigationView/KEPGradientNavigationView.xib",
-				"${PODS_ROOT}/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI/KEPIntlCommonUI.bundle",
-				"${PODS_ROOT}/KEPSVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KEPGradientNavigationView.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/KEPIntlCommonUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76B6B78491D5C5A9329DE188 /* [CP] Check Pods Manifest.lock */ = {
@@ -1072,29 +1059,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passport/Pods-Passport-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Passport/Pods-Passport-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA287F602D76069A550A8031 /* [CP] Check Pods Manifest.lock */ = {
@@ -1162,7 +1136,6 @@
 				B60D3AAA2178E1EA0099547D /* MGLMapView+ClusterKit.m in Sources */,
 				D87DDF3921781DA7002D1D99 /* ScreenUtil.swift in Sources */,
 				B60D3AA32178E1EA0099547D /* CKClusterManager.m in Sources */,
-				3E690D742178EE78004B7094 /* AccountManager.swift in Sources */,
 				3E3F9D472179B0A400B319AF /* LYMotionManager.m in Sources */,
 				B60D3ACA21799D390099547D /* MMImagesPreviewView.m in Sources */,
 				B60D3A6F21783F410099547D /* KEPTimelineEntryCellHelper.m in Sources */,
@@ -1190,7 +1163,6 @@
 				B60D3ACB21799D390099547D /* MMImagesPreviewVC.m in Sources */,
 				D84DC9652178BF8E00BD0A73 /* HashCityData.swift in Sources */,
 				3E2FD4A621783AF000B7365B /* StatsProfileHeaderView.swift in Sources */,
-				D87DDF3D217824E1002D1D99 /* LoginViewController.swift in Sources */,
 				3E690D762178F8FF004B7094 /* iPhoneX.swift in Sources */,
 				3E79D21D2178C82000049C16 /* TripsRequester.m in Sources */,
 				D87DDF2C21777984002D1D99 /* PhotoHashData.swift in Sources */,
@@ -1387,7 +1359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 34JTVT2XNE;
+				DEVELOPMENT_TEAM = 7A4MVM3QLD;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1410,7 +1382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 34JTVT2XNE;
+				DEVELOPMENT_TEAM = 7A4MVM3QLD;
 				INFOPLIST_FILE = Passport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

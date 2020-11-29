@@ -24,15 +24,13 @@ class PAppDelegate: UIResponder, UIApplicationDelegate {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
         
-        if let userId = AccountManager.getUserId() {
-            let tabbarController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "CustomTabBarViewController") as! CustomTabBarViewController
-            window?.rootViewController = tabbarController
-            window?.makeKeyAndVisible()
-        }
+//       let tabbarController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "CustomTabBarViewController") as! CustomTabBarViewController
+//        window?.rootViewController = tabbarController
+//        window?.makeKeyAndVisible()
         
 
         UMAnalyticsConfig.sharedInstance()?.appKey = "5bd16411f1f556029200001f"
-        UMAnalyticsConfig.sharedInstance()?.channelId = "Beta"
+        UMAnalyticsConfig.sharedInstance()?.channelId = "Appstore"
         MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
         
     

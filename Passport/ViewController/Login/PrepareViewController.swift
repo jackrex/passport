@@ -109,6 +109,7 @@ class PrepareViewController: UIViewController {
     }
     
     @IBAction func openJourney(_ sender: Any) {
+        self.tabbar.modalPresentationStyle = .fullScreen
         self.navigationController?.present(tabbar, animated: true, completion: {
             
         })

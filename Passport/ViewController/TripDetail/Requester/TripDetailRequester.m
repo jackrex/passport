@@ -19,7 +19,7 @@
     KEPRequest *request = [[KEPRequest alloc] init];
     request.requestMethod = KEPRequestMethodGET;
     request.requestUrl = @"http://api.pre.gotokeep.com/box/hackday/trips/detail";
-    request.requestArgument = @{@"userId": [AccountManager getUserId] ?: @"",
+    request.requestArgument = @{@"userId": @"" ?: @"",
                                 @"tripId": detailId ?: @""
                                 };
     [request startWithBlock:^(__kindof KEPRequest * _Nonnull request) {

@@ -42,17 +42,6 @@ typealias ImageBlock = (_ image: UIImage?) -> ()
     }
     
     public static func fetchAlbumsCollections() ->  PHFetchResult<PHAssetCollection> {
-        
-//        let momentLists = PHCollectionList.fetchMomentLists(with: .smartFolderFaces, options: nil)
-//        if momentLists.count > 0 {
-//            for index in 0...momentLists.count - 1 {
-//                let a = momentLists[index]
-//                print(index, a.localizedTitle ?? "--", a.localizedLocationNames)
-//            }
-//        } else {
-//            print("-- No moment lists! --")
-//        }
-//
         let userCollections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
         if userCollections.count > 0 {
             for index in 0...userCollections.count - 1 {

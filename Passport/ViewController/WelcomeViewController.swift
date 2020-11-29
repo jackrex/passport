@@ -8,10 +8,9 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelegate {
+class WelcomeViewController: UIViewController, ScanViewDelegate {
 
     let videoView = KEPWelcomeVideoView.init(frame: UIScreen.main.bounds)
-    let loginView: LoginViewController = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
     let scanView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "ScanPicViewController") as! ScanPicViewController
     let prepareView = ResourceUtil.loginSB().instantiateViewController(withIdentifier: "PrepareViewController") as! PrepareViewController
 
@@ -22,12 +21,9 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
         self.view.addSubview(videoView)
         self.navigationController?.navigationBar.isHidden = true
 
-        self.addChild(loginView)
         self.addChild(scanView)
         self.addChild(prepareView)
-        loginView.delegate = self
         scanView.delegate = self
-//        self.view.addSubview(loginView.view!)
         self.view.addSubview(scanView.view)
         self.view.addSubview(prepareView.view)
         self.scanView.view.alpha = 1
@@ -40,14 +36,9 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
     }
     
     func loginFinish() {
-        
         PhotoScanProcessor.getAuthorized(view: self.view) {
             UIView.animate(withDuration: 0.5, delay: 0.1, options: .transitionFlipFromLeft, animations: {
-                self.loginView.view.alpha = 0
             }) { (finished) in
-                self.loginView.view.removeFromSuperview()
-                self.loginView.removeFromParent()
-                
                 UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromLeft, animations: {
                     self.scanView.view.alpha = 1
                 }) { (finished) in
@@ -74,16 +65,6 @@ class WelcomeViewController: UIViewController, LoginViewDelegate, ScanViewDelega
         }
 
     }
-    
-
-
-
-//    @IBAction func connectKeep(_ sender: Any) {
-
-//        let viewModel = TripDetailViewModel()
-//        let vc = TripDetailViewController.init(viewModel: viewModel)
-//        self.navigationController?.pushViewController(vc, animated: true)
-    
     
     
     override var prefersStatusBarHidden: Bool {

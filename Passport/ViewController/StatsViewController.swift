@@ -140,7 +140,6 @@ class StatsViewController: BaseUIViewController {
     @objc func clickMoreButton() {
         let alertSheet = KEPUIAlertController.actionSheet(withTitle: nil)
         let alertAction = UIAlertAction(title: "删除账号", style: .default) { (action) in
-            AccountManager.logout()
             SVProgressHUD.showInfo(withStatus: "账号已退出")
             let welcomeViewController = ResourceUtil.mainSB().instantiateViewController(withIdentifier: "PassportNavigationController") as! UINavigationController
             UIApplication.shared.delegate?.window?!.rootViewController = welcomeViewController
